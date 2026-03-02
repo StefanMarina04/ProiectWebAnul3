@@ -1,10 +1,12 @@
 import { Container, Button, Navbar, Nav } from 'react-bootstrap';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Welcome({ auth }) {
+    const page = usePage();
+    const translations = page.props.translations || {};
     return (
         <>
-            <Head title="Welcome to Interwar Bucharest" />
+            <Head title={translations["Welcome to Interwar Bucharest"] || "Welcome to Interwar Bucharest"} />
             
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container>
@@ -23,11 +25,9 @@ export default function Welcome({ auth }) {
             </Navbar>
 
             <Container className="mt-5 text-center">
-                <h1>Little Paris of the East</h1>
-                <p className="lead">Explore interwar Bucharest.</p>
-                {/* <Button variant="primary" size="lg">Explore the Map</Button> */}
-                {/* <br></br> */}
-                <Link href="/Forum" className="nav-link">Go to the Forum</Link>
+                <h1 className="display-4" align="center">Little Paris of the East</h1>
+                <p className="lead" align="center">Explore interwar Bucharest.</p>
+                <Link href="/forum" className="nav-link">Go to the Forum</Link>
             </Container>
         </>
     );

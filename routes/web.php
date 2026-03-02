@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/Forum', function() 
+Route::get('/forum', function() 
 {
     return Inertia::render('Forum');
 });
