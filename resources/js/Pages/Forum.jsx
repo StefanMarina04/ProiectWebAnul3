@@ -1,17 +1,20 @@
-import NavLink from '@/Components/NavLink';
-import { Head, Link } from '@inertiajs/react';
-import {Container} from 'react-bootstrap'
+import { Head, Link, usePage } from '@inertiajs/react';
+import { Container } from 'react-bootstrap';
 
-export default function Forum()
-{
+export default function Forum() {
+    // Extragem dicționarul
+    const { translations } = usePage().props;
+    const t = (text) => translations ? (translations[text] || text) : text;
+
     return (
         <>
-        <Head title="Forum" />
-        <Container className='mt-5'>
-            <h1> Forum </h1>
-            <p> Welcome </p>
-            <Link href="/#home" className="nav-link">Go to the homepage</Link>
-        </Container>
+            <Head title={t("Forum")} />
+            <Container className='mt-5'>
+                {/* Traducem textele aici */}
+                <h1>{t('Forum')}</h1>
+                <p>{t('Welcome')}</p>
+                <Link href="/#home" className="nav-link">{t('Go to the homepage')}</Link>
+            </Container>
         </>
     );
 }

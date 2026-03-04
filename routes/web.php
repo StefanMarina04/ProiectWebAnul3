@@ -29,4 +29,15 @@ Route::get('/forum', function()
     return Inertia::render('Forum');
 });
 
+Route::get('/language/{locale}', function ($locale)
+{
+    if (in_array($locale, ['en', 'ro']))
+        {
+            session()->put('locale', $locale);
+            session()->save();
+        }
+
+    return redirect()->back();
+});
+
 require __DIR__.'/auth.php';
