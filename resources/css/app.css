@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+    --font-title: 'Lora', serif;
+    --font-body: 'Lora', serif;
+    --interwar-paper: #fee5c5; 
+    --interwar-ink: #32302e;   
+    --interwar-gold: #c9a66b;  
+    --interwar-red: #a83232;   
+    --interwar-silver: #b0b0b0;
+    --interwar-blue: #3b5998;  
+    --interwar-dark-blue: #2a3d66;
+    --interwar-dark: #333333;  
+    --interwar-light: #e0e0e0; 
+    --interwar-green: #4a7c59; 
+}
+
+h1 {
+    color: var(--interwar-ink);
+    opacity: 0.92; 
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--interwar-paper);
+    color: var(--interwar-ink);
+    -webkit-font-smoothing: antialiased; 
+}
+
+a:link{
+    color: var(--interwar-blue);
+}
+a:visited{
+    color: var(--interwar-dark-blue);
+}
+a:active{
+    color: var(--interwar-red);
+}
+a:hover{
+    color: var(--interwar-gold);
+    font-size: 1.015em;
+    
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: var(--font-title);
+    font-weight: 700;
+    letter-spacing: -0.02em; 
+}

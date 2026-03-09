@@ -1,0 +1,41 @@
+------------------ Title
+Petit Formal Script **
+Pinyon Script *
+Imperial Script
+Italianno
+Updock **
+Bellefair *!
+Fraunces *!
+Gilda Display *!
+Trocchi !
+Xanh Mono !
+Sedan SC
+EB Garamond *!
+Spectral *!
+Sedan **!
+Young Serif *
+Vollkorn *!
+Cardo *!
+Katibeh **! (! - maybe?)
+Crimson Text *!
+Caladea *!
+Lora **! /////////////////////////////////// am ales Lora
+------------------ MAIN
+Playfair
+Bellefair *!
+Fraunces *!
+Gilda Display *!
+Trocchi !
+Xahn Mono ! 
+EB Garamond *!
+Spectral *!
+Sedan **!
+Vollkorn *!
+Cardo *!
+Katibeh **! (/maybe)
+Crimson Text *!
+Caladea *!
+Lora **!
+
+* - preferat
+! - merge și pentru titlu și pentru restul conținutului
