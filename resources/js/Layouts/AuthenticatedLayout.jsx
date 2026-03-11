@@ -8,7 +8,6 @@ export default function AuthenticatedLayout({ children }) {
         <>
 <Navbar bg="dark" variant="dark" className="mb-4 shadow-sm" expand="lg">
                 <Container>
-                    {/* 3. Învelim textul în funcția t() */}
                     <Navbar.Brand>{t('Bucharest History')}</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     
@@ -24,7 +23,6 @@ export default function AuthenticatedLayout({ children }) {
                             </Link>
                         </Nav>
 
-                        {/* 4. AICI SUNT BUTOANELE DE SCHIMBARE A LIMBII */}
                         <Nav className="ms-auto border-start border-secondary ps-3">
                             <Nav.Link as={Link} href="/language/ro" className={locale === 'ro' ? 'fw-bold text-white' : ''}>
                                 🇷🇴 RO

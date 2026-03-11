@@ -2,7 +2,6 @@ import { Head, Link, usePage } from '@inertiajs/react';
 import { Container } from 'react-bootstrap';
 
 export default function Forum() {
-    // Extragem dicționarul
     const { translations } = usePage().props;
     const t = (text) => translations ? (translations[text] || text) : text;
 
@@ -10,7 +9,6 @@ export default function Forum() {
         <>
             <Head title={t("Forum")} />
             <Container className='mt-5'>
-                {/* Traducem textele aici */}
                 <h1>{t('Forum')}</h1>
                 <p>{t('Welcome')}</p>
                 <Link href="/#home" className="nav-link">{t('Go to the homepage')}</Link>
