@@ -1,42 +1,72 @@
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Navbar, Nav, Offcanvas, Button } from 'react-bootstrap';
 import { Head, Link, usePage } from '@inertiajs/react';
+import styles from '../../css/welcome.module.css'; 
 
 export default function Welcome({ auth }) {
     const { translations, locale } = usePage().props;
     
     const t = (text) => translations ? (translations[text] || text) : text;
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <>
             <Head title={t("Welcome to Interwar Bucharest")} />
-            
-            <Navbar bg="dark" variant="dark" expand="lg">
-                <Container>
-                    
-                        <Nav className="ms-auto" align="right">
-                            {auth.user ? (
-                                <Link href="/dashboard" className="nav-link">{t('Dashboard')}</Link>
-                            ) : (
-                                <>
-                                    <Link href="/login" className="nav-link">{t('Log in')}</Link>
-                                    <br></br>
-                                    <Link href="/register" className="nav-link">{t('Register')}</Link>
-                                </>
-                            )}
-                        </Nav>
+<div className="p-3 d-flex justify-content-between align-items-center">
+                <Button 
+                    variant="link" 
+                    onClick={handleShow} 
+                    style={{ color: 'var(--interwar-ink)', fontSize: '1.5rem', textDecoration: 'none' }}
+                >
+                    ☰ 
+                </Button>
+            </div>
 
-                        <Nav className="border-start border-secondary ps-3 ms-3" align="right">
-                            <Nav.Link as={Link} href="/language/ro" className={locale === 'ro' ? 'fw-bold text-white' : ''}>🇷🇴</Nav.Link>
-                            <> </>
-                            <Nav.Link as={Link} href="/language/en" className={locale === 'en' ? 'fw-bold text-white' : ''}>🇬🇧</Nav.Link>
-                        </Nav>
-                </Container>
-            </Navbar>
+            <Offcanvas show={show} onHide={handleClose} placement="start" style={{ backgroundColor: 'var(--interwar-paper)', borderRight: '2px solid var(--interwar-ink)' }}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title style={{ fontFamily: 'var(--font-title)', fontWeight: 'bold' }}>
+                        {t('Menu')}
+                    </Offcanvas.Title>
+                </Offcanvas.Header>
+                
+                <Offcanvas.Body className="d-flex flex-column">
+                    <Nav className="flex-column mb-auto">
+                        {auth.user ? (
+                            <Link href="/dashboard" className="nav-link mb-3" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Dashboard')}</Link>
+                        ) : (
+                            <>
+                                <Link href="/login" className="nav-link mb-2" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Log in')}</Link>
+                                <Link href="/register" className="nav-link mb-4" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Register')}</Link>
+                            </>
+                        )}
+                        <Link href="/forum" className="nav-link" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Go to the Forum')}</Link>
+                    </Nav>
+
+                    <div className="mt-auto pt-4 border-top border-secondary">
+                        <p className="text-muted mb-2">{t('Select Language')}:</p>
+                        <div className="d-flex">
+                            <Link 
+                                href="/language/ro" 
+                                className={`${styles['langButton']} ${styles['langButton-ro']} ${locale === 'ro' ? styles['lang-active'] : ''}`}
+                                title="Română"
+                            />
+                            <div className="mx-2"></div>
+                            <Link 
+                                href="/language/en" 
+                                className={`${styles['langButton']} ${styles['langButton-en']} ${locale === 'en' ? styles['lang-active'] : ''}`}
+                                title="English"
+                            />
+                        </div>
+                    </div>
+                </Offcanvas.Body>
+            </Offcanvas>
 
             <Container className="mt-5 text-center">
                 <h1 className="display-4" align="center">{t('Little Paris of the East')}</h1>
                 <p className="lead" align="center">{t('Explore interwar Bucharest.')}</p>
-                <Link href="/forum" className="nav-link">{t('Go to the Forum')}</Link>
             </Container>
         </>
     );
