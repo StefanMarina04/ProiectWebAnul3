@@ -15,17 +15,14 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head title={t("Welcome to Interwar Bucharest")} />
-<div className="p-3 d-flex justify-content-between align-items-center">
-                <Button 
-                    variant="link" 
-                    onClick={handleShow} 
-                    style={{ color: 'var(--interwar-ink)', fontSize: '1.5rem', textDecoration: 'none' }}
-                >
-                    ☰ 
-                </Button>
-            </div>
-
-            <Offcanvas show={show} onHide={handleClose} placement="start" style={{ backgroundColor: 'var(--interwar-paper)', borderRight: '2px solid var(--interwar-ink)' }}>
+            <Container fluid className="pt-2 pe-5 d-flex justify-content-end align-items-end">
+                <Button className={styles.menuButton} variant="link" onClick={handleShow} 
+                    style={{border: 'none', padding: 0}}
+                    data-tooltip={t('Open Menu')}
+                    aria-label={t('Open Menu')}
+                    ></Button>
+            </Container>
+            <Offcanvas show={show} onHide={handleClose} placement="end" style={{ backgroundColor: 'var(--interwar-paper)', borderRight: '2px solid var(--interwar-ink)' }}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title style={{ fontFamily: 'var(--font-title)', fontWeight: 'bold' }}>
                         {t('Menu')}

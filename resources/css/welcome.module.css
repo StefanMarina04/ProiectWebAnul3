@@ -78,3 +78,48 @@ h1, h2, h3, .navbar-brand {
     transition: transform 0.3s, filter 0.3s;
     filter: sepia(0.1), brightness(1)
 }
+.menuButton {
+    display: inline-block;
+    width: 52px; 
+    height: 52px;
+    background-image: url('/images/icons/open_menu.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.4s;
+    opacity: 0.8;
+    position: relative;
+}
+.menuButton::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+
+    background-color: var(--interwar-ink);
+    color: var(--interwar-paper);
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    padding: 2px 5px;
+    border-radius: 6px;
+    white-space: nowrap; 
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.menuButton:hover {
+    transform: scale(1.2);
+    filter: brightness(1.15);
+    opacity: 1;
+    transition: all 0.4s ease-in-out
+}
+
+.menuButton:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(0.9); 
+}
