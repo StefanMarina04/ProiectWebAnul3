@@ -35,14 +35,14 @@ export default function Welcome({ auth }) {
                 <Offcanvas.Body className="d-flex flex-column">
                     <Nav className="flex-column mb-auto">
                         {auth.user ? (
-                            <Link href="/dashboard" className="nav-link mb-3" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Dashboard')}</Link>
+                            <Link href="/dashboard" className="main-menu-link">{t('Dashboard')}</Link>
                         ) : (
                             <>
-                                <Link href="/login" className="nav-link mb-2" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Log in')}</Link>
-                                <Link href="/register" className="nav-link mb-4" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Register')}</Link>
+                                <Link href="/login" className="main-menu-link">{t('Log in')}</Link>
+                                <Link href="/register" className="main-menu-link">{t('Register')}</Link>
                             </>
                         )}
-                        <Link href="/forum" className="nav-link" style={{color: 'var(--interwar-ink)', fontSize: '1.2rem'}}>{t('Go to the Forum')}</Link>
+                        <Link href="/forum" className="main-menu-link">{t('Go to the Forum')}</Link>
                     </Nav>
 
                     <div className="mt-auto pt-4 border-top border-secondary">
