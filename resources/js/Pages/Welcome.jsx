@@ -62,8 +62,8 @@ export default function Welcome({ auth }) {
             </Offcanvas>
 
             <Container className="mt-5 text-center">
-                <h1 className="display-4" align="center">{t('Little Paris of the East')}</h1>
-                <p className="lead" align="center">{t('Explore interwar Bucharest.')}</p>
+                <h1 className="display-4" align="center">{t('Paris of the East')}</h1>
+                <p className="lead" align="center">{t('Explore interwar Bucharest')}</p>
             </Container>
         </>
     );
