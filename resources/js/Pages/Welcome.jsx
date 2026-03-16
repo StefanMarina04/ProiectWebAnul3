@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Navbar, Nav, Offcanvas, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, Offcanvas, Button, Row, Col } from 'react-bootstrap';
 import { Head, Link, usePage } from '@inertiajs/react';
 import styles from '../../css/welcome.module.css'; 
 
@@ -62,8 +62,24 @@ export default function Welcome({ auth }) {
             </Offcanvas>
 
             <Container className="mt-5 text-center">
-                <h1 className="display-4" align="center">{t('Paris of the East')}</h1>
-                <p className="lead" align="center">{t('Explore interwar Bucharest')}</p>
+                <h1 className="display-2" align="center">{t('Paris of the East')}</h1>
+                <p className="lead text-muted" align="center">{t('Explore Interwar Bucharest')}</p>
+            </Container>
+            <Container className="pt-5 text-center">
+                <p>WIP</p>
+            </Container>
+            <Container className="mt-5">
+                <Row className="align-items-center"> 
+                    
+                    <Col lg={6} className={`text-lg-start text-center pe-lg-4 ${styles.columnDivider}`}>
+                        <p className={styles.seePhotos}>{t('See Little Paris through the lens')}</p>
+                    </Col>
+
+                    <Col lg={6} className="text-lg-end text-center ps-lg-4 mt-4 mt-lg-0">
+                        <p className={styles.takePage}>{t('Take a page out of Interwar Bucharest')}</p>
+                    </Col>
+
+                </Row>
             </Container>
         </>
     );
