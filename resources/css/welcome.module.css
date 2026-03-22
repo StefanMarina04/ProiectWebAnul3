@@ -181,6 +181,66 @@ h1, h2, h3, .navbar-brand {
     visibility: visible;
     transform: translate(-50%, 0) scale(0.9); 
 }
+.vintageCameraButton {
+    display: inline-block;
+    width: 60px; 
+    height: 80px;
+    background-color: transparent;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: sepia(0.5);
+    opacity: 0.8; 
+    position: relative; 
+    transform: translateY(13%);
+}
+
+.playingMainVideo {
+    background-image: url('/images/icons/film_play.png');
+    filter: sepia(0.5) contrast(1.1); 
+}
+
+.pausedMainVideo {
+    background-image: url('/images/icons/film_pause.png');
+    filter: grayscale(0.5) opacity(0.8); 
+}
+
+.vintageCameraButton:hover {
+    transform: scale(1.2);
+    filter: brightness(1.15);
+    opacity: 1;
+    transition: all 0.4s ease-in-out
+}
+
+.vintageCameraButton::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+
+    background-color: var(--interwar-ink);
+    color: var(--interwar-paper);
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    padding: 2px 5px;
+    border-radius: 6px;
+    white-space: nowrap; 
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.vintageCameraButton:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
 
 .takePage{
     font-family: 'Petemoss';

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Container, Navbar, Nav, Offcanvas, Button, Row, Col } from 'react-bootstrap';
 import { Head, Link, usePage } from '@inertiajs/react';
-import styles from '../../css/welcome.module.css'; 
+import styles from '../../css/welcome.module.css';
 
 export default function Welcome({ auth }) {
     const { translations, locale } = usePage().props;
@@ -12,10 +12,30 @@ export default function Welcome({ auth }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const videoRef = useRef(null);
+
+    const [isPlaying, setIsPlaying] = useState(true);
+
+    const toggleVideo = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    }
+
     return (
         <>
             <Head title={t("Welcome to Interwar Bucharest")} />
-            <Container fluid className="pt-2 pe-5 d-flex justify-content-end align-items-end" style={{position: 'relative', zIndex: 999}}>
+            <Container fluid className="pt-0 pe-5 d-flex justify-content-end align-items-end" style={{position: 'relative', zIndex: 999}}>
+                <Button className={`${styles.vintageCameraButton} ${isPlaying ? styles.playingMainVideo : styles.pausedMainVideo} me-2`} variant="link" onClick={toggleVideo} 
+                    aria-label={isPlaying ? t('Pause') : t('Resume')}
+                    data-tooltip={isPlaying ? t('Pause') : t('Resume')}
+                >
+                </Button>
                 <Button className={styles.menuButton} variant="link" onClick={handleShow} 
                     style={{border: 'none', padding: 0}}
                     data-tooltip={t('Open Menu')}
@@ -63,7 +83,7 @@ export default function Welcome({ auth }) {
 
             <div className={styles.mainSection}>
                 
-                <video autoPlay loop muted playsInline className={styles.mainVideo}>
+                <video ref={videoRef} autoPlay loop muted playsInline className={styles.mainVideo}>
                     <source src="/videos/bucuresti_interbelic.webm" type="video/webm" />
                 </video>
 
