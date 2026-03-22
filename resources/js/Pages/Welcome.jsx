@@ -15,7 +15,7 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head title={t("Welcome to Interwar Bucharest")} />
-            <Container fluid className="pt-2 pe-5 d-flex justify-content-end align-items-end">
+            <Container fluid className="pt-2 pe-5 d-flex justify-content-end align-items-end" style={{position: 'relative', zIndex: 999}}>
                 <Button className={styles.menuButton} variant="link" onClick={handleShow} 
                     style={{border: 'none', padding: 0}}
                     data-tooltip={t('Open Menu')}
@@ -61,10 +61,23 @@ export default function Welcome({ auth }) {
                 </Offcanvas.Body>
             </Offcanvas>
 
-            <Container className="mt-5 text-center">
-                <h1 className="display-2" align="center">{t('Paris of the East')}</h1>
-                <p className="lead text-muted" align="center">{t('Explore Interwar Bucharest')}</p>
-            </Container>
+            <div className={styles.mainSection}>
+                
+                <video autoPlay loop muted playsInline className={styles.mainVideo}>
+                    <source src="/videos/bucuresti_interbelic.webm" type="video/webm" />
+                </video>
+
+                <div className={styles.mainOverlay}></div>
+
+                <Container className={`text-center position-relative ${styles.mainTextContainer}`}>
+                    <h1 className="display-4">{t('Paris of the East')}</h1>
+                    <p className="lead border-bottom border-dark pb-2 mb-5" style={{ display: 'inline-block', borderBottomWidth: '2px !important' }}>
+                        {t('Explore Interwar Bucharest')}
+                    </p>
+                </Container>
+
+                <div className={styles.fadeBottom}></div>
+            </div>
             <Container className="pt-5 text-center">
                 <p>WIP</p>
             </Container>
