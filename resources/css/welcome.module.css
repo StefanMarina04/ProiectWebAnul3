@@ -264,27 +264,28 @@ h1, h2, h3, .navbar-brand {
     }
 }
 
-.magazineCardVisual {
+.magazineThumbnailVisual {
     background-color: transparent;
     border: 1px solid var(--interwar-ink);
-    padding: 0.8rem; 
+    padding: 0.8rem;
     margin-bottom: 1.2rem;
     cursor: pointer;
     transition: all 0.4s ease;
-    width: 60%; 
+    
+    width: 100%; 
+    max-width: 350px; 
     
     display: flex;
     align-items: center; 
     text-align: left; 
-    
     overflow: hidden; 
 }
 
 @media (max-width: 991px) {
-    .magazineCardVisual { width: 100%; }
+    .magazineThumbnailVisual { width: 100%; }
 }
 
-.magazineCardVisual:hover {
+.magazineThumbnailVisual:hover {
     background-color: rgba(50, 48, 46, 0.05); 
     transform: translateY(-4px) translateX(-2px);
     box-shadow: 7px 7px 0px rgba(50, 48, 46, 0.3); 
@@ -301,23 +302,28 @@ h1, h2, h3, .navbar-brand {
     transform: rotate(-10deg); 
 }
 
-.magazineCardVisual:hover .magazineThumbnail {
+.magazineThumbnailVisual:hover .magazineThumbnail {
     transform: rotate(0deg) scale(1.08);
     border-color: var(--interwar-gold); 
 }
 
 .magazineInfoBlock {
-    flex: 1;
+    flex: 1; 
     display: flex;
     flex-direction: column;
+    min-width: 0; 
 }
 
 .magazineTitleVisual {
     font-family: var(--font-title);
     font-weight: bold;
     color: var(--interwar-ink);
-    font-size: 1.1rem;
-    margin-bottom: 0.1rem;
+    font-size: 1.05rem; 
+    margin-bottom: 0.2rem;
+    line-height: 1.2; 
+    
+    word-wrap: break-word; 
+    white-space: normal; 
 }
 
 .magazineDateVisual {

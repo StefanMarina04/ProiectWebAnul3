@@ -114,54 +114,101 @@ export default function Welcome({ auth }) {
             <Container className="mt-5">
                 <Row className="align-items-center"> 
                     
-                    <Col lg={6} className={`text-lg-start text-center pe-lg-4 ${styles.columnDivider}`}>
-                        <p className={styles.seePhotos}>{t('See Little Paris through the lens')}</p>
+                    <Col lg={6} className={`text-lg-center text-center pe-lg-5 ${styles.columnDivider}`}>
+                        <p className={`${styles.seePhotos}`}>{t('See Little Paris through the lens')}</p>
                     </Col>
 
-            <Col lg={6} className="text-lg-end text-center ps-lg-4 mt-4 mt-lg-0">
-                <p className={styles.takePage}>{t('Take a page out of Interwar Bucharest')}</p>
+            <Col lg={6} className="text-lg-center text-center ps-lg-0 mt-4 mt-lg-0">
+                <p className={`${styles.takePage}`}>{t('Take a page out of Interwar Bucharest')}</p>
                 
+            <Row classname="align-items-end">
+            <Col className="text-lg-end text-center ps-lg-0 mt-4 mt-lg-0 ms-3">
                 <div className="d-flex flex-column align-items-lg-end align-items-center mt-4">
                     
                     <button 
-                        className={styles.magazineCardVisual} 
+                        className={styles.magazineThumbnailVisual} 
                         onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50")}
                     >
                         <img 
-                            src="/images/magazines/RealitateaIlustrata_1931_01-06.jpg" 
+                            src="/images/magazines/RealitateaIlustrata_1931-01-06.jpg" 
                             alt="Copertă Realitatea Ilustrată 1931" 
                             className={styles.magazineThumbnail}
                         />
                         
                         <div className={styles.magazineInfoBlock}>
                             <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
-                            <span className={styles.magazineDateVisual}>Ianuarie - Iunie 1931</span>
-                        </div>
-                    </button>
-
-                    <button 
-                        className={styles.magazineCardVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1930/RealitateaIlustrata_1930_01-06-1657309231__pages551-600")}
-                    >
-                        <img 
-                            src="/images/magazines/RealitateaIlustrata_1931_01-06.jpg" 
-                            alt="Copertă Realitatea Ilustrată 1930" 
-                            className={styles.magazineThumbnail}
-                        />
-                        <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
-                            <span className={styles.magazineDateVisual}>Ediția de Toamnă 1930</span>
+                            <span className={styles.magazineDateVisual}>{t('1931 New Year Edition')}</span>
                         </div>
                     </button>
                 </div>
             </Col>
+            <Col className="text-lg-end text-center ps-lg-0 mt-4 mt-lg-0">
+            <div className="d-flex flex-column align-items-lg-end align-items-center mt-4">
 
+                    <button 
+                        className={styles.magazineThumbnailVisual} 
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50")}
+                    >
+                        <img 
+                            src="/images/magazines/RealitateaIlustrata_1935-01-02.jpg" 
+                            alt="Copertă Realitatea Ilustrată 1935" 
+                            className={styles.magazineThumbnail}
+                        />
+                        <div className={styles.magazineInfoBlock}>
+                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
+                            <span className={styles.magazineDateVisual}>{t('1935 New Year Edition')}</span>
+                        </div>
+                    </button>
+                </div>
+            </Col>
+            </Row>
+                <Row className="align-items-end">
+                <Col className="text-lg-end text-center ps-lg-0 ms-3">
+                <div className="d-flex flex-column align-items-lg-end align-items-center">
+                    
+                    <button 
+                        className={styles.magazineThumbnailVisual} 
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50")}
+                    >
+                        <img 
+                            src="/images/magazines/RealitateaIlustrata_1931-01-06.jpg" 
+                            alt="Copertă Realitatea Ilustrată 1931" 
+                            className={styles.magazineThumbnail}
+                        />
+                        
+                        <div className={styles.magazineInfoBlock}>
+                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
+                            <span className={styles.magazineDateVisual}>{t('1931 New Year Edition')}</span>
+                        </div>
+                    </button>
+                </div>
+                </Col>
+                <Col className="text-lg-end text-center ps-lg-0 ">
+                <div className="d-flex flex-column align-items-lg-end align-items-center">
+                    <button 
+                        className={styles.magazineThumbnailVisual} 
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50")}
+                    >
+                        <img 
+                            src="/images/magazines/RealitateaIlustrata_1935-01-02.jpg" 
+                            alt="Copertă Realitatea Ilustrată 1935" 
+                            className={styles.magazineThumbnail}
+                        />
+                        <div className={styles.magazineInfoBlock}>
+                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
+                            <span className={styles.magazineDateVisual}>{t('1935 New Year Edition')}</span>
+                        </div>
+                    </button>
+                </div>
+                </Col>
                 </Row>
+            </Col>
+            </Row>
             </Container>
             <Modal show={showMagazine} onHide={handleCloseMagazine} size="xl" centered contentClassName={styles.vintageModal}>
                 <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
                     <Modal.Title style={{ fontFamily: 'var(--font-title)', fontWeight: 'bold' }}>
-                        {t('Sala de lectură')}
+                        {t('Reading Room')}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ height: '85vh', padding: 0, backgroundColor: '#000' }}>
