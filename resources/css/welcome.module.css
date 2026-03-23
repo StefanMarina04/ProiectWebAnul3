@@ -263,3 +263,66 @@ h1, h2, h3, .navbar-brand {
         padding-bottom: 2rem; 
     }
 }
+
+.magazineCardVisual {
+    background-color: transparent;
+    border: 1px solid var(--interwar-ink);
+    padding: 0.8rem; 
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    width: 60%; 
+    
+    display: flex;
+    align-items: center; 
+    text-align: left; 
+    
+    overflow: hidden; 
+}
+
+@media (max-width: 991px) {
+    .magazineCardVisual { width: 100%; }
+}
+
+.magazineCardVisual:hover {
+    background-color: rgba(50, 48, 46, 0.05); 
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 7px 7px 0px rgba(50, 48, 46, 0.3); 
+}
+
+.magazineThumbnail {
+    width: 75px; 
+    height: 100px;
+    object-fit: cover; 
+    border: 1px solid var(--interwar-ink);
+    margin-right: 1rem; 
+    transition: transform 0.5s ease;
+    
+    transform: rotate(-10deg); 
+}
+
+.magazineCardVisual:hover .magazineThumbnail {
+    transform: rotate(0deg) scale(1.08);
+    border-color: var(--interwar-gold); 
+}
+
+.magazineInfoBlock {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.magazineTitleVisual {
+    font-family: var(--font-title);
+    font-weight: bold;
+    color: var(--interwar-ink);
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.magazineDateVisual {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--interwar-dark);
+}
