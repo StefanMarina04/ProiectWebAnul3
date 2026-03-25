@@ -30,10 +30,13 @@ export default function Welcome({ auth }) {
     const [showMagazine, setShowMagazine] = useState(false);
     const [magazineSrc, setMagazineSrc] = useState("");
 
+    const [magazineTitle, setMagazineTitle] = useState("");
+
     const handleCloseMagazine = () => setShowMagazine(false);
     
-    const handleOpenMagazine = (src) => {
+    const handleOpenMagazine = (src, title) => {
         setMagazineSrc(src);
+        setMagazineTitle(title); 
         setShowMagazine(true);
     };
 
@@ -127,7 +130,7 @@ export default function Welcome({ auth }) {
                     
                     <button 
                         className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50")}
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50", "Realitatea Ilustrată 06.01.1931")}
                     >
                         <img 
                             src="/images/magazines/RealitateaIlustrata_1931-01-06.jpg" 
@@ -147,7 +150,7 @@ export default function Welcome({ auth }) {
 
                     <button 
                         className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50")}
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50", "Realitatea Ilustrată 02.01.1935")}
                     >
                         <img 
                             src="/images/magazines/RealitateaIlustrata_1935-01-02.jpg" 
@@ -168,17 +171,17 @@ export default function Welcome({ auth }) {
                     
                     <button 
                         className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50")}
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
                     >
                         <img 
-                            src="/images/magazines/RealitateaIlustrata_1931-01-06.jpg" 
-                            alt="Copertă Realitatea Ilustrată 1931" 
+                            src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg" 
+                            alt="Copertă România 1937" 
                             className={styles.magazineThumbnail}
                         />
                         
                         <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
-                            <span className={styles.magazineDateVisual}>{t('1931 New Year Edition')}</span>
+                            <h5 className={styles.magazineTitleVisual}>România</h5>
+                            <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
                         </div>
                     </button>
                 </div>
@@ -187,16 +190,16 @@ export default function Welcome({ auth }) {
                 <div className="d-flex flex-column align-items-lg-end align-items-center">
                     <button 
                         className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50")}
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
                     >
                         <img 
-                            src="/images/magazines/RealitateaIlustrata_1935-01-02.jpg" 
-                            alt="Copertă Realitatea Ilustrată 1935" 
+                            src="/images/magazines/Adeverul_1922_12-16.jpg" 
+                            alt="Copertă Adevărul 1922" 
                             className={styles.magazineThumbnail}
                         />
                         <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
-                            <span className={styles.magazineDateVisual}>{t('1935 New Year Edition')}</span>
+                            <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
+                            <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
                         </div>
                     </button>
                 </div>
@@ -207,8 +210,8 @@ export default function Welcome({ auth }) {
             </Container>
             <Modal show={showMagazine} onHide={handleCloseMagazine} size="xl" centered contentClassName={styles.vintageModal}>
                 <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
-                    <Modal.Title style={{ fontFamily: 'var(--font-title)', fontWeight: 'bold' }}>
-                        {t('Reading Room')}
+                   <Modal.Title className={styles.vintageModalTitle}>
+                        {magazineTitle || t('The Reading Room')}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ height: '85vh', padding: 0, backgroundColor: '#000' }}>
