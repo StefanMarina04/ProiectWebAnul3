@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Container, Navbar, Nav, Offcanvas, Button, Row, Col, Modal } from 'react-bootstrap';
+import { Container, Navbar, Nav, Offcanvas, Button, Row, Col, Modal, Carousel } from 'react-bootstrap';
 import { Head, Link, usePage } from '@inertiajs/react';
 import styles from '../../css/welcome.module.css';
 
@@ -38,6 +38,18 @@ export default function Welcome({ auth }) {
         setMagazineSrc(src);
         setMagazineTitle(title); 
         setShowMagazine(true);
+    };
+
+    const [showImageModal, setShowImageModal] = useState(false);
+    const [lightboxImageSrc, setLightboxImageSrc] = useState("");
+    const [lightboxCaption, setLightboxCaption] = useState("");
+
+    const handleCloseImageModal = () => setShowImageModal(false);
+    
+    const handleOpenImageModal = (src, caption) => {
+        setLightboxImageSrc(src);
+        setLightboxCaption(caption);
+        setShowImageModal(true);
     };
 
     return (
@@ -119,6 +131,54 @@ export default function Welcome({ auth }) {
                     
                     <Col lg={6} className={`text-lg-center text-center pe-lg-5 ${styles.columnDivider}`}>
                         <p className={`${styles.seePhotos}`}>{t('See Little Paris through the lens')}</p>
+                        
+                        <Row className="mt-4 justify-content-center">
+                            <Col md={10}> 
+                                
+                                <Carousel fade className={styles.vintageCarousel}>
+                                    
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/langa-ateneu.jpg" 
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/langa-ateneu.jpg", t('Romanian Athenaeum'))}
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('Next to the Athenaeum')}</h5>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/gara-de-nord-frontal.webp"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/gara-de-nord-frontal.webp", t('North Railway Station'))}
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('North Railway Station')}</h5>
+                                            <div>{t('Before the remodeling')}</div>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/gara-de-nord-noua.jpg"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/gara-de-nord-noua.jpg", t('North Railway Station'))}    
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('North Railway Station')}</h5>
+                                            <div>{t('As it is today')}</div>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                </Carousel>
+
+                            </Col>
+                        </Row>
                     </Col>
 
             <Col lg={6} className="text-lg-center text-center ps-lg-0 mt-4 mt-lg-0">
@@ -225,6 +285,34 @@ export default function Welcome({ auth }) {
                             mozallowfullscreen="true" 
                             allowFullScreen>
                         </iframe>
+                    )}
+                </Modal.Body>
+            </Modal>
+            <Modal 
+                show={showImageModal} 
+                onHide={handleCloseImageModal} 
+                size="xl" 
+                centered 
+                contentClassName={styles.vintageModal}
+            >
+                <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
+                    <Modal.Title className={styles.vintageModalTitle}>
+                        {lightboxCaption}
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="d-flex justify-content-center align-items-center" style={{ backgroundColor: 'var(--interwar-paper)', padding: '2rem' }}>
+                    {lightboxImageSrc && (
+                        <img 
+                            src={lightboxImageSrc} 
+                            alt={lightboxCaption} 
+                            style={{ 
+                                maxWidth: '100%', 
+                                maxHeight: '80vh',
+                                objectFit: 'contain', 
+                                border: '3px solid var(--interwar-ink)', 
+                                boxShadow: '0 10px 25px rgba(0,0,0,0.5)' 
+                            }} 
+                        />
                     )}
                 </Modal.Body>
             </Modal>

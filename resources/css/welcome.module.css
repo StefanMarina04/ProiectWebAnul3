@@ -245,11 +245,11 @@ h1, h2, h3, .navbar-brand {
 .takePage{
     font-family: 'Petemoss';
     opacity: 0.85;
-    font-size: 2rem;
+    font-size: 3rem;
 }
-.seePhoto{
+.seePhotos{
     opacity: 0.85;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .columnDivider {
@@ -347,4 +347,96 @@ h1, h2, h3, .navbar-brand {
     letter-spacing: -0.03em;
     text-align: center;
     width: 100%;
+}
+
+.vintageCarousel {
+    border: 1px solid var(--interwar-dark);
+    border-radius: 2px;
+    position: relative; 
+    overflow: hidden; 
+    
+    height: 400px; 
+}
+
+.carouselImage {
+    height: 400px;
+    
+    object-fit: cover; 
+    
+    border-radius: 2px;
+}
+
+.carouselCaption {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none; 
+    
+    text-align: center;
+    opacity: 0.9;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    
+    padding: 10px !important; 
+
+    border-style: solid; 
+    border-width: 30px;  
+    
+    border-image-source: url('/images/icons/caption.png');
+    
+    border-image-slice: 10 fill; 
+    
+    border-image-repeat: stretch; 
+}
+
+.carouselCaption h5 {
+    font-family: var(--font-body); 
+    font-weight: bold;
+    font-variant: small-caps;
+    opacity: 0.9;
+    color: var(--interwar-ink); 
+    font-size: 1.15rem;
+    line-height: 1.2;
+    margin-bottom: 3px !important; 
+}
+
+.carouselCaption p {
+    font-family: var(--font-body);
+    color: var(--interwar-ink);
+    font-size: 0.95rem;
+    margin-top: 0 !important;
+    opacity: 0.9;
+    margin-bottom: 0 !important;
+}
+
+.carouselCaption div {
+    font-family: var(--font-body);
+    letter-spacing: -0.02rem;
+    color: var(--interwar-ink);
+    opacity: 0.9;
+}
+
+.vintageCarousel :global(.carousel-item) {
+    transition-duration: 0.4s ease-in-out !important; 
+}
+
+.vintageCarousel :global(.carousel-item) .carouselCaption {
+    opacity: 0;
+    transition: opacity 0.45s ease-out !important;
+}
+
+.vintageCarousel :global(.carousel-item.active) .carouselCaption {
+    opacity: 1;
+    transition-delay: 0.25s !important; 
+}
+
+
+.clickableImage {
+    cursor: zoom-in; 
+    transition: filter 0.3s ease;
+}
+
+.clickableImage:hover {
+    filter: brightness(1.05); 
 }
