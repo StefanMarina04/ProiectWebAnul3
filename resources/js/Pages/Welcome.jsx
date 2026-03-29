@@ -126,14 +126,20 @@ export default function Welcome({ auth }) {
 
                 <div className={styles.fadeBottom}></div>
             </div>
-            <Container className="pt-5 text-center">
-                <p>WIP</p>
+            <Container className="pt-5 pb-4 d-flex justify-content-center">
+                <p className={`text-center ${styles.introParagraph}`}>
+                    {t('WIP')} 
+                </p>
             </Container>
-            <Container className="mt-5">
+            <Container className="mt-5 mb-5">
                 <Row className="align-items-center"> 
                     
                     <Col lg={6} className={`text-lg-center text-center pe-lg-5 ${styles.columnDivider}`}>
-                        <p className={`${styles.seePhotos}`}>{t('See Little Paris through the lens')}</p>
+                        <div className="d-flex align-items-end justify-content-center mb-4" style={{ minHeight: '80px' }}>
+                            <p className={`text-center mb-0 ${styles.seePhotos}`}>
+                                {t('See Little Paris through the lens')}
+                            </p>
+                        </div>
                         
                         <Row className="mt-4 justify-content-center">
                             <Col md={10}> 
@@ -185,7 +191,11 @@ export default function Welcome({ auth }) {
                     </Col>
 
             <Col lg={6} className="text-lg-center text-center ps-lg-0 mt-4 mt-lg-0">
-                <p className={`${styles.takePage}`}>{t('Take a page out of Interwar Bucharest')}</p>
+                <div className="d-flex align-items-end justify-content-center mb-4" style={{ minHeight: '80px' }}>
+                            <p className={`text-center mb-0 ${styles.takePage}`}>
+                                {t('Take a page out of Interwar Bucharest')}
+                            </p>
+                </div>
                 
             <Row classname="align-items-end">
             <Col className="text-lg-end text-center ps-lg-0 mt-4 mt-lg-0 ms-3">
@@ -267,6 +277,17 @@ export default function Welcome({ auth }) {
                     </button>
                 </div>
                 </Col>
+                </Row>
+                <Row>
+                    <Col className="center ps-lg-0">
+                    <div className="d-flex flex-column align-items-lg-center align-items-center">
+                      <Button className={`${styles.moreMagazinesButton}`} variant="link"
+                    data-tooltip={t('See more magazines and newspapers')}
+                    aria-label={t('See more magazines and newspapers')}
+                    >   
+                      </Button>
+                      </div>
+                    </Col>
                 </Row>
             </Col>
             </Row>
