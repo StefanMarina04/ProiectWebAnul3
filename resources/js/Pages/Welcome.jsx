@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Container, Navbar, Nav, Offcanvas, Button, Row, Col, Modal, Carousel } from 'react-bootstrap';
+import { Container, Navbar, Nav, Offcanvas, Button, Row, Col, Modal, Carousel, Spinner } from 'react-bootstrap';
 import { Head, Link, usePage } from '@inertiajs/react';
 import styles from '../../css/welcome.module.css';
 
@@ -32,9 +32,12 @@ export default function Welcome({ auth }) {
 
     const [magazineTitle, setMagazineTitle] = useState("");
 
+    const [isLoadingMagazine, setIsLoadingMagazine] = useState(true);
+
     const handleCloseMagazine = () => setShowMagazine(false);
     
     const handleOpenMagazine = (src, title) => {
+        setIsLoadingMagazine(true);
         setMagazineSrc(src);
         setMagazineTitle(title); 
         setShowMagazine(true);
@@ -135,7 +138,7 @@ export default function Welcome({ auth }) {
                         <Row className="mt-4 justify-content-center">
                             <Col md={10}> 
                                 
-                                <Carousel fade className={styles.vintageCarousel}>
+                                <Carousel fade className={styles.vintageCarousel} interval={3000}>
                                     
                                     <Carousel.Item>
                                         <img
@@ -274,16 +277,39 @@ export default function Welcome({ auth }) {
                         {magazineTitle || t('The Reading Room')}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{ height: '85vh', padding: 0, backgroundColor: '#000' }}>
+                <Modal.Body className={styles.vintageModalReader}>
+
+                {isLoadingMagazine && (
+                        <div 
+                            className="d-flex flex-column justify-content-center align-items-center w-100 h-100" 
+                            style={{ 
+                                position: 'absolute', 
+                                top: 0, left: 0, 
+                                backgroundColor: 'var(--interwar-paper)', 
+                                zIndex: 10 
+                            }}
+                        >
+                            <div className={styles.loadingReel}></div>
+                            <p className="mt-3" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)', fontSize: '1.2rem', fontStyle: 'italic' }}>
+                                {t('Getting ')}{magazineTitle}{'...'}
+                            </p>
+                        </div>
+                    )}
+
                     {magazineSrc && (
                         <iframe 
                             src={magazineSrc} 
                             width="100%" 
                             height="100%" 
-                            frameBorder="0" 
                             webkitallowfullscreen="true" 
                             mozallowfullscreen="true" 
-                            allowFullScreen>
+                            allowFullScreen
+                            onLoad={() => setIsLoadingMagazine(false)} 
+                            style={{ 
+                                border: 'none',
+                                display: isLoadingMagazine ? 'none' : 'block' 
+                            }}
+                            >
                         </iframe>
                     )}
                 </Modal.Body>
@@ -300,18 +326,12 @@ export default function Welcome({ auth }) {
                         {lightboxCaption}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="d-flex justify-content-center align-items-center" style={{ backgroundColor: 'var(--interwar-paper)', padding: '2rem' }}>
+                <Modal.Body className={`d-flex justify-content-center align-items-center ${styles.vintageImageModal}`}>
                     {lightboxImageSrc && (
                         <img 
                             src={lightboxImageSrc} 
                             alt={lightboxCaption} 
-                            style={{ 
-                                maxWidth: '100%', 
-                                maxHeight: '80vh',
-                                objectFit: 'contain', 
-                                border: '3px solid var(--interwar-ink)', 
-                                boxShadow: '0 10px 25px rgba(0,0,0,0.5)' 
-                            }} 
+                            className={styles.vintageLightboxImage} 
                         />
                     )}
                 </Modal.Body>
