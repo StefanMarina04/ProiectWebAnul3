@@ -132,9 +132,9 @@ export default function Welcome({ auth }) {
                 </p>
             </Container>
             <Container className="mt-5 mb-5">
-                <Row className="align-items-center"> 
+            <Row className="align-items-center"> 
                     
-                    <Col lg={6} className={`text-lg-center text-center pe-lg-5 ${styles.columnDivider}`}>
+                    <Col lg={6} className={`text-lg-center text-center pe-lg-0 ${styles.columnDivider}`}>
                         <div className="d-flex align-items-end justify-content-center mb-4" style={{ minHeight: '80px' }}>
                             <p className={`text-center mb-0 ${styles.seePhotos}`}>
                                 {t('See Little Paris through the lens')}
@@ -191,17 +191,17 @@ export default function Welcome({ auth }) {
                                 <Col xs={6} className="pe-2 mt-4">
                                 <div className="d-flex flex-column">
                                 <Button className={`${styles.morePhotosButton} w-100`} variant="link"
-                                data-tooltip={t('See more images of Interwar Bucharest and the country')}
-                                aria-label={t('See more images of Interwar Bucharest and the country')}
+                                data-tooltip={t('See a photo album of Interwar Bucharest and Romania')}
+                                aria-label={t('See a photo album of Interwar Bucharest and Romania')}
                                 >   
                                 </Button>
                                 </div>
                                 </Col>
                                 <Col xs={6} className="ps-2 mt-4">                               
                                 <div className="d-flex flex-column">
-                                <Button className={`${styles.morePhotosButton} w-100`} variant="link"
-                                data-tooltip={t('See more images of Interwar Bucharest and the country')}
-                                aria-label={t('See more images of Interwar Bucharest and the country')}
+                                <Button className={`${styles.GalleryButton} w-100`} variant="link"
+                                data-tooltip={t('See more in the gallery')}
+                                aria-label={t('See more in the gallery')}
                                 >   
                                 </Button>
                                 </div>
@@ -210,15 +210,14 @@ export default function Welcome({ auth }) {
                         </Row>
                     </Col>
 
-            <Col lg={6} className="text-lg-center text-center ps-lg-0 mt-3 mt-lg-0 mb-4">
-                <div className="d-flex align-items-end justify-content-center mb-2" style={{ minHeight: '80px' }}>
-                            <p className={`text-center mb-0 ${styles.takePage}`}>
-                                {t('Take a page out of Interwar Bucharest')}
-                            </p>
-                </div>
+                    <Col lg={6} className={`text-lg-center text-center pe-lg-0`}>
+                        <div className="d-flex align-items-end justify-content-center mb-2" style={{ minHeight: '80px' }}>
+                                    <p className={`text-center mb-0 ${styles.takePage}`}>
+                                        {t('Take a page out of Interwar Bucharest')}
+                                    </p>
+                        </div>            
                 
-                
-            <Row classname="align-items-end g-3 mt-4">
+                <Row classname="align-items-end g-3 mt-4">
                 <p className={`${styles.takePageSubtext}`}>{t("Newspapers and magazines for all to see!")}</p>
                 <Col className="text-lg-end text-center mt-lg-0">
                     <div className="d-flex flex-column align-items-lg-end align-items-center">
@@ -259,7 +258,7 @@ export default function Welcome({ auth }) {
                         </button>
                     </div>
                 </Col>
-            </Row>
+                </Row>
             <Row className="align-items-end">
                 <Col className="text-lg-end text-center ">
                 <div className="d-flex flex-column align-items-lg-end align-items-center">
@@ -353,7 +352,7 @@ export default function Welcome({ auth }) {
                 </Row>
             </Col>
             </Row>
-            </Container>
+        </Container>
             <Modal show={showMagazine} onHide={handleCloseMagazine} size="xl" centered contentClassName={styles.vintageModal}>
                 <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
                    <Modal.Title className={styles.vintageModalTitle}>
