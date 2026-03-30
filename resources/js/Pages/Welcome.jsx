@@ -187,59 +187,81 @@ export default function Welcome({ auth }) {
                                 </Carousel>
 
                             </Col>
+                            <Row className="justify-content-between" style={{ width: '100%' }}>
+                                <Col xs={6} className="pe-2 mt-4">
+                                <div className="d-flex flex-column">
+                                <Button className={`${styles.morePhotosButton} w-100`} variant="link"
+                                data-tooltip={t('See more images of Interwar Bucharest and the country')}
+                                aria-label={t('See more images of Interwar Bucharest and the country')}
+                                >   
+                                </Button>
+                                </div>
+                                </Col>
+                                <Col xs={6} className="ps-2 mt-4">                               
+                                <div className="d-flex flex-column">
+                                <Button className={`${styles.morePhotosButton} w-100`} variant="link"
+                                data-tooltip={t('See more images of Interwar Bucharest and the country')}
+                                aria-label={t('See more images of Interwar Bucharest and the country')}
+                                >   
+                                </Button>
+                                </div>
+                                </Col>
+                            </Row>
                         </Row>
                     </Col>
 
-            <Col lg={6} className="text-lg-center text-center ps-lg-0 mt-4 mt-lg-0">
-                <div className="d-flex align-items-end justify-content-center mb-4" style={{ minHeight: '80px' }}>
+            <Col lg={6} className="text-lg-center text-center ps-lg-0 mt-3 mt-lg-0 mb-4">
+                <div className="d-flex align-items-end justify-content-center mb-2" style={{ minHeight: '80px' }}>
                             <p className={`text-center mb-0 ${styles.takePage}`}>
                                 {t('Take a page out of Interwar Bucharest')}
                             </p>
                 </div>
                 
-            <Row classname="align-items-end">
-            <Col className="text-lg-end text-center ps-lg-0 mt-4 mt-lg-0 ms-3">
-                <div className="d-flex flex-column align-items-lg-end align-items-center mt-4">
-                    
-                    <button 
-                        className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50", "Realitatea Ilustrată 06.01.1931")}
-                    >
-                        <img 
-                            src="/images/magazines/RealitateaIlustrata_1931-01-06.jpg" 
-                            alt="Copertă Realitatea Ilustrată 1931" 
-                            className={styles.magazineThumbnail}
-                        />
+                
+            <Row classname="align-items-end g-3 mt-4">
+                <p className={`${styles.takePageSubtext}`}>{t("Newspapers and magazines for all to see!")}</p>
+                <Col className="text-lg-end text-center mt-lg-0">
+                    <div className="d-flex flex-column align-items-lg-end align-items-center">
                         
-                        <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
-                            <span className={styles.magazineDateVisual}>{t('1931 New Year Edition')}</span>
-                        </div>
-                    </button>
-                </div>
-            </Col>
-            <Col className="text-lg-end text-center ps-lg-0 mt-4 mt-lg-0">
-            <div className="d-flex flex-column align-items-lg-end align-items-center mt-4">
+                        <button 
+                            className={styles.magazineThumbnailVisual} 
+                            onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1931/RealitateaIlustrata_1931_01-06-1657309527__pages1-50", "Realitatea Ilustrată 06.01.1931")}
+                        >
+                            <img 
+                                src="/images/magazines/RealitateaIlustrata_1931-01-06.jpg" 
+                                alt="Copertă Realitatea Ilustrată 1931" 
+                                className={styles.magazineThumbnail}
+                            />
+                            
+                            <div className={styles.magazineInfoBlock}>
+                                <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
+                                <span className={styles.magazineDateVisual}>{t('1931 New Year Edition')}</span>
+                            </div>
+                        </button>
+                    </div>
+                </Col>
+                <Col className="text-lg-end text-center mt-lg-0">
+                <div className="d-flex flex-column align-items-lg-end align-items-center">
 
-                    <button 
-                        className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50", "Realitatea Ilustrată 02.01.1935")}
-                    >
-                        <img 
-                            src="/images/magazines/RealitateaIlustrata_1935-01-02.jpg" 
-                            alt="Copertă Realitatea Ilustrată 1935" 
-                            className={styles.magazineThumbnail}
-                        />
-                        <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
-                            <span className={styles.magazineDateVisual}>{t('1935 New Year Edition')}</span>
-                        </div>
-                    </button>
-                </div>
-            </Col>
+                        <button 
+                            className={styles.magazineThumbnailVisual} 
+                            onClick={() => handleOpenMagazine("https://archive.org/embed/realitatea-ilustrata/Realitatea Ilustrata 1935/RealitateaIlustrata_1935-1-1655838299__pages1-50", "Realitatea Ilustrată 02.01.1935")}
+                        >
+                            <img 
+                                src="/images/magazines/RealitateaIlustrata_1935-01-02.jpg" 
+                                alt="Copertă Realitatea Ilustrată 1935" 
+                                className={styles.magazineThumbnail}
+                            />
+                            <div className={styles.magazineInfoBlock}>
+                                <h5 className={styles.magazineTitleVisual}>Realitatea Ilustrată</h5>
+                                <span className={styles.magazineDateVisual}>{t('1935 New Year Edition')}</span>
+                            </div>
+                        </button>
+                    </div>
+                </Col>
             </Row>
-                <Row className="align-items-end">
-                <Col className="text-lg-end text-center ps-lg-0 ms-3">
+            <Row className="align-items-end">
+                <Col className="text-lg-end text-center ">
                 <div className="d-flex flex-column align-items-lg-end align-items-center">
                     
                     <button 
@@ -259,7 +281,7 @@ export default function Welcome({ auth }) {
                     </button>
                 </div>
                 </Col>
-                <Col className="text-lg-end text-center ps-lg-0 ">
+                <Col className="text-lg-end text-center">
                 <div className="d-flex flex-column align-items-lg-end align-items-center">
                     <button 
                         className={styles.magazineThumbnailVisual} 
@@ -277,9 +299,49 @@ export default function Welcome({ auth }) {
                     </button>
                 </div>
                 </Col>
-                </Row>
+            </Row>
+            <Row className="align-items-end">
+                <Col className="text-lg-end text-center">
+                <div className="d-flex flex-column align-items-lg-end align-items-center">
+                    
+                    <button 
+                        className={styles.magazineThumbnailVisual} 
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
+                    >
+                        <img 
+                            src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg" 
+                            alt="Copertă România 1937" 
+                            className={styles.magazineThumbnail}
+                        />
+                        
+                        <div className={styles.magazineInfoBlock}>
+                            <h5 className={styles.magazineTitleVisual}>România</h5>
+                            <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
+                        </div>
+                    </button>
+                </div>
+                </Col>
+                <Col className="text-lg-end text-center">
+                <div className="d-flex flex-column align-items-lg-end align-items-center">
+                    <button 
+                        className={styles.magazineThumbnailVisual} 
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                    >
+                        <img 
+                            src="/images/magazines/Adeverul_1922_12-16.jpg" 
+                            alt="Copertă Adevărul 1922" 
+                            className={styles.magazineThumbnail}
+                        />
+                        <div className={styles.magazineInfoBlock}>
+                            <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
+                            <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                        </div>
+                    </button>
+                </div>
+                </Col>
+            </Row>
                 <Row>
-                    <Col className="center ps-lg-0">
+                    <Col className="center ps-lg-0 pt-4">
                     <div className="d-flex flex-column align-items-lg-center align-items-center">
                       <Button className={`${styles.moreMagazinesButton}`} variant="link"
                     data-tooltip={t('See more magazines and newspapers')}

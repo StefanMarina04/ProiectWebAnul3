@@ -206,6 +206,12 @@ h1, h2, h3, .navbar-brand {
     transition: all 0.3s ease-in-out;
 }
 
+.menuButton:active {
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+    opacity: 0.9;
+}
+
 .menuButton:hover {
     transform: scale(1.2);
     filter: brightness(1.15);
@@ -252,6 +258,12 @@ h1, h2, h3, .navbar-brand {
     transition: all 0.4s ease-in-out
 }
 
+.vintageCameraButton:active {
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+    opacity: 0.8;
+}
+
 .vintageCameraButton::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -281,8 +293,16 @@ h1, h2, h3, .navbar-brand {
 
 .takePage{
     font-family: 'Petemoss';
+    font-weight: bold;
     opacity: 0.85;
     font-size: 3rem;
+    line-height: 1;
+}
+
+.takePageSubtext{
+    font-family: 'Petemoss';
+    opacity: 0.8;
+    font-size: 2rem;
     line-height: 1;
 }
 .seePhotos{
@@ -382,9 +402,8 @@ h1, h2, h3, .navbar-brand {
     background-repeat: no-repeat;
     background-position: center;
     
-    border: 2px solid var(--interwar-ink);
+    border: 1.5px solid var(--interwar-ink);
     border-radius: 4px;
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: sepia(0.6);
 }
@@ -392,11 +411,17 @@ h1, h2, h3, .navbar-brand {
 .moreMagazinesButton:hover {
     transform: scale(1.05);
     filter: sepia(0.2) contrast(1.1);
-    border: 2px solid var(--interwar-ink);
+    border: 1.5px solid var(--interwar-ink);
 }
 
 .moreMagazinesButton:active {
-    border: 2px solid var(--interwar-ink);
+    border: 1.5px solid var(--interwar-ink) !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    transition: 0.1s ease-in-out;
+    
+    transform: scale(1);
 }
 
 .moreMagazinesButton::after{
@@ -421,6 +446,64 @@ h1, h2, h3, .navbar-brand {
 }
 
 .moreMagazinesButton:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(0.9); 
+}
+
+
+.morePhotosButton {
+    height: 100px; 
+    
+    background-image: url('/images/magazines/Romania Mare Pitoreasca - 1923.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    border: 1.5px solid var(--interwar-ink);
+    border-radius: 4px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: sepia(0.6);
+}
+
+.morePhotosButton:hover {
+    transform: scale(1.05);
+    filter: sepia(0.2) contrast(1.1);
+    border: 1.5px solid var(--interwar-ink);
+}
+
+.morePhotosButton:active {
+    border: 1.5px solid var(--interwar-ink) !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    transition: 0.1s ease-in-out;
+    
+    transform: scale(1);
+}
+
+.morePhotosButton::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+
+    background-color: var(--interwar-ink);
+    color: var(--interwar-paper);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 2px 5px;
+    border-radius: 6px;
+    white-space: wrap; 
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.morePhotosButton:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0) scale(0.9); 
