@@ -193,6 +193,7 @@ export default function Welcome({ auth }) {
                                 <Button className={`${styles.morePhotosButton} w-100`} variant="link"
                                 data-tooltip={t('See a photo album of Interwar Bucharest and Romania')}
                                 aria-label={t('See a photo album of Interwar Bucharest and Romania')}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-mare-pitoreasca-1923-compressed", "România Mare Pitorescă 1923")}
                                 >   
                                 </Button>
                                 </div>
@@ -202,6 +203,7 @@ export default function Welcome({ auth }) {
                                 <Button className={`${styles.GalleryButton} w-100`} variant="link"
                                 data-tooltip={t('See more in the gallery')}
                                 aria-label={t('See more in the gallery')}
+                               // onClick={}
                                 >   
                                 </Button>
                                 </div>
@@ -324,16 +326,16 @@ export default function Welcome({ auth }) {
                 <div className="d-flex flex-column align-items-lg-end align-items-center">
                     <button 
                         className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/gandirea_202103/gandirea_1921_1922_001_001", "Gândirea Anul I, No. 1")}
                     >
                         <img 
-                            src="/images/magazines/Adeverul_1922_12-16.jpg" 
-                            alt="Copertă Adevărul 1922" 
+                            src="/images/magazines/gandirea_1921_1922_001_001.jpg" 
+                            alt="Copertă Gândirea 1921" 
                             className={styles.magazineThumbnail}
                         />
                         <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                            <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                            <h5 className={styles.magazineTitleVisual}>Gândirea</h5>
+                            <span className={styles.magazineDateVisual}>{t('Year One Issue One, 1921')}</span>
                         </div>
                     </button>
                 </div>
