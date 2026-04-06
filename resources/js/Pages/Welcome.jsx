@@ -262,12 +262,13 @@ export default function Welcome({ auth }) {
                                 </Col>
                                 <Col xs={6} className="ps-2 mt-4">                               
                                 <div className="d-flex flex-column">
-                                <Button className={`${styles.GalleryButton} w-100`} variant="link"
-                                data-tooltip={t('See more in the gallery')}
-                                aria-label={t('See more in the gallery')}
-                               // onClick={}
-                                >   
-                                </Button>
+                                    <Link 
+                                        href="/gallery" 
+                                        className={`btn btn-link ${styles.GalleryButton} w-100`} 
+                                        data-tooltip={t('See more in the gallery')}
+                                        aria-label={t('See more in the gallery')}
+                                    >   
+                                    </Link>
                                 </div>
                                 </Col>
                             </Row>

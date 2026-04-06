@@ -29,6 +29,11 @@ Route::get('/forum', function()
     return Inertia::render('Forum');
 });
 
+Route::get('/gallery', function() 
+{
+    return Inertia::render('Gallery');
+});
+
 Route::get('/language/{locale}', function ($locale)
 {
     if (in_array($locale, ['en', 'ro']))
