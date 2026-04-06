@@ -184,6 +184,68 @@ export default function Welcome({ auth }) {
                                         </Carousel.Caption>
                                     </Carousel.Item>
 
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/vechiul-palat-regal.jpg"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/vechiul-palat-regal.jpg", t('The Old Royal Palace'))}    
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('The Old Royal Palace')}</h5>
+                                            <div>{t('Before the reconstruction')}</div>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/palatul-regal.png"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/palatul-regal.png", t('The Royal Palace'))}    
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('The Royal Palace')}</h5>
+                                            <div>{t('As it is today')}</div>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/arcul-de-triumf.webp"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/arcul-de-triumf.webp", t('The Arch of Triumph'))}    
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('The Arch of Triumph')}</h5>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/ministerul-de-externe-2.webp"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/ministerul-de-externe-2.webp", t('The Palace of the Ministry of Foreign Affairs'))}    
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('The Palace of the Ministry of Foreign Affairs')}</h5>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
+                                    <Carousel.Item>
+                                        <img
+                                            className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`} 
+                                            src="/images/photos/palatul-artelor.jpg"
+                                            alt="missing_photo"
+                                            onClick={() => handleOpenImageModal("/images/photos/palatul-artelor.jpg", t('The Palace of the Arts'))}    
+                                        />
+                                        <Carousel.Caption className={styles.carouselCaption}>
+                                            <h5>{t('The Palace of the Arts')}</h5>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+
                                 </Carousel>
 
                             </Col>
@@ -193,7 +255,7 @@ export default function Welcome({ auth }) {
                                 <Button className={`${styles.morePhotosButton} w-100`} variant="link"
                                 data-tooltip={t('See a photo album of Interwar Bucharest and Romania')}
                                 aria-label={t('See a photo album of Interwar Bucharest and Romania')}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-mare-pitoreasca-1923-compressed", "România Mare Pitorescă 1923")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-mare-pitoreasca-1923-compressed", "România Mare Pitorească 1923")}
                                 >   
                                 </Button>
                                 </div>
@@ -307,17 +369,17 @@ export default function Welcome({ auth }) {
                     
                     <button 
                         className={styles.magazineThumbnailVisual} 
-                        onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
+                        onClick={() => handleOpenMagazine("https://archive.org/embed/revista-veselia/Veselia_1937-1653688794__pages1-50", "Veselia Anul XLV 1 ianuarie 1937")}
                     >
                         <img 
-                            src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg" 
-                            alt="Copertă România 1937" 
+                            src="/images/magazines/Veselia_19370101.jpg" 
+                            alt="Copertă Veselia 1937" 
                             className={styles.magazineThumbnail}
                         />
                         
                         <div className={styles.magazineInfoBlock}>
-                            <h5 className={styles.magazineTitleVisual}>România</h5>
-                            <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
+                            <h5 className={styles.magazineTitleVisual}>Veselia</h5>
+                            <span className={styles.magazineDateVisual}>{t('1937 New Year Edition')}</span>
                         </div>
                     </button>
                 </div>
