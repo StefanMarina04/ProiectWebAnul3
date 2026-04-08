@@ -297,6 +297,7 @@ h1, h2, h3, .navbar-brand {
     opacity: 0.85;
     font-size: 3rem;
     line-height: 1;
+    margin-bottom: 10%;
 }
 
 .takePageSubtext{
@@ -307,8 +308,17 @@ h1, h2, h3, .navbar-brand {
 }
 .seePhotos{
     opacity: 0.85;
+    font-weight: bolder;
     font-size: 1.8rem;
     line-height: 1;
+}
+
+.seePhotosSubtext{
+    opacity: 0.8;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-bottom: 1.85rem;
 }
 
 .columnDivider {
@@ -396,6 +406,8 @@ h1, h2, h3, .navbar-brand {
 .moreMagazinesButton {
     width: 250px;
     height: 100px; 
+
+    margin-top: 0.25rem;
     
     background-image: url('/images/icons/news_kiosk.jpg');
     background-size: cover;

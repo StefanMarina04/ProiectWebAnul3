@@ -126,23 +126,25 @@ export default function Welcome({ auth }) {
 
                 <div className={styles.fadeBottom}></div>
             </div>
-            <Container className="pt-5 pb-4 d-flex justify-content-center">
+            <Container className="pt-5 pb-3 d-flex justify-content-center">
                 <p className={`text-center ${styles.introParagraph}`}>
                     {t('WIP')} 
                 </p>
             </Container>
-            <Container className="mt-5 mb-5">
-            <Row className="align-items-center"> 
+            <Container className="mt-4 mb-4">
+            <Row className="align-items-start"> 
                     
-                    <Col lg={6} className={`text-lg-center text-center pe-lg-0 ${styles.columnDivider}`}>
-                        <div className="d-flex align-items-end justify-content-center mb-4" style={{ minHeight: '80px' }}>
-                            <p className={`text-center mb-0 ${styles.seePhotos}`}>
+                    <Col lg={6} className={`text-lg-center text-center pe-lg-0 mb-4 ${styles.columnDivider}`}>
+                        <div className="d-flex align-items-end justify-content-center mb-2" style={{ minHeight: '80px' }}>
+                            <p className={`text-center mb-2 ${styles.seePhotos}`}>
                                 {t('See Little Paris through the lens')}
                             </p>
                         </div>
+
+                        <div className={`${styles.seePhotosSubtext}`}>{t("Landmarks, forgotten buildings and slices of life")}</div>
                         
                         <Row className="mt-4 justify-content-center">
-                            <Col md={10}> 
+                            <Col md={11}> 
                                 
                                 <Carousel fade className={styles.vintageCarousel} interval={3000}>
                                     
@@ -250,7 +252,7 @@ export default function Welcome({ auth }) {
 
                             </Col>
                             <Row className="justify-content-between" style={{ width: '100%' }}>
-                                <Col xs={6} className="pe-2 mt-4">
+                                <Col xs={6} className="pe-2 mt-4 pt-4">
                                 <div className="d-flex flex-column">
                                 <Button className={`${styles.morePhotosButton} w-100`} variant="link"
                                 data-tooltip={t('See a photo album of Interwar Bucharest and Romania')}
@@ -260,7 +262,7 @@ export default function Welcome({ auth }) {
                                 </Button>
                                 </div>
                                 </Col>
-                                <Col xs={6} className="ps-2 mt-4">                               
+                                <Col xs={6} className="ps-2 mt-4 pt-4">                               
                                 <div className="d-flex flex-column">
                                     <Link 
                                         href="/gallery" 
@@ -405,7 +407,7 @@ export default function Welcome({ auth }) {
                 </Col>
             </Row>
                 <Row>
-                    <Col className="center ps-lg-0 pt-4">
+                    <Col className="center ps-lg-0 pt-2">
                     <div className="d-flex flex-column align-items-lg-center align-items-center">
                       <Button className={`${styles.moreMagazinesButton}`} variant="link"
                     data-tooltip={t('See more magazines and newspapers')}
