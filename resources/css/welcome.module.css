@@ -595,6 +595,70 @@ h1, h2, h3, .navbar-brand {
     transform: translate(-50%, 0) scale(0.9); 
 }
 
+.ShopButton {
+    height: 300px; 
+    width: 300px;
+    
+    background-image: url('/images/icons/Shop.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    border: 1.5px solid var(--interwar-ink);
+    border-radius: 4px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: sepia(0.6);
+}
+
+.ShopButton:hover {
+    transform: scale(1.05);
+    filter: sepia(0.2) contrast(1.1);
+    border: 1.5px solid var(--interwar-ink);
+}
+
+.ShopButton:active {
+    border: 1.5px solid var(--interwar-ink) !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    transition: 0.1s ease-in-out;
+    
+    transform: scale(1);
+}
+
+.ShopButton::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+
+    background-color: var(--interwar-ink);
+    color: var(--interwar-paper);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    border-radius: 6px;
+    white-space: nowrap; 
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -10px);
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 991px) {
+    .ShopButton::after { white-space: wrap; 
+     font-size: 0.5rem;
+    }
+}
+
+.ShopButton:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(0.9); 
+}
+
 .vintageModal {
     background-color: var(--interwar-paper);
     border: 3px solid var(--interwar-ink);

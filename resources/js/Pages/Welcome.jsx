@@ -419,16 +419,39 @@ export default function Welcome({ auth }) {
                 </Row>
                     </Col>
 
-                    <Col lg={6} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
-                            <div className={`text-center mb-2 ${styles.seeForum}`}>
+                    <Col lg={4} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center mb-2 mt-4 ${styles.ThreeColumnTitle}`}>
                                 {t('Share your thougths!')}
                             </div>
-                            <div className={`text-center mb-2 ${styles.seeForum}`}>
+                            <div className={`text-center mb-2 ${styles.ThreeColumnTitleSubtext}`}>
                                 {t('Join the discussion in the forum')}
                             </div>
                     </Col>
-                    <Col lg={6} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                    <Col lg={4} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center mb-2 mt-4 ${styles.ThreeColumnTitle}`}>
+                                {t('Looking for a souvenir?')}
+                            </div>
+                            <div className={`text-center mb-2 ${styles.ThreeColumnSubtext}`}>
+                                {t('Explore the shop for items inspired by Interwar Bucharest')}
+                                <div className="d-flex flex-column align-items-center mt-3">
+                                    <Link 
+                                        href="/shop" 
+                                        className={`btn btn-link ${styles.ShopButton}`} 
+                                        data-tooltip={t('Go to the shop')}
+                                        aria-label={t('Go to the shop')}
+                                    >   
+                                    </Link>
+                                </div>
+                            </div>
+                    </Col>
+                    <Col lg={4} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center mb-2 mt-4 ${styles.ThreeColumnTitle}`}>
+                                {t('Want to learn more about Little Paris?')}
+                            </div>
+                            <div className={`text-center mb-2 ${styles.ThreeColumnSubtext}`}>
+                                {t('See maps, transport routes and old guides')}
 
+                            </div>
                     </Col>
             </Row>
         </Container>
