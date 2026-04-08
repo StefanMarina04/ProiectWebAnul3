@@ -252,7 +252,7 @@ export default function Welcome({ auth }) {
 
                             </Col>
                             <Row className="justify-content-between" style={{ width: '100%' }}>
-                                <Col xs={6} className="pe-2 mt-4 pt-4">
+                                <Col xs={6} className="pe-2 mt-4 pt-2">
                                 <div className="d-flex flex-column">
                                 <Button className={`${styles.morePhotosButton} w-100`} variant="link"
                                 data-tooltip={t('See a photo album of Interwar Bucharest and Romania')}
@@ -262,7 +262,7 @@ export default function Welcome({ auth }) {
                                 </Button>
                                 </div>
                                 </Col>
-                                <Col xs={6} className="ps-2 mt-4 pt-4">                               
+                                <Col xs={6} className="ps-2 mt-4 pt-2">                               
                                 <div className="d-flex flex-column">
                                     <Link 
                                         href="/gallery" 

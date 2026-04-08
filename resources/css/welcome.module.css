@@ -412,7 +412,7 @@ h1, h2, h3, .navbar-brand {
     width: 250px;
     height: 100px; 
 
-    margin-top: 0.20rem;
+    margin-top: 0.35rem;
     
     background-image: url('/images/icons/news_kiosk.jpg');
     background-size: cover;
@@ -698,11 +698,11 @@ h1, h2, h3, .navbar-brand {
     position: relative; 
     overflow: hidden; 
     
-    height: 400px; 
+    height: 420px; 
 }
 
 .carouselImage {
-    height: 400px;
+    height: 420px;
     
     object-fit: cover; 
     
