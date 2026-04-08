@@ -326,6 +326,11 @@ h1, h2, h3, .navbar-brand {
     padding-bottom: 2rem;
 }
 
+.rowDivider {
+    border-top: 1.5px solid var(--interwar-ink);
+    padding-bottom: 2rem;
+}
+
 @media (max-width: 991px) { 
     .columnDivider {
         border-right: none;
@@ -407,7 +412,7 @@ h1, h2, h3, .navbar-brand {
     width: 250px;
     height: 100px; 
 
-    margin-top: 0.25rem;
+    margin-top: 0.20rem;
     
     background-image: url('/images/icons/news_kiosk.jpg');
     background-size: cover;

@@ -27,22 +27,6 @@ export default function Gallery({ auth }) {
         }
     }
 
-    const [showMagazine, setShowMagazine] = useState(false);
-    const [magazineSrc, setMagazineSrc] = useState("");
-
-    const [magazineTitle, setMagazineTitle] = useState("");
-
-    const [isLoadingMagazine, setIsLoadingMagazine] = useState(true);
-
-    const handleCloseMagazine = () => setShowMagazine(false);
-    
-    const handleOpenMagazine = (src, title) => {
-        setIsLoadingMagazine(true);
-        setMagazineSrc(src);
-        setMagazineTitle(title); 
-        setShowMagazine(true);
-    };
-
     const [showImageModal, setShowImageModal] = useState(false);
     const [lightboxImageSrc, setLightboxImageSrc] = useState("");
     const [lightboxCaption, setLightboxCaption] = useState("");

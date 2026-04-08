@@ -417,7 +417,19 @@ export default function Welcome({ auth }) {
                       </div>
                     </Col>
                 </Row>
-            </Col>
+                    </Col>
+
+                    <Col lg={6} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center mb-2 ${styles.seeForum}`}>
+                                {t('Share your thougths!')}
+                            </div>
+                            <div className={`text-center mb-2 ${styles.seeForum}`}>
+                                {t('Join the discussion in the forum')}
+                            </div>
+                    </Col>
+                    <Col lg={6} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+
+                    </Col>
             </Row>
         </Container>
             <Modal show={showMagazine} onHide={handleCloseMagazine} size="xl" centered contentClassName={styles.vintageModal}>
