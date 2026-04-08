@@ -595,11 +595,10 @@ h1, h2, h3, .navbar-brand {
     transform: translate(-50%, 0) scale(0.9); 
 }
 
-.ShopButton {
+.ThreeColumnButton {
     height: 300px; 
     width: 300px;
     
-    background-image: url('/images/icons/Shop.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -610,13 +609,13 @@ h1, h2, h3, .navbar-brand {
     filter: sepia(0.6);
 }
 
-.ShopButton:hover {
+.ThreeColumnButton:hover {
     transform: scale(1.05);
     filter: sepia(0.2) contrast(1.1);
     border: 1.5px solid var(--interwar-ink);
 }
 
-.ShopButton:active {
+.ThreeColumnButton:active {
     border: 1.5px solid var(--interwar-ink) !important;
     outline: none !important;
     box-shadow: none !important;
@@ -626,7 +625,7 @@ h1, h2, h3, .navbar-brand {
     transform: scale(1);
 }
 
-.ShopButton::after{
+.ThreeColumnButton::after{
     content: attr(data-tooltip);
     position: absolute;
     bottom: -30px;
@@ -647,13 +646,27 @@ h1, h2, h3, .navbar-brand {
     transition: all 0.3s ease-in-out;
 }
 
+.ThreeColumnTitle{
+    opacity: 0.85;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.ThreeColumnSubtext{
+    opacity: 0.8;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
 @media (max-width: 991px) {
-    .ShopButton::after { white-space: wrap; 
+    .ThreeColumnButton::after { white-space: wrap; 
      font-size: 0.5rem;
     }
 }
 
-.ShopButton:hover::after {
+.ThreeColumnButton:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0) scale(0.9); 
