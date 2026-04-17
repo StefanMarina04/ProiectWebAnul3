@@ -31,7 +31,7 @@ export default function StandardMenuLayout({ children }) {
                 <Offcanvas.Body className="d-flex flex-column">
                     <Nav className="flex-column mb-auto">
                         {auth?.user ? (
-                            <Link href="/dashboard" className="vintageMainMenu-link">{t('Dashboard')}</Link>
+                            <Link href="/dashboard" className={`${styles.vintageMainMenuLink}`}>{t('Dashboard')}</Link>
                         ) : (
                             <>
                                 <Link href="/login" className={`${styles.vintageMainMenuLink}`}>{t('Log in')}</Link>
@@ -40,6 +40,8 @@ export default function StandardMenuLayout({ children }) {
                         )}
                         <Link href="/forum" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Forum')}</Link>
                         <Link href="/gallery" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Gallery')}</Link>
+                        <Link href="/shop" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Shop')}</Link>
+                        <Link href="/extra" className={`${styles.vintageMainMenuLink}`}>{t('See more content')}</Link>
                         <Link href="/#home" className={`${styles.vintageMainMenuLink}`}>{t('Go to the home page')}</Link>
                     </Nav>
 

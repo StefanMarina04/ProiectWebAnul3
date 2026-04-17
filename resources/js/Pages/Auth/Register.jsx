@@ -8,6 +8,7 @@ import { Head, Link, useForm, usePage } from '@inertiajs/react';
 export default function Register() {
     const { translations } = usePage().props;
     const t = (text) => translations ? (translations[text] || text) : text;
+
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -17,7 +18,6 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('register'), {
             onFinish: () => reset('password', 'password_confirmation'),
         });
@@ -25,12 +25,11 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title={t("Register")} />
+            <Head title={t('Register')} />
 
             <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="name" value={t("Name")} />
-
+                <div className="mb-3">
+                    <InputLabel htmlFor="name" value={t('Name')} />
                     <TextInput
                         id="name"
                         name="name"
@@ -41,13 +40,11 @@ export default function Register() {
                         onChange={(e) => setData('name', e.target.value)}
                         required
                     />
-
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value={t("Email")} />
-
+                <div className="mb-3">
+                    <InputLabel htmlFor="email" value={t('Email')} />
                     <TextInput
                         id="email"
                         type="email"
@@ -58,13 +55,11 @@ export default function Register() {
                         onChange={(e) => setData('email', e.target.value)}
                         required
                     />
-
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value={t("Password")} />
-
+                <div className="mb-3">
+                    <InputLabel htmlFor="password" value={t('Password')} />
                     <TextInput
                         id="password"
                         type="password"
@@ -75,16 +70,11 @@ export default function Register() {
                         onChange={(e) => setData('password', e.target.value)}
                         required
                     />
-
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value={t("Confirm Password")}
-                    />
-
+                <div className="mb-3">
+                    <InputLabel htmlFor="password_confirmation" value={t('Confirm Password')} />
                     <TextInput
                         id="password_confirmation"
                         type="password"
@@ -92,28 +82,18 @@ export default function Register() {
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
+                        onChange={(e) => setData('password_confirmation', e.target.value)}
                         required
                     />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
-                    />
+                    <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                        {t("Already registered?")}
+                <div className="d-flex align-items-center justify-content-between mt-4">
+                    <Link href={route('login')} className="small">
+                        {t('Already registered?')}
                     </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        {t("Register")}
+                    <PrimaryButton disabled={processing}>
+                        {t('Register')}
                     </PrimaryButton>
                 </div>
             </form>

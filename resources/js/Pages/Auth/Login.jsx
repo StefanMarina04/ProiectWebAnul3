@@ -1,10 +1,10 @@
-import Checkbox from '@/Components/Checkbox';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+import Checkbox from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm, usePage } from '@inertiajs/react'; 
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
     const { translations } = usePage().props;
@@ -23,17 +23,17 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <GuestLayout>
-            <Head title={t("Log in")} />
+            <Head title={t('Log in')} />
 
             {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    {t(status)} 
+                <div className="alert alert-success mb-3" role="alert">
+                    {t(status)}
                 </div>
             )}
 
             <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value={t("Email")} />
+                <div className="mb-3">
+                    <InputLabel htmlFor="email" value={t('Email')} />
                     <TextInput
                         id="email"
                         type="email"
@@ -47,8 +47,8 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value={t("Password")} />
+                <div className="mb-3">
+                    <InputLabel htmlFor="password" value={t('Password')} />
                     <TextInput
                         id="password"
                         type="password"
@@ -61,32 +61,36 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="mt-4 block">
-                    <label className="flex items-center">
-                        <Checkbox
-                            name="remember"
-                            checked={data.remember}
-                            onChange={(e) => setData('remember', e.target.checked)}
-                        />
-                        <span className="ms-2 text-sm text-gray-600">
-                            {t("Remember me")}
-                        </span>
+                <div className="mb-3 form-check">
+                    <Checkbox
+                        id="remember"
+                        name="remember"
+                        checked={data.remember}
+                        onChange={(e) => setData('remember', e.target.checked)}
+                    />
+                    <label className="form-check-label ms-2 small text-muted" htmlFor="remember">
+                        {t('Remember me')}
                     </label>
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="d-flex align-items-center justify-content-between mt-4">
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900"
+                            className="small"
                         >
-                            {t("Forgot your password?")}
+                            {t('Forgot your password?')}
                         </Link>
                     )}
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        {t("Log in")}
+                    <PrimaryButton className="ms-auto" disabled={processing}>
+                        {t('Log in')}
                     </PrimaryButton>
+                </div>
+
+                <hr className="my-3" />
+                <div className="text-center small">
+                    {t("Don't have an account?")}{' '}
+                    <Link href={route('register')}>{t('Register')}</Link>
                 </div>
             </form>
         </GuestLayout>

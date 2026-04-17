@@ -80,7 +80,7 @@ export default function Welcome({ auth }) {
                 
                 <Offcanvas.Body className="d-flex flex-column">
                     <Nav className="flex-column mb-auto">
-                        {auth.user ? (
+                        {auth?.user ? (
                             <Link href="/dashboard" className={`${styles.vintageMainMenuLink}`}>{t('Dashboard')}</Link>
                         ) : (
                             <>
@@ -89,6 +89,9 @@ export default function Welcome({ auth }) {
                             </>
                         )}
                         <Link href="/forum" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Forum')}</Link>
+                        <Link href="/gallery" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Gallery')}</Link>
+                        <Link href="/shop" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Shop')}</Link>
+                        <Link href="/extra" className={`${styles.vintageMainMenuLink}`}>{t('See more content')}</Link>
                     </Nav>
 
                     <div className="mt-auto pt-4 border-top border-secondary">
