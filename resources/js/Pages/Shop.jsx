@@ -1,12 +1,17 @@
-import StandardMenuLayout from '@/Layouts/StandardMenuLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { Container } from 'react-bootstrap';
+import StandardMenuLayout from '@/Layouts/StandardMenuLayout';
 
 export default function Shop() {
+    const { translations } = usePage().props;
+    const t = (text) => translations ? (translations[text] || text) : text;
+
     return (
-        <StandardMenuLayout>
-            <Head title="Shop"/>
-            
-        </StandardMenuLayout>
+        <>
+            <Head title={t("Shop")} />
+            <StandardMenuLayout>
+                
+            </StandardMenuLayout>
+        </>
     );
 }

@@ -6,7 +6,7 @@
     "Log in": "Autentificare",
     "Register": "Înregistrare",
     "Forum": "Forum",
-    "Go to the Forum": "Mergi către Forum",
+    "Go to the Forum": "Mergi către forum",
     "Interwar Bucharest": "Bucureștiul interbelic",
     "Public Transit": "Transport Public",
     "Remember me": "Ține-mă minte",
@@ -71,5 +71,9 @@
     "Paris of the East - Web Project": "Micul Paris - Proiect Web",
     "introParagraph": "Bucureștiul, capitala României, odată un oraș dezorganizat cu iz oriental și caracter balcanic, devenise până la începutul secolului XX un oraș modern european, puternic influențat de arhitectura și urbanismul francez. Această transformare i-a adus orașului porecla de „Micul Paris” sau „Parisul Estului”.",
     "introParagraph2": "Între cele două războaie mondiale, capitala s-a bucurat de o mare dezvoltare în toate domeniile de importanță pentru societate: cultură, știință, economie și viață socială. În România interbelică, ora exactă se dădea la București, iar kilometrul zero pleca din centrul orașului. Curentele artistice și de modă cele mai noi ajungeau prima oară la București, iar știința și tehnica erau într-o continuă stare de dezvoltare și adoptare în capitală. De la cele mai frumoase clădiri și bulevarde, la cele mai șic localuri, cele mai fascinante puncte culturale și cele mai noi pelicule, Bucureștiul dispunea de tot ce era mai bun și mai nou în țară.",
-    "introParagraph3": "Deși vremea jazz-ului, a cabaretului și a dansului Charleston a apus demult în București, iar șarmul său interbelic s-a diminuat odată cu trecerea timpului, imagini de arhivă, reviste și alte articole din perioada respectivă încă pot contura o imagine a ceea ce era Micul Paris. La o privire mai atentă, încă poți descoperi sclipiri ale gloriei sale de odinioară, așadar, fă o călătorie în timp și explorează Bucureștiul interbelic!"
+    "introParagraph3": "Deși vremea jazz-ului, a cabaretului și a dansului Charleston a apus demult în București, iar șarmul său interbelic s-a diminuat odată cu trecerea timpului, imagini de arhivă, reviste și alte articole din perioada respectivă încă pot contura o imagine a ceea ce era Micul Paris. La o privire mai atentă, încă poți descoperi sclipiri ale gloriei sale de odinioară, așadar, fă o călătorie în timp și explorează Bucureștiul interbelic!",
+    "Shop": "Magazin",
+    "Gallery": "Galerie",
+    "Go to the Gallery": "Mergi către galerie",
+    "Go to the home page": "Mergi înapoi la start"
 }

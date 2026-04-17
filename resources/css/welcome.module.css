@@ -182,17 +182,46 @@ h1, h2, h3, .navbar-brand {
 
 .langButton{
     display: inline-block;
-    width: 40px;
-    height: 25px;
+    width: 60px;
+    height: 45px;
     background-size: cover;
     background-position: center;
-    border-radius:6px;
+    border-radius: 6px;
     transition: transform 0.3s, filter 0.3s;
     filter: sepia(0.2) contrast(0.9);
 }
 
+.vintageMainMenuLink{
+    text-decoration: none;
+    color: var(--interwar-ink);
+    font-size: 1.45rem;
+    text-align: center;
+    padding-top: 1.75rem;
+    transition: ease-in-out 0.35s;
+}
+
+.vintageMainMenuLink:hover{
+    text-decoration: none;
+    color: var(--interwar-gold);
+    text-align: center;
+    font-size: 1.65rem;
+    transition: ease-in-out 0.55s;
+}
+
+.vintageMainMenuTitle{
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.selectLanguageText{
+    text-align: center;
+    font-size: 1.45rem;
+}
+
 .langButton:hover {
-    transform: scale(1.2);
+    transform: scale(1.25);
     filter: brightness(1.1) sepia(0.2) contrast(1.1);
 }
 
@@ -205,10 +234,9 @@ h1, h2, h3, .navbar-brand {
 }
 
 .lang-active{
-    box-shadow:  0 0 6px rgba(0, 0, 0, 0.1);
-    transform: scale(1.1);    
+    transform: scale(1.2);    
     transition: transform 0.3s, filter 0.3s;
-    filter: sepia(0.1), brightness(1)
+    filter: sepia(0.05), brightness(1)
 }
 .menuButton {
     display: inline-block;

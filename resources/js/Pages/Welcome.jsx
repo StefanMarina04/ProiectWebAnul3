@@ -73,7 +73,7 @@ export default function Welcome({ auth }) {
             </Container>
             <Offcanvas show={show} onHide={handleClose} placement="end" style={{ backgroundColor: 'var(--interwar-paper)', borderRight: '2px solid var(--interwar-ink)' }}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title style={{ fontFamily: 'var(--font-title)', fontWeight: 'bold' }}>
+                    <Offcanvas.Title className={`w-100 text-center ${styles.vintageMainMenuTitle}`}>
                         {t('Menu')}
                     </Offcanvas.Title>
                 </Offcanvas.Header>
@@ -81,25 +81,25 @@ export default function Welcome({ auth }) {
                 <Offcanvas.Body className="d-flex flex-column">
                     <Nav className="flex-column mb-auto">
                         {auth.user ? (
-                            <Link href="/dashboard" className="main-menu-link">{t('Dashboard')}</Link>
+                            <Link href="/dashboard" className={`${styles.vintageMainMenuLink}`}>{t('Dashboard')}</Link>
                         ) : (
                             <>
-                                <Link href="/login" className="main-menu-link">{t('Log in')}</Link>
-                                <Link href="/register" className="main-menu-link">{t('Register')}</Link>
+                                <Link href="/login" className={`${styles.vintageMainMenuLink}`}>{t('Log in')}</Link>
+                                <Link href="/register" className={`${styles.vintageMainMenuLink}`}>{t('Register')}</Link>
                             </>
                         )}
-                        <Link href="/forum" className="main-menu-link">{t('Go to the Forum')}</Link>
+                        <Link href="/forum" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Forum')}</Link>
                     </Nav>
 
                     <div className="mt-auto pt-4 border-top border-secondary">
-                        <p className="text-muted mb-2">{t('Select Language')}:</p>
-                        <div className="d-flex">
+                        <p className={`${styles.selectLanguageText}`}>{t('Select Language')}:</p>
+                        <div className="d-flex justify-content-center">
                             <Link 
                                 href="/language/ro" 
                                 className={`${styles['langButton']} ${styles['langButton-ro']} ${locale === 'ro' ? styles['lang-active'] : ''}`}
                                 title="Română"
                             />
-                            <div className="mx-2"></div>
+                            <div className="mx-4"></div>
                             <Link 
                                 href="/language/en" 
                                 className={`${styles['langButton']} ${styles['langButton-en']} ${locale === 'en' ? styles['lang-active'] : ''}`}

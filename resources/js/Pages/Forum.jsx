@@ -1,5 +1,6 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { Container } from 'react-bootstrap';
+import StandardMenuLayout from '@/Layouts/StandardMenuLayout';
 
 export default function Forum() {
     const { translations } = usePage().props;
@@ -8,11 +9,7 @@ export default function Forum() {
     return (
         <>
             <Head title={t("Forum")} />
-            <Container className='mt-5'>
-                <h1>{t('Forum')}</h1>
-                <p>{t('Welcome')}</p>
-                <Link href="/#home" className="nav-link">{t('Go to the homepage')}</Link>
-            </Container>
+            <StandardMenuLayout></StandardMenuLayout>
         </>
     );
 }

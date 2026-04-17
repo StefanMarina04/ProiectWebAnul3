@@ -3,7 +3,7 @@ import { Offcanvas, Nav, Button, Container } from 'react-bootstrap';
 import { Link, usePage } from '@inertiajs/react';
 import styles from '../../css/welcome.module.css'; 
 
-export default function VintageLayout({ children }) {
+export default function StandardMenuLayout({ children }) {
     const { auth, translations, locale } = usePage().props;
     const t = (text) => translations ? (translations[text] || text) : text;
 
@@ -23,7 +23,7 @@ export default function VintageLayout({ children }) {
 
             <Offcanvas show={show} onHide={handleClose} placement="end" style={{ backgroundColor: 'var(--interwar-paper)', borderRight: '2px solid var(--interwar-ink)' }}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title style={{ fontFamily: 'var(--font-title)', fontWeight: 'bold' }}>
+                    <Offcanvas.Title className={`w-100 text-center ${styles.vintageMainMenuTitle}`}>
                         {t('Menu')}
                     </Offcanvas.Title>
                 </Offcanvas.Header>
@@ -31,23 +31,23 @@ export default function VintageLayout({ children }) {
                 <Offcanvas.Body className="d-flex flex-column">
                     <Nav className="flex-column mb-auto">
                         {auth?.user ? (
-                            <Link href="/dashboard" className="main-menu-link">{t('Dashboard')}</Link>
+                            <Link href="/dashboard" className="vintageMainMenu-link">{t('Dashboard')}</Link>
                         ) : (
                             <>
-                                <Link href="/login" className="main-menu-link">{t('Log in')}</Link>
-                                <Link href="/register" className="main-menu-link">{t('Register')}</Link>
+                                <Link href="/login" className={`${styles.vintageMainMenuLink}`}>{t('Log in')}</Link>
+                                <Link href="/register" className={`${styles.vintageMainMenuLink}`}>{t('Register')}</Link>
                             </>
                         )}
-                        <Link href="/forum" className="main-menu-link">{t('Go to the Forum')}</Link>
-                        <Link href="/gallery" className="main-menu-link">{t('Go to the Gallery')}</Link>
-                        <Link href="/#home" className="main-menu-link">{t('Go to the home page')}</Link>
+                        <Link href="/forum" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Forum')}</Link>
+                        <Link href="/gallery" className={`${styles.vintageMainMenuLink}`}>{t('Go to the Gallery')}</Link>
+                        <Link href="/#home" className={`${styles.vintageMainMenuLink}`}>{t('Go to the home page')}</Link>
                     </Nav>
 
                     <div className="mt-auto pt-4 border-top border-secondary">
-                        <p className="text-muted mb-2">{t('Select Language')}:</p>
-                        <div className="d-flex">
+                        <p className={`${styles.selectLanguageText}`}>{t('Select Language')}:</p>
+                        <div className="d-flex justify-content-center">
                             <Link href="/language/ro" className={`${styles.langButton} ${styles['langButton-ro']} ${locale === 'ro' ? styles['lang-active'] : ''}`} />
-                            <div className="mx-2"></div>
+                            <div className="mx-4"></div>
                             <Link href="/language/en" className={`${styles.langButton} ${styles['langButton-en']} ${locale === 'en' ? styles['lang-active'] : ''}`} />
                         </div>
                     </div>
