@@ -58,7 +58,7 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head title={t("Welcome to Interwar Bucharest")} />
-            <Container fluid className="pt-0 pe-5 d-flex justify-content-end align-items-end" style={{position: 'relative', zIndex: 999}}>
+            <Container fluid className="pt-0 mt-0 pe-3 d-flex justify-content-end align-items-end" style={{position: 'relative', zIndex: 999}}>
                 <Button className={`${styles.vintageCameraButton} ${isPlaying ? styles.playingMainVideo : styles.pausedMainVideo} me-2`} variant="link" onClick={toggleVideo} 
                     aria-label={isPlaying ? t('Pause') : t('Resume')}
                     data-tooltip={isPlaying ? t('Pause') : t('Resume')}
@@ -118,8 +118,8 @@ export default function Welcome({ auth }) {
                 <div className={styles.mainOverlay}></div>
 
                 <Container className={`text-center position-relative ${styles.mainTextContainer}`}>
-                    <h1 className="display-4">{t('Paris of the East')}</h1>
-                    <p className="lead border-bottom border-dark pb-2 mb-5" style={{ display: 'inline-block', borderBottomWidth: '2px !important' }}>
+                    <h1 className={`display-5 ${styles.homeTitle}`}>{t('Paris of the East')}</h1>
+                    <p className={`lead border-bottom border-dark pb-2 mb-5 ${styles.homeSubtitle}`}>
                         {t('Explore Interwar Bucharest')}
                     </p>
                 </Container>
@@ -127,9 +127,15 @@ export default function Welcome({ auth }) {
                 <div className={styles.fadeBottom}></div>
             </div>
             <Container className="pt-5 pb-3 d-flex justify-content-center">
-                <p className={`text-center ${styles.introParagraph}`}>
-                    {t('WIP')} 
-                </p>
+              <p className={`text-center ${styles.introParagraph}`}>
+                    {t('introParagraph')}
+                    <br></br>
+                    <br></br>
+                    {t('introParagraph2')}
+                    <br></br>
+                    <br></br>
+                    {t('introParagraph3')}
+            </p>
             </Container>
             <Container className="mt-4 mb-4">
             <Row className="align-items-start"> 
@@ -419,54 +425,58 @@ export default function Welcome({ auth }) {
                 </Row>
                     </Col>
 
-                    <Col lg={4} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
-                            <div className={`text-center mb-2 mt-4 ${styles.ThreeColumnTitle}`}>
-                                {t('Share your thougths!')}
+                </Row>
+                <Row>
+                    <Col lg={4} className={`d-flex flex-column text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center pb-3 mt-4 ${styles.ThreeColumnTitle}`}>
+                                {t('Share your thoughts!')}
                             </div>
                             <div className={`text-center mb-2 ${styles.ThreeColumnSubtext}`}>
                                 {t('Join the discussion in the forum')}
-                                 <div className="d-flex flex-column align-items-center mt-3">
+                            </div>
+                            <div className="mt-auto d-flex flex-column align-items-center pt-3">
                                     <Link 
-                                        href="/shop" 
+                                        href="/forum" 
                                         className={`btn btn-link ${styles.ThreeColumnButton}`} 
-                                        data-tooltip={t('Go to the shop')}
-                                        aria-label={t('Go to the shop')}
+                                        style={{ backgroundImage: "url('/images/icons/forum.png')" }}
+                                        data-tooltip={t('Go to the forum')}
+                                        aria-label={t('Go to the forum')}
                                     >   
                                     </Link>
-                                </div>
                             </div>
                     </Col>
-                    <Col lg={4} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
-                            <div className={`text-center mb-2 mt-4 ${styles.ThreeColumnTitle}`}>
+                    <Col lg={4} className={`d-flex flex-column text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center pb-3 mt-4 ${styles.ThreeColumnTitle}`}>
                                 {t('Looking for a souvenir?')}
                             </div>
-                            <div className={`text-center mb-4 ${styles.ThreeColumnSubtext}`}>
+                            <div className={`text-center mb-2 ${styles.ThreeColumnSubtext}`}>
                                 {t('Explore the shop for items inspired by Interwar Bucharest')}
                             </div>
-
-                                <div className="d-flex flex-column align-items-center mt-3">
+                                <div className="mt-auto d-flex flex-column align-items-center pt-3">
                                     <Link 
                                         href="/shop" 
                                         className={`btn btn-link ${styles.ThreeColumnButton}`} 
+                                        style={{ backgroundImage: "url('/images/icons/shop.png')" }}
                                         data-tooltip={t('Go to the shop')}
                                         aria-label={t('Go to the shop')}
                                     >   
                                     </Link>
                                 </div>
                     </Col>
-                    <Col lg={4} className={`text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
-                            <div className={`text-center mb-2 mt-4 ${styles.ThreeColumnTitle}`}>
+                    <Col lg={4} className={`d-flex flex-column text-lg-center text-center pe-lg-3 mb-4 ${styles.rowDivider}`}>
+                            <div className={`text-center pb-3 mt-4 ${styles.ThreeColumnTitle}`}>
                                 {t('Want to learn more about Little Paris?')}
                             </div>
                             <div className={`text-center mb-2 ${styles.ThreeColumnSubtext}`}>
                                 {t('See maps, transport routes and old guides')}
                             </div>
-                                 <div className="d-flex flex-column align-items-center mt-3">
+                                 <div className="mt-auto d-flex flex-column align-items-center pt-3">
                                     <Link 
-                                        href="/shop" 
+                                        href="/extra" 
                                         className={`btn btn-link ${styles.ThreeColumnButton}`} 
-                                        data-tooltip={t('Go to the shop')}
-                                        aria-label={t('Go to the shop')}
+                                        style={{ backgroundImage: "url('/images/icons/extra.png')" }}
+                                        data-tooltip={t('See more content')}
+                                        aria-label={t('See more content')}
                                     >   
                                     </Link>
                                 </div>

@@ -39,6 +39,11 @@ Route::get('/shop', function()
     return Inertia::render('Shop');
 });
 
+Route::get('/extra', function()
+{
+    return Inertia::render('Extra');
+});
+
 Route::get('/language/{locale}', function ($locale)
 {
     if (in_array($locale, ['en', 'ro']))
