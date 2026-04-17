@@ -61,7 +61,7 @@ export default function Footer() {
 
                 <div className={styles.footerBottom}>
                     <p className={styles.copyright}>
-                        {new Date().getFullYear()} {t('Paris of the East - Web Project')}
+                        MMXXVI {t('Paris of the East - Web Project')}
                     </p>
                 </div>
 
