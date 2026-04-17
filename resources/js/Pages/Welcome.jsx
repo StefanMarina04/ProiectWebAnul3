@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { Container, Navbar, Nav, Offcanvas, Button, Row, Col, Modal, Carousel, Spinner } from 'react-bootstrap';
 import { Head, Link, usePage } from '@inertiajs/react';
 import styles from '../../css/welcome.module.css';
+import Footer from '@/Components/Footer';
 
 export default function Welcome({ auth }) {
     const { translations, locale } = usePage().props;
@@ -548,6 +549,7 @@ export default function Welcome({ auth }) {
                     )}
                 </Modal.Body>
             </Modal>
+            <Footer></Footer>
         </>
     );
 }

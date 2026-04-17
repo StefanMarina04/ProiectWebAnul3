@@ -1,0 +1,58 @@
+.footerContainer {
+    background-color: var(--interwar-paper);
+    color: var(--interwar-ink);
+    padding: 4rem 0 2rem 0;
+    border-top: 2px solid var(--interwar-ink);
+    margin-top: 5rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.footerTitle {
+    font-family: var(--font-title);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--interwar-ink);
+    display: inline-block;
+}
+
+.footerText {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.socialIcons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.socialLink {
+    color: var(--interwar-ink);
+    text-decoration: none;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+    color: var(--interwar-gold);
+    padding-left: 5px;
+}
+
+.mapWrapper {
+    filter: sepia(0.5) contrast(0.9);
+    transition: filter 0.5s ease;
+}
+
+.mapWrapper:hover {
+    filter: sepia(0.1);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    font-style: italic;
+    opacity: 0.8;
+}
