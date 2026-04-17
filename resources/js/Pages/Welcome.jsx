@@ -483,6 +483,7 @@ export default function Welcome({ auth }) {
                                 </div>
                     </Col>
             </Row>
+            <Footer></Footer>
         </Container>
             <Modal show={showMagazine} onHide={handleCloseMagazine} size="xl" centered contentClassName={styles.vintageModal}>
                 <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
@@ -549,7 +550,6 @@ export default function Welcome({ auth }) {
                     )}
                 </Modal.Body>
             </Modal>
-            <Footer></Footer>
         </>
     );
 }

@@ -1,11 +1,9 @@
 .footerContainer {
     background-color: var(--interwar-paper);
     color: var(--interwar-ink);
-    padding: 4rem 0 2rem 0;
-    border-top: 2px solid var(--interwar-ink);
-    margin-top: 5rem;
-    margin-left: 15rem;
-    margin-right: 15rem;
+    padding: 1.5rem 0 2rem 0;
+    border-top: 1.5px solid var(--interwar-ink);
+    margin-top: 2rem;
 }
 
 .footerTitle {
@@ -15,13 +13,16 @@
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--interwar-ink);
-    display: inline-block;
+    text-align: center;
+    display: block;
 }
 
 .footerText {
     font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.6;
+    align-content: center;
+    text-align: center;
 }
 
 .socialIcons {
@@ -34,12 +35,22 @@
     color: var(--interwar-ink);
     text-decoration: none;
     font-family: var(--font-body);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    
+    display: flex;
+    align-items: center;
+    gap: 8px;         
+    font-size: 0.95rem;
+}
+
+.socialLink svg {
+    font-size: 1.2rem;  
+    flex-shrink: 0;    
 }
 
 .socialLink:hover {
     color: var(--interwar-gold);
-    padding-left: 5px;
+    transform: scale(1.05);
 }
 
 .mapWrapper {
@@ -51,8 +62,79 @@
     filter: sepia(0.1);
 }
 
+@media (max-width: 600px) {
+    .mapWrapper {
+        height: 150px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1200px)
+{
+    .mapWrapper {
+        height: 250px;
+        width: 400px;
+        align-self: center;
+    }
+}
+
 .copyright {
     font-size: 0.8rem;
     font-style: italic;
     opacity: 0.8;
+    white-space: nowrap; 
+}
+
+@media (max-width: 400px) {
+    .copyright {
+        white-space: normal;
+        font-size: 0.75rem;
+    }
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+    .footerGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+
+    .footerGrid > div:last-child {
+        grid-column: 1 / -1;        
+        max-width: 500px;           
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .footerGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footerGrid > div:last-child {
+        grid-column: auto;
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+.socialGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    align-items: center;
+    align-content: center;
+    justify-items: center;  
+}
+
+.footerBottom {
+    border-top: 1px solid var(--interwar-ink);
+    padding: 16px 0;
+    text-align: center;
 }
