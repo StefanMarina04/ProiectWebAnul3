@@ -13,7 +13,7 @@ Site-ul a fost creat utilizând framework-ul de PHP numit Laravel (pentru backen
 
 Categoria site-ului este cea de site de prezentare, scopul propus fiind de a oferi imagini, materiale și scurte descrieri sau relatări despre Bucureștiul interbelic.
 
-                    (email),        (parola)
+________________________(email)______(parola)
 [Credențiale admin: admin@admin.ro, admin1234]
 
 ---
@@ -34,7 +34,7 @@ BAREM RAPID:
 ---
 - Atracția principală (și unde am depus cel mai mare efort):
     Pagina de start (oferă cel mai mult conținut)
-    ~~contribuție personală mai mare~~
+    ~contribuție personală mai mare
     - Video de fundal
     - Buton cameră pentru oprirea sau pornirea la loc a videoului din fundal
     - Buton meniu (cu toate link-urile către celelalte pagini sau înregistrare/autentificare) și posibilitatea de a schimba limba de afișare (limba română sau limba engleză)
@@ -46,22 +46,22 @@ BAREM RAPID:
     - Butoane pentru: Forum, Magazin și o zonă cu conținut suplimentar
     - Suport integral pentru limba română și limba engleză
 
-    ~~contribuție AI mai mare~~
+    ~contribuție AI mai mare
     - Zonă de contact și social media + embed Google Maps
 ---
 
 ---
-    Pagina de Galerie (a doua cea mai completă parte a site-ului - cu contribuție mai mare din partea mea)
+Pagina de Galerie (a doua cea mai completă parte a site-ului - cu contribuție mai mare din partea mea)
     - Câte 9 imagini în alb-negru și colore alese de mine + titluri/localizarea unora în spațiu (exemplu: pentru fotografia coloră cu Hotel Lafayette pe internet nu găsisem și denumirea clădirii, am stat și am căutat-o separat) și traduceri
 ---
 
-    Pagina de administrare a contului (utilizatori simpli) și pagina de administrare specială (doar administratori) -- contribuție mai mare AI
+Pagina de administrare a contului (utilizatori simpli) și pagina de administrare specială (doar administratori) -- contribuție mai mare AI
     - Posibilitate schimbare date cont (toți utilizatorii)
     - Modificare și ștergere conturi (doar administratorii)
 
 == Părți parțial funcționale ==
 
-    Tot la pagina de administrare, dar pe partea de adăugare produse pentru magazin
+Tot la pagina de administrare, dar pe partea de adăugare produse pentru magazin
     - Parțial funcțional, produsele se pot adăuga și se poate modifica denumirea, descrierea, prețul și disponibilitatea (1 - disponibil, produs în stoc și afișat, 2 - indisponibil, nu mai este în stoc, 3 - draft/doar adminul vede)
 
 == Componente nefuncționale / lipsă ==
