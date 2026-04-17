@@ -6,8 +6,20 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 
+
+
 createInertiaApp({
-    title: (title) => `${title} - LPBT`,
+    title: (title) => {
+        let appName = 'Little Paris';
+        try {
+            const pageData = JSON.parse(document.getElementById('app').dataset.page);
+            if (pageData.props.appName) {
+                appName = pageData.props.appName;
+            }
+        } catch (e) {}
+        
+        return `${title} - ${appName}`;
+    },
     resolve: (name) =>
         resolvePageComponent(
             `./Pages/${name}.jsx`,

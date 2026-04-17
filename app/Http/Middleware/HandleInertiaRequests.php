@@ -44,6 +44,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'locale' => $locale,
             'translations' => $translations,
+            'appName' => __('Paris of the East')
         ]);
     }
 }
