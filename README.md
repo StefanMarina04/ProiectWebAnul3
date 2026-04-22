@@ -7,7 +7,7 @@ npm instalat împreună cu ReactJS, Bootstrap, react-icons
 Composer
 
 După ce XAMPP este pornit, se rulează comenzile `npm run dev` și `php artisan serve`,
-dacă din varii motive conexiunea la baza de date nu funcționează e recomandată rularea comenzii `php artisan migrate`.
+iar pentru baza de date `php artisan migrate`.
 
 Site-ul a fost creat utilizând framework-ul de PHP numit Laravel (pentru backend) și ReactJS (pentru frontend).
 
