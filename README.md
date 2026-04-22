@@ -14,7 +14,7 @@ Site-ul a fost creat utilizând framework-ul de PHP numit Laravel (pentru backen
 Categoria site-ului este cea de site de prezentare, scopul propus fiind de a oferi imagini, materiale și scurte descrieri sau relatări despre Bucureștiul interbelic.
 
 ________________________(email)______(parola)
-[Credențiale admin: admin@admin.ro, admin1234]
+[Credențiale admin: admin@admin.com, admin1234]
 
 ---
 BAREM RAPID:
