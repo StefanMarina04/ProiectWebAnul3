@@ -1,4 +1,5 @@
-Tema de casă - Proiect Web 2026 - C113C Marina Traian-Ștefan
+!(Branch modificat după predarea la termen a părții de frontend)!
+Proiect Web 2026 - C113C Marina Traian-Ștefan
 „Micul Paris”
 
 Necesități pornire și verificare a site-ului:
