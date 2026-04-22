@@ -15,7 +15,7 @@ Categoria site-ului este cea de site de prezentare, scopul propus fiind de a ofe
 
 ________________________(email)______(parola)
 [Credențiale admin: admin@admin.com, admin1234]
-
+(Pentru testarea contului de admin trebuie utilizată prima oară comanda `php artisan db:seed`)
 ---
 BAREM RAPID:
 
