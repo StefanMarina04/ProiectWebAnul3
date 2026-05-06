@@ -1,0 +1,16 @@
+.moreMagazinesTitle {
+    font-family: 'Petemoss';
+    font-weight: bold;
+    opacity: 0.85;
+    font-size: 5rem;
+    margin-top: 10%;
+    align-self: center;
+    text-align: center;
+}
+
+.moreMagazinesSubtitle{
+    font-family: 'Petemoss';
+    font-weight: normal;
+    opacity: 0.8;
+    font-size: 4.15rem;
+}
