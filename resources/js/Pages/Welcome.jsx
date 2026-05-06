@@ -422,6 +422,7 @@ export default function Welcome({ auth }) {
                       <Button className={`${styles.moreMagazinesButton}`} variant="link"
                     data-tooltip={t('See more magazines and newspapers')}
                     aria-label={t('See more magazines and newspapers')}
+                    href="/magazines"
                     >   
                       </Button>
                       </div>
