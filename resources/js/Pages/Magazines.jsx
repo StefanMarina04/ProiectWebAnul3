@@ -45,20 +45,18 @@ export default function Magazines() {
                 <Row classname="align-items-center">
                     <Col className="text-lg-center text-center ">
                         <div className="d-flex flex-column align-items-lg-center align-items-start">
-
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/revista-radio-si-radiofonia/Radio, septembrie-decembrie 1928 (Anul 1, nr. 1-15)", "Radio Anul I No.1")}
                             >
                                 <img
-                                    src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg"
-                                    alt="Copertă România 1937"
+                                    src="/images/magazines/Radiofonia_1928_09_23.jpg"
+                                    alt="Copertă Adevărul 1922"
                                     className={styles.magazineThumbnail}
                                 />
-
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>România</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Radio (Radiofonia)</h5>
+                                    <span className={styles.magazineDateVisual}>{t('First Issue, 1928')}</span>
                                 </div>
                             </button>
                         </div>
@@ -67,16 +65,17 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-center">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/radiofonia-1934-04-06-1662752278-pages-201-250", "Radiofonia Anul VII, No. 289")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
-                                    alt="Copertă Adevărul 1922"
+                                    src="/images/magazines/Radiofonia_1934_04-06.jpg"
+                                    alt="Copertă Radiofonia 1934"
                                     className={styles.magazineThumbnail}
                                 />
+
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Radiofonia</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year Six No. 289, 1934')}</span>
                                 </div>
                             </button>
                         </div>
@@ -85,16 +84,16 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-end">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/radiofonia-1937-07-09-1662754006-pages-101-150", "Radiofonia 4 iulie 1937")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
+                                    src="/images/magazines/Radiofonia_1937_07-09.jpg"
                                     alt="Copertă Adevărul 1922"
                                     className={styles.magazineThumbnail}
                                 />
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Radio (Radiofonia)</h5>
+                                    <span className={styles.magazineDateVisual}>{t('4th of July 1937')}</span>
                                 </div>
                             </button>
                         </div>
