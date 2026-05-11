@@ -105,17 +105,17 @@ export default function Magazines() {
 
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/ziarul_stiintelor_si_al_calatoriilor_1927_51", "Ziarul științelor și al călătoriilor, Anul XXXI No.48, 1927")}
                             >
                                 <img
-                                    src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg"
-                                    alt="Copertă România 1937"
+                                    src="/images/magazines/ziarul_stiintelor_si_al_calatoriilor_1927_48_0000.jpg"
+                                    alt="Copertă Ziarul științelor și al călătoriilor 1927"
                                     className={styles.magazineThumbnail}
                                 />
 
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>România</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Ziarul științelor și al călătoriilor</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year XXXI No.48, 1927')}</span>
                                 </div>
                             </button>
                         </div>
@@ -124,16 +124,16 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-center">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/ziarul-stiintelor-si-calatoriilor-1928-1666324654-pages-251-300", "Ziarul științelor și al călătoriilor, Anul XXXII No.1, 1928")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
-                                    alt="Copertă Adevărul 1922"
+                                    src="/images/magazines/ZiarulStiintelorSiCalatoriilor_19280101.jpg"
+                                    alt="Copertă Ziarul științelor și al călătoriilor 1928"
                                     className={styles.magazineThumbnail}
                                 />
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Ziarul științelor și al călătoriilor</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year XXXII No.1, 1928')}</span>
                                 </div>
                             </button>
                         </div>
@@ -142,16 +142,16 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-end">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/ziarul-stiintelor-si-calatoriilor-1937-1666325852-pages-451-500", "Ziarul științelor și al călătoriilor, Anul LI Număr de Anul Nou 1937")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
-                                    alt="Copertă Adevărul 1922"
+                                    src="/images/magazines/ZiarulStiintelorSiCalatoriilor_1937-1666325852__pages001-050_0000.jpg"
+                                    alt="Copertă Ziarul științelor și al călătoriilor 1937"
                                     className={styles.magazineThumbnail}
                                 />
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Ziarul științelor și al călătoriilor</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year LI New Year Issue, 1937')}</span>
                                 </div>
                             </button>
                         </div>
@@ -163,17 +163,17 @@ export default function Magazines() {
 
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/voiaj_a01_n01_text", "Voiaj, Anul I Nr.1 1933")}
                             >
                                 <img
-                                    src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg"
-                                    alt="Copertă România 1937"
+                                    src="/images/magazines/revista_voiaj_1933.jpg"
+                                    alt="Copertă Voiaj 1933"
                                     className={styles.magazineThumbnail}
                                 />
 
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>România</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Voiaj</h5>
+                                    <span className={styles.magazineDateVisual}>{t('First Issue, 1933')}</span>
                                 </div>
                             </button>
                         </div>
@@ -182,16 +182,16 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-center">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/voiaj_a01_n02_tiff", "Voiaj, Anul I Nr.2 1933")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
-                                    alt="Copertă Adevărul 1922"
+                                    src="/images/magazines/revista_voiaj_1933_2.jpg"
+                                    alt="Copertă Voiaj 1933 (2)"
                                     className={styles.magazineThumbnail}
                                 />
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Voiaj</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Second Issue, 1933')}</span>
                                 </div>
                             </button>
                         </div>
@@ -200,16 +200,16 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-end">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/revista-veselia/Veselia_1927-1653687722__pages701-750", "Veselia Anul XXXIII, No. 47, 1927")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
-                                    alt="Copertă Adevărul 1922"
+                                    src="/images/magazines/Veselia_19271124.jpg"
+                                    alt="Copertă Veselia 1927"
                                     className={styles.magazineThumbnail}
                                 />
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Veselia</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year XXXIII, No. 47, 1927')}</span>
                                 </div>
                             </button>
                         </div>
