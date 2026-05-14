@@ -217,7 +217,7 @@ export default function Magazines() {
                 </Row>
                 </Container>
                 <Container className={`text-center mb-4 mt-4`}>
-                <h2 className={`mt-3 ${magazine_styles.moreMagazinesSubtitle}`}>{t('Newspapers')}</h2>
+                <h2 className={`mt-3 ${magazine_styles.moreMagazinesSubtitle}`}>{t('Newspapers, gazzetes and bonus magazines')}</h2>
                 <div className="ps-5 pe-5" style={{ borderBottom: '1.5px solid var(--interwar-ink)', marginTop: '0.5rem', maxWidth: '50%', marginLeft: '25%', marginBottom: '1rem' }}></div>
                 </Container>
                 <Container>
@@ -227,17 +227,17 @@ export default function Magazines() {
 
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/romania-anul-ii-nr.-9-septembrie-1937", "România Anul II Nr. 9")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/calendarul-nr.-545-550-22-dec.-30-dec.-1930", "Calendarul Anul II No. 545")}
                             >
                                 <img
-                                    src="/images/magazines/ONT_Romania_anul_II_nr_9.jpg"
-                                    alt="Copertă România 1937"
+                                    src="/images/magazines/Calendarul nr. 545.jpg"
+                                    alt="Copertă Calendarul 1930"
                                     className={styles.magazineThumbnail}
                                 />
 
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>România</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Year Two Issue Nine, 1937')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Calendarul</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year II No. 545, 1930')}</span>
                                 </div>
                             </button>
                         </div>
@@ -246,16 +246,16 @@ export default function Magazines() {
                         <div className="d-flex flex-column align-items-lg-center align-items-center">
                             <button
                                 className={styles.magazineThumbnailVisual}
-                                onClick={() => handleOpenMagazine("https://archive.org/embed/adeverul-1922-12-1636662720-pages-97-100", "Adevărul Anul XXXV, No. 11905, 1922")}
+                                onClick={() => handleOpenMagazine("https://archive.org/embed/tribuna-comertului-pitesti", "Tribuna Comerțului, Anul I No. 2, 1926 +")}
                             >
                                 <img
-                                    src="/images/magazines/Adeverul_1922_12-16.jpg"
-                                    alt="Copertă Adevărul 1922"
+                                    src="/images/magazines/Tribuna_Comertului.jpg"
+                                    alt="Copertă Tribuna Comerțului Pitești"
                                     className={styles.magazineThumbnail}
                                 />
                                 <div className={styles.magazineInfoBlock}>
-                                    <h5 className={styles.magazineTitleVisual}>Adevărul</h5>
-                                    <span className={styles.magazineDateVisual}>{t('Christmas Day, 1922')}</span>
+                                    <h5 className={styles.magazineTitleVisual}>Tribuna Comerțului</h5>
+                                    <span className={styles.magazineDateVisual}>{t('Year I No. 2, 1926 + more')}</span>
                                 </div>
                             </button>
                         </div>
