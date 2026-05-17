@@ -22,12 +22,40 @@ export default function Welcome({ auth }) {
     const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
     const toggleMusic = () => {
+        if (!audioRef.current) return;
+
+        const audio = audioRef.current;
+        const fadeDuration = 1000; // Durata efectului în milisecunde (1 secundă)
+        const intervalSteps = 20; // Numărul de pași pentru tranziție
+        const stepTime = fadeDuration / intervalSteps;
+
         if (isPlayingMusic) {
-            audioRef.current.pause();
+            let currentStep = 0;
+            const fadeOutInterval = setInterval(() => {
+                currentStep++;
+                audio.volume = Math.max(0, 1 - currentStep / intervalSteps);
+
+                if (currentStep >= intervalSteps) {
+                    clearInterval(fadeOutInterval);
+                    audio.pause();
+                    setIsPlayingMusic(false);
+                }
+            }, stepTime);
         } else {
-            audioRef.current.play();
+            audio.volume = 0;
+            audio.play();
+            setIsPlayingMusic(true);
+
+            let currentStep = 0;
+            const fadeInInterval = setInterval(() => {
+                currentStep++;
+                audio.volume = Math.min(1, currentStep / intervalSteps);
+
+                if (currentStep >= intervalSteps) {
+                    clearInterval(fadeInInterval);
+                }
+            }, stepTime);
         }
-        setIsPlayingMusic(!isPlayingMusic);
     };
 
     const toggleVideo = () => {
