@@ -369,7 +369,7 @@ h1, h2, h3, .navbar-brand {
     cursor: pointer;
     transition: transform 0.4s ease, filter 0.4s ease;
     filter: sepia(0.5);
-    opacity: 0.8; 
+    opacity: 0.9; 
     position: relative; 
     transform: translateY(5%);
 }
@@ -466,6 +466,19 @@ h1, h2, h3, .navbar-brand {
         border-right: none;
         border-bottom: 1px solid var(--interwar-ink); 
         padding-bottom: 2rem; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .mainTextContainer {
+        margin-top: 2rem; 
+    }
+    
+    .vintageAudioButton, .vintageCameraButton, .menuButton {
+        transform: scale(0.6);
+    }
+    .vintageAudioButton:hover, .vintageCameraButton:hover, .menuButton:hover{
+        transform: scale(0.7);
     }
 }
 
