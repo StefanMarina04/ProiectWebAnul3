@@ -52,9 +52,10 @@ export default function Gallery() {
                 <h1 className="display-4" style={{ fontFamily: 'var(--font-title)' }}>
                     {t('The Gallery')}
                 </h1>
-                <p className="lead mb-1 pt-1" style={{ opacity: '0.8' }}>
-                    {t('Still looking for more pictures of Interwar Bucharest? We have got you covered.')}
-                </p>
+                <div className="lead mb-0 pt-1" style={{ opacity: '0.8', fontStyle: 'italic'}}>
+                    {t('Still looking for more pictures of Interwar Bucharest?')}
+                </div>
+                <div className="lead mb-1 pt-0" style={{ opacity: '0.8', fontStyle: 'italic' }}>{t('See it here!')}</div>
                 <div className="ps-2 pe-2 d-flex" style={{ borderBottom: '1px solid var(--interwar-ink)', marginTop: '1rem'}}></div>
             </Container>
 

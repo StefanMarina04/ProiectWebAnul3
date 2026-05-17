@@ -1,6 +1,43 @@
-.ExtraTitle{
+.ExtraTitle {
     font-size: 3.5rem;
     font-family: var(--font-title);
     font-weight: 450;
-    letter-spacing: -0.045em; 
+    letter-spacing: -0.045em;
+    opacity: 0.85;
+}
+
+.ColumnTitle {
+    font-size: 2rem;
+    letter-spacing: -0.045em;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.ColumnSubtitle {
+    font-size: 1.25rem;
+    letter-spacing: -0.045em;
+    opacity: 0.8;
+    text-align: center;
+    font-style: italic;
+}
+
+
+.vintageImageSmall {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--interwar-ink);
+    border-radius: 6px;
+    background-color: var(--interwar-gold);
+    filter: sepia(0.4) contrast(0.9);
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.vintageImageSmall:hover {
+    transform: scale(1.05);
+    filter: sepia(0) contrast(1);
+    cursor: pointer;
 }

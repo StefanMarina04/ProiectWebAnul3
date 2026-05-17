@@ -16,12 +16,20 @@ export default function Extra() {
     const [lightboxCaption, setLightboxCaption] = useState("");
 
     const handleCloseImageModal = () => setShowImageModal(false);
-    
+
     const handleOpenImageModal = (src, caption) => {
         setLightboxImageSrc(src);
         setLightboxCaption(caption);
         setShowImageModal(true);
     };
+
+
+    const mapPhotos = [
+        { src: '/images/maps_guides/harta1926.jpg', alt: t('Noul plan al orașului București pe anul 1926') },
+        { src: '/images/maps_guides/harta1931.jpg', alt: t('Municipiul București și împrejurimile 1931') },
+        { src: '/images/maps_guides/Harta1931_STB.png', alt: t('Planul Municipiului București cu liniile de tramvai (STB) 1931') },
+        { src: '/images/maps_guides/harta1939.jpg', alt: t('Planul Municipiului București 1939') },
+    ];
 
 
     return (
@@ -39,115 +47,35 @@ export default function Extra() {
 
             <Container className="mt-4 pt-4">
                 <Row className="mt-4 justify-content-center">
-                    <Col xs={12} md={6} lg={6} style={{ paddingRight: '2rem'}}>
+                    <Col lg={6} className={`pe-2 ${styles.columnDivider}`}>
 
-                        <Carousel fade className={`${styles.vintageCarousel}`} interval={3000}>
+                        <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("See Bucharest's Interwar layout through maps")}</div>
+                        <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("Winding streets, small markets, public and cultural buildings, transit routes and parks, all marked on paper")}</div>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/langa-ateneu.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/langa-ateneu.jpg", t('Romanian Athenaeum'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Next to the Athenaeum')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/gara-de-nord-frontal.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/gara-de-nord-frontal.webp", t('North Railway Station'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('North Railway Station')}</h5>
-                                    <div>{t('Before the remodeling')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/gara-de-nord-noua.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/gara-de-nord-noua.jpg", t('North Railway Station'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('North Railway Station')}</h5>
-                                    <div>{t('As it is today')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/vechiul-palat-regal.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/vechiul-palat-regal.jpg", t('The Old Royal Palace'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Old Royal Palace')}</h5>
-                                    <div>{t('Before the reconstruction')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/palatul-regal.png"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/palatul-regal.png", t('The Royal Palace'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Royal Palace')}</h5>
-                                    <div>{t('As it is today')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/arcul-de-triumf.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/arcul-de-triumf.webp", t('The Arch of Triumph'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Arch of Triumph')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/ministerul-de-externe-2.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/ministerul-de-externe-2.webp", t('The Palace of the Ministry of Foreign Affairs'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Palace of the Ministry of Foreign Affairs')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/palatul-artelor.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/palatul-artelor.jpg", t('The Palace of the Arts'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Palace of the Arts')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                        </Carousel>
+                        <Container className="py-3"> 
+                            <Row className="g-3"> 
+                                {mapPhotos.map((image, index) => (
+                                    <Col key={index} xs={6} md={6} lg={6}> 
+                                        <div className={styles.imageContainer}>
+                                            <img
+                                                src={image.src}
+                                                alt={image.alt}
+                                                className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
+                                                loading="lazy"
+                                                onClick={() => handleOpenImageModal(image.src, image.alt)}
+                                            />
+                                        </div>
+                                    </Col>
+                                ))}
+                            </Row>
+                        </Container>
 
                     </Col>
-                    <Col xs={12} md={6} lg={6} style={{ marginLeft: '0', paddingLeft: '2rem' }}>
+                    <Col lg={6} className="ps-2 pe-0">
 
+                        <div className={`${extra_styles.ColumnTitle} mb-1`}>{t("Little Paris' public transport")}</div>
+                        <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("From horse-drawn trams to buses and electric trams")}</div>
+                        <br></br>
                         <Carousel fade className={`${styles.vintageCarousel}`} interval={3000}>
 
                             <Carousel.Item>
@@ -256,11 +184,11 @@ export default function Extra() {
                 </Row>
             </Container>
 
-                        <Modal 
-                show={showImageModal} 
-                onHide={handleCloseImageModal} 
-                size="xl" 
-                centered 
+            <Modal
+                show={showImageModal}
+                onHide={handleCloseImageModal}
+                size="xl"
+                centered
                 contentClassName={styles.vintageModal}
             >
                 <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
@@ -270,10 +198,10 @@ export default function Extra() {
                 </Modal.Header>
                 <Modal.Body className={`d-flex justify-content-center align-items-center ${styles.vintageImageModal}`}>
                     {lightboxImageSrc && (
-                        <img 
-                            src={lightboxImageSrc} 
-                            alt={lightboxCaption} 
-                            className={styles.vintageLightboxImage} 
+                        <img
+                            src={lightboxImageSrc}
+                            alt={lightboxCaption}
+                            className={styles.vintageLightboxImage}
                         />
                     )}
                 </Modal.Body>

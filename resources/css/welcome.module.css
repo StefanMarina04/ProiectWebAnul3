@@ -356,6 +356,64 @@ h1, h2, h3, .navbar-brand {
     transform: translate(-50%, 0);
 }
 
+.vintageAudioButton{
+    display: inline-block;
+    width: clamp(40px, 4vw, 80px); 
+    height: clamp(55px, 5.5vw, 100px);
+    background-color: transparent;
+    border: none;
+    background-image: url('/images/icons/gramofon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: sepia(0.5);
+    opacity: 0.8; 
+    position: relative; 
+    transform: translateY(13%);
+}
+
+.vintageAudioButton:hover {
+    transform: scale(1.2);
+    filter: brightness(1.15);
+    opacity: 1;
+    transition: all 0.4s ease-in-out
+}
+
+.vintageAudioButton:active {
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+    opacity: 0.8;
+}
+
+.vintageAudioButton::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+
+    background-color: var(--interwar-ink);
+    color: var(--interwar-paper);
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    padding: 2px 5px;
+    border-radius: 6px;
+    white-space: nowrap; 
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.vintageAudioButton:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
 .takePage{
     font-family: 'Petemoss';
     font-weight: bold;
