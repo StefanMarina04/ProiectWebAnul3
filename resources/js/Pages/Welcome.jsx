@@ -25,8 +25,8 @@ export default function Welcome({ auth }) {
         if (!audioRef.current) return;
 
         const audio = audioRef.current;
-        const fadeDuration = 1000; // Durata efectului în milisecunde (1 secundă)
-        const intervalSteps = 20; // Numărul de pași pentru tranziție
+        const fadeDuration = 1000;
+        const intervalSteps = 20;
         const stepTime = fadeDuration / intervalSteps;
 
         if (isPlayingMusic) {
@@ -99,6 +99,34 @@ export default function Welcome({ auth }) {
         setLightboxImageSrc(src);
         setLightboxCaption(caption);
         setShowImageModal(true);
+    };
+
+    const [zoomProps, setZoomProps] = useState({
+        show: false,
+        x: 0,
+        y: 0,
+        bgPosX: '0%',
+        bgPosY: '0%',
+        bgSize: '0px'
+    });
+
+    const handleMouseMove = (e) => {
+        const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+
+        const xPercent = (x / width) * 100;
+        const yPercent = (y / height) * 100;
+
+        setZoomProps({
+            show: true,
+            x: x,
+            y: y,
+            bgPosX: `${xPercent}%`,
+            bgPosY: `${yPercent}%`,
+            bgSize: `${width * 2}px ${height * 2}px`
+        });
     };
 
     return (
@@ -629,8 +657,8 @@ export default function Welcome({ auth }) {
                     left: 0,
                     width: '100vw',
                     height: '100vh',
-                    backgroundColor: 'rgba(0, 0, 0, 0.9)', 
-                    zIndex: 105000, 
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    zIndex: 105000,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center'
@@ -643,16 +671,47 @@ export default function Welcome({ auth }) {
                         ✕
                     </Button>
 
-                    <img
-                        src={lightboxImageSrc}
-                        alt={lightboxCaption}
-                        style={{
-                            maxWidth: '95vw',
-                            maxHeight: '95vh',
-                            objectFit: 'contain',
-                            boxShadow: '0 0 20px rgba(0,0,0,0.5)'
-                        }}
-                    />
+                    {isFullscreen && (
+                        <div style={{
+                            position: 'fixed',
+                            top: 0, left: 0, width: '100vw', height: '100vh',
+                            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                            zIndex: 105000, display: 'flex', justifyContent: 'center', alignItems: 'center'
+                        }}>
+                            <Button
+                                variant="link"
+                                onClick={() => setIsFullscreen(false)}
+                                style={{ position: 'absolute', top: '20px', right: '30px', color: 'var(--interwar-paper)', fontSize: '2rem', textDecoration: 'none', zIndex: 105001 }}
+                            >
+                                ✕
+                            </Button>
+
+                            <div
+                                style={{ position: 'relative', cursor: 'crosshair', display: 'inline-block' }}
+                                onMouseMove={handleMouseMove}
+                                onMouseEnter={() => setZoomProps(prev => ({ ...prev, show: true }))}
+                                onMouseLeave={() => setZoomProps(prev => ({ ...prev, show: false }))}
+                            >
+                                <img
+                                    src={lightboxImageSrc}
+                                    alt={lightboxCaption}
+                                    style={{ maxWidth: '95vw', maxHeight: '95vh', objectFit: 'contain', display: 'block' }}
+                                />
+
+                                {zoomProps.show && (
+                                    <div className={styles.magnifierGlass}
+                                        style={{
+                                            left: zoomProps.x - 75,
+                                            top: zoomProps.y - 75,
+                                            backgroundImage: `url(${lightboxImageSrc})`,
+                                            backgroundPosition: `${zoomProps.bgPosX} ${zoomProps.bgPosY}`,
+                                            backgroundSize: zoomProps.bgSize,
+                                        }}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
         </>
