@@ -59,12 +59,12 @@ export default function Extra() {
 
 
     const mapPhotos = [
-        { src: '/images/maps_guides/Harta1921.jpg', alt: t('Noul plan al orașului București 1921') },
-        { src: '/images/maps_guides/Harta1926.jpg', alt: t('Noul plan al orașului București pe anul 1926') },
-        { src: '/images/maps_guides/Harta1931.jpg', alt: t('Municipiul București și împrejurimile 1931') },
-        { src: '/images/maps_guides/Harta1931_STB.png', alt: t('Planul Municipiului București cu liniile de tramvai (STB) 1931') },
-        { src: '/images/maps_guides/Harta1935-1940.jpg', alt: t('Planul Municipiului București 1935') },
-        { src: '/images/maps_guides/Harta1939.jpg', alt: t('Planul Municipiului București 1939') },
+        { src: '/images/maps_guides/Harta1921.jpg', alt: t('Noul plan al orașului București 1921'), year: 1921 },
+        { src: '/images/maps_guides/Harta1926.jpg', alt: t('Noul plan al orașului București pe anul 1926'), year: 1926 },
+        { src: '/images/maps_guides/Harta1931.jpg', alt: t('Municipiul București și împrejurimile 1931'), year: 1931 },
+        { src: '/images/maps_guides/Harta1931_STB.png', alt: t('Planul Municipiului București cu liniile de tramvai (STB) 1931'), year: 1931 },
+        { src: '/images/maps_guides/Harta1935-1940.jpg', alt: t('Planul Municipiului București 1935'), year: 1935 },
+        { src: '/images/maps_guides/Harta1939.jpg', alt: t('Planul Municipiului București 1939'), year: 1939 },
     ];
 
 
@@ -92,6 +92,7 @@ export default function Extra() {
                             <Row className="g-3">
                                 {mapPhotos.map((image, index) => (
                                     <Col key={index} xs={6} md={6} lg={6}>
+                                        <div className={`${extra_styles.MapYearLabel} mb-1`}>{image.year}</div>
                                         <div className={styles.imageContainer}>
                                             <img
                                                 src={image.src}
