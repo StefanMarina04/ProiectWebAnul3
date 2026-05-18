@@ -378,9 +378,9 @@ export default function Welcome({ auth }) {
                                 {t('Take a page out of Interwar Bucharest')}
                             </p>
                         </div>
-
-                        <Row classname="align-items-end g-3 mt-4">
-                            <p className={`${styles.takePageSubtext}`}>{t("Newspapers and magazines for all to see!")}</p>
+                        <div className={`${styles.takePageSubtext} mb-3`}>{t("Newspapers and magazines for all to see!")}</div>
+                        
+                        <Row className="align-items-end g-3 mt-0">
                             <Col className="text-lg-end text-center mt-lg-0">
                                 <div className="d-flex flex-column align-items-lg-end align-items-center">
 
@@ -659,7 +659,7 @@ export default function Welcome({ auth }) {
                     left: 0,
                     width: '100vw',
                     height: '100vh',
-                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.33)',
                     zIndex: 105000,
                     display: 'flex',
                     justifyContent: 'center',
