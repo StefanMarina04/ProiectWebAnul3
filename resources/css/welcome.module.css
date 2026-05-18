@@ -358,8 +358,8 @@ h1, h2, h3, .navbar-brand {
 
 .vintageAudioButton{
     display: inline-block;
-    width: clamp(35px, 4vw, 70px); 
-    height: clamp(50px, 5.5vw, 80px);
+    width: clamp(35px, 4vw, 65px); 
+    height: clamp(50px, 5.5vw, 70px);
     background-color: transparent;
     border: none;
     background-image: url('/images/icons/gramofon.png');
@@ -375,7 +375,7 @@ h1, h2, h3, .navbar-brand {
 }
 
 .vintageAudioButton:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     filter: brightness(1.15);
     opacity: 1;
     transition: all 0.4s ease-in-out
@@ -412,6 +412,40 @@ h1, h2, h3, .navbar-brand {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
+}
+
+.fullscreenButton{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.4;
+    background-color: var(--interwar-ink);
+    border: none;
+    transition: all 0.5s ease-in-out;
+    border-radius: 6px;
+}
+
+.fullscreenButton:hover{
+    opacity: 0.9;
+    transition: all 0.5s ease-in-out;
+    background-color: var(--interwar-gold);
+    border-radius: 6px;
+}
+
+.fullscreenCloseButton{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--interwar-paper);
+    font-size: 2rem;
+    text-decoration: none;
+    z-index: 105001;
+    transition: all 0.3s ease-in-out;
+}
+
+.fullscreenCloseButton:hover{
+    color: var(--interwar-red);
+    transition: all 0.3s ease-in-out;
 }
 
 .takePage{

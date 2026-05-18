@@ -88,8 +88,12 @@ export default function Welcome({ auth }) {
     const [showImageModal, setShowImageModal] = useState(false);
     const [lightboxImageSrc, setLightboxImageSrc] = useState("");
     const [lightboxCaption, setLightboxCaption] = useState("");
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
-    const handleCloseImageModal = () => setShowImageModal(false);
+    const handleCloseImageModal = () => {
+        setShowImageModal(false);
+        setIsFullscreen(false);
+    };
 
     const handleOpenImageModal = (src, caption) => {
         setLightboxImageSrc(src);
@@ -597,14 +601,60 @@ export default function Welcome({ auth }) {
                 </Modal.Header>
                 <Modal.Body className={`d-flex justify-content-center align-items-center ${styles.vintageImageModal}`}>
                     {lightboxImageSrc && (
-                        <img
-                            src={lightboxImageSrc}
-                            alt={lightboxCaption}
-                            className={styles.vintageLightboxImage}
-                        />
+                        <div style={{ position: 'relative', display: 'inline-block' }}>
+                            <img
+                                src={lightboxImageSrc}
+                                alt={lightboxCaption}
+                                className={styles.vintageLightboxImage}
+                            />
+
+                            <Button
+                                variant="dark"
+                                size="sm"
+                                onClick={() => setIsFullscreen(true)}
+                                className={styles.fullscreenButton}
+                                title={t("View Fullscreen")}
+                            >
+                                ⛶
+                            </Button>
+                        </div>
                     )}
                 </Modal.Body>
             </Modal>
+
+            {isFullscreen && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)', 
+                    zIndex: 105000, 
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Button
+                        variant="link"
+                        onClick={() => setIsFullscreen(false)}
+                        className={styles.fullscreenCloseButton}
+                    >
+                        ✕
+                    </Button>
+
+                    <img
+                        src={lightboxImageSrc}
+                        alt={lightboxCaption}
+                        style={{
+                            maxWidth: '95vw',
+                            maxHeight: '95vh',
+                            objectFit: 'contain',
+                            boxShadow: '0 0 20px rgba(0,0,0,0.5)'
+                        }}
+                    />
+                </div>
+            )}
         </>
     );
 }
