@@ -129,6 +129,8 @@ export default function Welcome({ auth }) {
         });
     };
 
+    const [isMagnifierEnabled, setIsMagnifierEnabled] = useState(true);
+
     return (
         <>
             <Head title={t("Welcome to Interwar Bucharest")} />
@@ -686,6 +688,15 @@ export default function Welcome({ auth }) {
                                 ✕
                             </Button>
 
+                            <Button
+                                variant="link"
+                                className={`${styles.vintageMagnifierButton} ${isMagnifierEnabled ? styles.magnifierOn : styles.magnifierOff}`}
+                                onClick={() => setIsMagnifierEnabled(!isMagnifierEnabled)}
+                                aria-label={isMagnifierEnabled ? t('Disable Magnifier') : t('Enable Magnifier')}
+                                data-tooltip={isMagnifierEnabled ? t('Disable Magnifier') : t('Enable Magnifier')}
+                            >
+                            </Button>
+
                             <div
                                 style={{ position: 'relative', cursor: 'crosshair', display: 'inline-block' }}
                                 onMouseMove={handleMouseMove}
@@ -698,7 +709,7 @@ export default function Welcome({ auth }) {
                                     style={{ maxWidth: '95vw', maxHeight: '95vh', objectFit: 'contain', display: 'block' }}
                                 />
 
-                                {zoomProps.show && (
+                                {zoomProps.show && isMagnifierEnabled && (
                                     <div className={styles.magnifierGlass}
                                         style={{
                                             left: zoomProps.x - 75,

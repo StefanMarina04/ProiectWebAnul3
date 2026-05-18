@@ -366,8 +366,8 @@ h3,
 
 .vintageAudioButton {
     display: inline-block;
-    width: clamp(35px, 4vw, 65px);
-    height: clamp(50px, 5.5vw, 70px);
+    width: clamp(35px, 4vw, 55px);
+    height: clamp(50px, 5.5vw, 60px);
     background-color: transparent;
     border: none;
     background-image: url('/images/icons/gramofon.png');
@@ -469,6 +469,69 @@ h3,
     z-index: 105002;
 }
 
+.vintageMagnifierButton {
+    position: absolute; 
+    top: 20px;
+    left: 30px;
+    width: 50px; 
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 105001;
+}
+
+.vintageMagnifierButton::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0; 
+    
+    background-image: url('/images/icons/magnifier.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.vintageMagnifierButton:hover::before {
+    transform: scale(1.15) rotate(25deg);
+    filter: brightness(1.15);
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+}
+
+.vintageMagnifierButton:active::before {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+    opacity: 0.8;
+}
+
+.vintageMagnifierButton::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+
+    background-color: var(--interwar-ink);
+    color: var(--interwar-paper);
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    padding: 2px 5px;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.vintageMagnifierButton:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
 .takePage {
     font-family: 'Petemoss';
     font-weight: bold;
