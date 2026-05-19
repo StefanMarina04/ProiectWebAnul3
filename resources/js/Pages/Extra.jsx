@@ -147,26 +147,25 @@ export default function Extra() {
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/gara-de-nord-noua.jpg"
+                                    src="/images/photos/autobuz_chevrolet_stb.jpg"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/gara-de-nord-noua.jpg", t('North Railway Station'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/autobuz_chevrolet_stb.jpg", t('S.T.B Chevrolet Bus'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('North Railway Station')}</h5>
-                                    <div>{t('As it is today')}</div>
+                                    <h5>{t('S.T.B Chevrolet Bus')}</h5>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/vechiul-palat-regal.jpg"
+                                    src="/images/photos/atelier_tramvaie.jpg"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/vechiul-palat-regal.jpg", t('The Old Royal Palace'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/atelier_tramvaie.jpg", t('Inside a tram depot 1931'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Old Royal Palace')}</h5>
-                                    <div>{t('Before the reconstruction')}</div>
+                                    <h5>{t('Inside a tram depot')}</h5>
+                                    <div>{t('1931')}</div>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
