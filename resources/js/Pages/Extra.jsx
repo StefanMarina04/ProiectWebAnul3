@@ -111,32 +111,36 @@ export default function Extra() {
                     <Col lg={6} className="ps-2 pe-0">
 
                         <div className={`${extra_styles.ColumnTitle} mb-1`}>{t("Little Paris' public transport")}</div>
-                        <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("From horse-drawn trams to buses and electric trams")}</div>
-                        <br></br>
+                        <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("From horse-drawn trams to buses and electric trams")}</div>
+                        <div className={`${extra_styles.RowBorder} mb-3`}></div>
+                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText1")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText2")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText3")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText4")}</div>
+
                         <Carousel fade className={`${styles.vintageCarousel}`} interval={3000}>
 
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/langa-ateneu.jpg"
+                                    src="/images/photos/langa_banca_nationala.webp"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/langa-ateneu.jpg", t('Romanian Athenaeum'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/langa_banca_nationala.webp", t('Tram next to the National Bank'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Next to the Athenaeum')}</h5>
+                                    <h5>{t('Tram next to the National Bank')}</h5>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/gara-de-nord-frontal.webp"
+                                    src="/images/photos/tramvai-cai-1926.webp"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/gara-de-nord-frontal.webp", t('North Railway Station'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/tramvai-cai-1926.webp", t('One of the few remaining horse-drawn trams from 1926'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('North Railway Station')}</h5>
-                                    <div>{t('Before the remodeling')}</div>
+                                    <h5>{t('Horse-drawn tram')}</h5>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
