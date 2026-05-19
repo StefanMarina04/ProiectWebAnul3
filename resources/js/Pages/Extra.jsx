@@ -67,6 +67,90 @@ export default function Extra() {
         { src: '/images/maps_guides/Harta1939.jpg', alt: t('Planul Municipiului București 1939'), year: 1939 },
     ];
 
+    const artistsMusic = [
+        {
+            id: 'moscopol',
+            name: 'Jean Moscopol',
+            songs: [
+                { title: "Te aștept diseară în Cișmigiu", src: "/audio/Te astept diseara in Cismigiu - Jean Moscopol.mp3" },
+                { title: "București", src: "/audio/Bucuresti_Jean_Moscopol.mp3" }
+            ]
+        },
+        {
+            id: 'vasile',
+            name: 'Cristian Vasile',
+            songs: [
+                { title: "Zaraza", src: "/audio/zaraza.mp3" },
+                { title: "Iubesc femeia", src: "/audio/iubesc_femeia.mp3" }
+            ]
+        },
+        {
+            id: 'zavaidoc',
+            name: 'Zavaidoc',
+            songs: [
+                { title: "Cântecul lui Zavaidoc", src: "/audio/zavaidoc1.mp3" },
+                { title: "De când m-a aflat mulțimea", src: "/audio/zavaidoc2.mp3" }
+            ]
+        },
+        {
+            id: 'tanase',
+            name: 'Maria Tănase',
+            songs: [
+                { title: "Aseară ți-am luat basma", src: "/audio/Aseara ti-am luat basma - Maria Tanase.mp3" },
+                { title: "Leliță cârciumăreasă", src: "/audio/Lelita Carciumareasa - Maria Tanase.mp3" }
+            ]
+        }
+    ];
+
+    const audioRef = useRef(null);
+    const [currentArtistId, setCurrentArtistId] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [globalVolume, setGlobalVolume] = useState(0.8);
+
+    const [songIndices, setSongIndices] = useState({
+        moscopol: 0, vasile: 0, zavaidoc: 0, tanase: 0
+    });
+
+    const handleVolumeChange = (e) => {
+        const newVol = parseFloat(e.target.value);
+        setGlobalVolume(newVol);
+        if (audioRef.current) {
+            audioRef.current.volume = newVol;
+        }
+    };
+
+    const toggleArtistMusic = (artistId) => {
+        if (!audioRef.current) return;
+
+        if (currentArtistId === artistId && isPlaying) {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        } else {
+            setCurrentArtistId(artistId);
+            setTimeout(() => {
+                audioRef.current.volume = globalVolume;
+                audioRef.current.play();
+                setIsPlaying(true);
+            }, 50);
+        }
+    };
+
+    const changeSong = (artistId, direction) => {
+        const artist = artistsMusic.find(a => a.id === artistId);
+        setSongIndices(prev => {
+            let currentIndex = prev[artistId];
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % artist.songs.length;
+            } else {
+                currentIndex = (currentIndex - 1 + artist.songs.length) % artist.songs.length;
+            }
+            return { ...prev, [artistId]: currentIndex };
+        });
+
+        if (currentArtistId === artistId && isPlaying) {
+            setTimeout(() => { audioRef.current.play(); }, 50);
+        }
+    };
 
     return (
         <>
@@ -113,10 +197,10 @@ export default function Extra() {
                         <div className={`${extra_styles.ColumnTitle} mb-1`}>{t("Little Paris' public transport")}</div>
                         <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("From horse-drawn trams to buses and electric trams")}</div>
                         <div className={`${extra_styles.RowBorder} mb-3`}></div>
-                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText1")}</div>
-                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText2")}</div>
-                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText3")}</div>
-                        <div className={`${extra_styles.TransportMainText} mb-1`}>{t("TransportMainText4")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText1")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText2")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText3")}</div>
+                        <div className={`${extra_styles.TransportMainText} mb-4`}>{t("TransportMainText4")}</div>
 
                         <Carousel fade className={`${styles.vintageCarousel}`} interval={3000}>
 
@@ -222,6 +306,65 @@ export default function Extra() {
 
                     </Col>
                 </Row>
+            </Container>
+            <Container className="mt-4 pt-4">
+                <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("Listen to Bucharest's famous interwar artists")}</div>
+                <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("From romantic tangos and western inspired music to local hits and traditional sounds")}</div>
+
+                <Container className="mt-2 mb-5">
+                    <audio
+                        ref={audioRef}
+                        src={currentArtistId ? artistsMusic.find(a => a.id === currentArtistId).songs[songIndices[currentArtistId]].src : ''}
+                        onEnded={() => changeSong(currentArtistId, 'next')}
+                    />
+
+                    <div className="d-flex justify-content-center align-items-center mb-4">
+                        <span className="me-3" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)' }}>{t('Volume')}:</span>
+                        <input
+                            type="range"
+                            min="0" max="1" step="0.01"
+                            value={globalVolume}
+                            onChange={handleVolumeChange}
+                            style={{ width: '200px', accentColor: 'var(--interwar-gold)' }}
+                        />
+                    </div>
+
+                    <Row className="g-4">
+                        {artistsMusic.map(artist => {
+                            const currentSongIndex = songIndices[artist.id];
+                            const currentSong = artist.songs[currentSongIndex];
+                            const isActive = currentArtistId === artist.id;
+                            const isSpinning = isActive && isPlaying;
+
+                            return (
+                                <Col md={6} key={artist.id}>
+                                    <div className={`${extra_styles.artistCard} text-center`}>
+                                        <div className={`${extra_styles.vinylDiscContainer} ${isSpinning ? extra_styles.spin : ''}`}></div>
+
+                                        <h4 className="mb-0" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)' }}>{artist.name}</h4>
+                                        <p className={`${extra_styles.SongTitle} mt-0`}>
+                                            {currentSong.title}
+                                        </p>
+
+                                        <div className="d-flex justify-content-center align-items-center gap-3">
+                                            <Button className={`${extra_styles.PreviousSongButton}`} onClick={() => changeSong(artist.id, 'prev')}>
+                                            </Button>
+
+                                            <Button className={`${extra_styles.MusicButton}`}
+                                                onClick={() => toggleArtistMusic(artist.id)}
+                                            >
+                                                {isSpinning ? t('Pause') : t('Play')}
+                                            </Button>
+
+                                            <Button className={`${extra_styles.NextSongButton}`} onClick={() => changeSong(artist.id, 'next')}>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                </Container>
             </Container>
 
             <Modal

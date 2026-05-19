@@ -21,7 +21,7 @@
     font-style: italic;
 }
 
-.RowBorder{
+.RowBorder {
     border-bottom: 1.25px solid var(--interwar-ink);
 }
 
@@ -53,9 +53,108 @@
     color: var(--interwar-ink);
 }
 
-.TransportMainText{
+.TransportMainText {
     font-size: 1rem;
-    opacity: 0.8;
+    opacity: 0.85;
     text-align: center;
     letter-spacing: -0.045em;
+}
+
+.vinylDiscContainer {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px auto;
+    background-image: url('/images/icons/customdisc.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.spin {
+    animation: spinAnimation 2.5s linear infinite;
+}
+
+@keyframes spinAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.artistCard {
+    background-color: var(--interwar-paper);
+    border: 1px solid var(--interwar-gold);
+    border-radius: 0px;
+    padding: 10px;
+    height: 100%;
+}
+
+.MusicButton {
+    background-color: var(--interwar-gold);
+    border-color: var(--interwar-ink);
+    border-radius: 100%;
+    font-family: Petemoss, cursive;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    transition: all 0.4s ease-in-out;
+}
+
+.MusicButton:hover {
+    background-color: var(--interwar-ink);
+    border-color: var(--interwar-gold);
+    border-width: 1px;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1.2);
+}
+
+.SongTitle {
+    font-family: Petemoss, cursive;
+    font-size: 2.1rem;
+}
+
+.NextSongButton {
+    background-image: url('/images/icons/hand-pointer-right.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    transition: all 0.4s ease-in-out;
+    filter: sepia(0.4);
+}
+
+.PreviousSongButton {
+    background-image: url('/images/icons/hand-pointer-left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    transition: all 0.4s ease-in-out;
+    filter: sepia(0.4);
+}
+
+.NextSongButton:hover,
+.PreviousSongButton:hover {
+    background-color: transparent;
+    border: none;
+    transform: scale(1.2);
+    transition: all 0.4s ease-in-out;
+}
+
+.NextSongButton:active,
+.PreviousSongButton:active {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transform: scale(1);
+    transition: all 0.4s ease-in-out;
 }
