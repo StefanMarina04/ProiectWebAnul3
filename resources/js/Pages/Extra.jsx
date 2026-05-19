@@ -71,7 +71,9 @@ export default function Extra() {
         {
             id: 'moscopol',
             name: 'Jean Moscopol',
+            image: '/images/artists/Jean_Moscopol.jpg',
             songs: [
+                { title: "Vrei să ne întâlnim sâmbătă seară?", src: "/audio/Vrei sa ne intalnim sâmbata seara.mp3"},
                 { title: "Te aștept diseară în Cișmigiu", src: "/audio/Te astept diseara in Cismigiu - Jean Moscopol.mp3" },
                 { title: "București", src: "/audio/Bucuresti_Jean_Moscopol.mp3" }
             ]
@@ -79,25 +81,51 @@ export default function Extra() {
         {
             id: 'vasile',
             name: 'Cristian Vasile',
+            image: '/images/artists/Cristian_Vasile2.jpg',
             songs: [
-                { title: "Zaraza", src: "/audio/zaraza.mp3" },
-                { title: "Iubesc femeia", src: "/audio/iubesc_femeia.mp3" }
+                { title: "Zaraza", src: "/audio/Zaraza - Cristian Vasile.mp3" },
+                { title: "Iubesc femeia", src: "/audio/Iubesc femeia - Cristian Vasile.mp3" },
+                { title: "Frumoasa mea, eu te ador", src: "/audio/Frumoasa mea, eu te ador - Cristian Vasile.mp3" }
             ]
         },
         {
             id: 'zavaidoc',
             name: 'Zavaidoc',
+            image: '/images/artists/Zavaidoc.jpg',
             songs: [
-                { title: "Cântecul lui Zavaidoc", src: "/audio/zavaidoc1.mp3" },
-                { title: "De când m-a aflat mulțimea", src: "/audio/zavaidoc2.mp3" }
+                { title: "Cântecul lui Zavaidoc", src: "/audio/Cantecul lui Zavaidoc - Zavaidoc.mp3" },
+                { title: "Dă-mi mâinile să le sărut", src: "/audio/Da mi mainile sa le sarut - Zavaidoc.mp3" },
+                { title: "De când ne-a aflat mulțimea", src: "/audio/De cand ne-a aflat multimea - Zavaidoc.mp3" }
             ]
         },
         {
             id: 'tanase',
             name: 'Maria Tănase',
+            image: '/images/artists/Maria_Tănase.jpg',
             songs: [
                 { title: "Aseară ți-am luat basma", src: "/audio/Aseara ti-am luat basma - Maria Tanase.mp3" },
-                { title: "Leliță cârciumăreasă", src: "/audio/Lelita Carciumareasa - Maria Tanase.mp3" }
+                { title: "Tiens, tiens, tiens et na!", src: "/audio/Tiens, tiens, tiens et na! - Maria Tanase.mp3" },
+                { title: "Bun e vinul ghiurghiuliu", src: "/audio/Bun e vinul ghiurghiuliu - Maria Tanase.mp3" }
+            ]
+        },
+        {
+            id: 'gion',
+            name: 'Gion (Gheorghe Ionescu)',
+            image: '/images/artists/Gion.jpg',
+            songs: [
+                { title: "Colega noastră", src: "/audio/Colega Noastra - Gion.mp3" },
+                { title: "Vecina mea de vis-à-vis", src: "/audio/Vecina mea de vis-a-vis - Gion.mp3" },
+                { title: "Adio, doamnă", src: "/audio/Adio, doamna - Gion.mp3" }
+            ]
+        },
+        {
+            id: 'botez',
+            name: 'Titi Botez',
+            image: '/images/artists/Titi_Botez.jpg',
+            songs: [
+                { title: "Sub balcon eu ți-am cântat o serenadă", src: "/audio/Sub balcon eu ti-am cantat o serenada - Titi Botez.mp3" },
+                { title: "Femeia eterna poveste", src: "/audio/Femeia eterna poveste - Titi Botez.mp3" },
+                { title: "Nu mă uita", src: "/audio/Nu ma uita - Titi Botez.mp3" }
             ]
         }
     ];
@@ -108,7 +136,7 @@ export default function Extra() {
     const [globalVolume, setGlobalVolume] = useState(0.8);
 
     const [songIndices, setSongIndices] = useState({
-        moscopol: 0, vasile: 0, zavaidoc: 0, tanase: 0
+        moscopol: 0, vasile: 0, zavaidoc: 0, tanase: 0, gion: 0, botez: 0
     });
 
     const handleVolumeChange = (e) => {
@@ -318,15 +346,30 @@ export default function Extra() {
                         onEnded={() => changeSong(currentArtistId, 'next')}
                     />
 
-                    <div className="d-flex justify-content-center align-items-center mb-4">
-                        <span className="me-3" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)' }}>{t('Volume')}:</span>
-                        <input
-                            type="range"
-                            min="0" max="1" step="0.01"
-                            value={globalVolume}
-                            onChange={handleVolumeChange}
-                            style={{ width: '200px', accentColor: 'var(--interwar-gold)' }}
-                        />
+                    <div
+                        className="mb-4 mt-4"
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr auto 1fr',
+                            alignItems: 'center',
+                            gap: '15px'
+                        }}
+                    >
+                        <div className={`${extra_styles.VolumeSliderTitle} text-end mb-2`}>
+                            {t('Volume')}:
+                        </div>
+
+                        <div>
+                            <input
+                                type="range"
+                                min="0" max="1" step="0.01"
+                                value={globalVolume}
+                                onChange={handleVolumeChange}
+                                style={{ width: '300px', accentColor: 'var(--interwar-gold)', backgroundColor: 'var(--interwar-paper)' }}
+                            />
+                        </div>
+
+                        <div></div>
                     </div>
 
                     <Row className="g-4">
@@ -339,10 +382,14 @@ export default function Extra() {
                             return (
                                 <Col md={6} key={artist.id}>
                                     <div className={`${extra_styles.artistCard} text-center`}>
+                                        <div
+                                            className={`${extra_styles.ArtistImage}`}
+                                            style={{ backgroundImage: `url(${artist.image})` }}
+                                        ></div>
                                         <div className={`${extra_styles.vinylDiscContainer} ${isSpinning ? extra_styles.spin : ''}`}></div>
 
-                                        <h4 className="mb-0" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)' }}>{artist.name}</h4>
-                                        <p className={`${extra_styles.SongTitle} mt-0`}>
+                                        <h4 className="mb-0" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)', position: 'relative', zIndex: 2 }}>{artist.name}</h4>
+                                        <p className={`${extra_styles.SongTitle} mt-0`} style={{ position: 'relative', zIndex: 2 }}>
                                             {currentSong.title}
                                         </p>
 
