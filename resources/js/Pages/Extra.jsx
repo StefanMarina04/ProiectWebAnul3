@@ -133,7 +133,7 @@ export default function Extra() {
     const audioRef = useRef(null);
     const [currentArtistId, setCurrentArtistId] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [globalVolume, setGlobalVolume] = useState(0.8);
+    const [globalVolume, setGlobalVolume] = useState(0.5);
 
     const [songIndices, setSongIndices] = useState({
         moscopol: 0, vasile: 0, zavaidoc: 0, tanase: 0, gion: 0, botez: 0
@@ -184,7 +184,6 @@ export default function Extra() {
         <>
             <Head title={t('Extra content')}></Head>
             <StandardMenuLayout>
-            </StandardMenuLayout>
 
             <Container className="text-center mt-4 pt-4">
                 <br></br>
@@ -193,14 +192,13 @@ export default function Extra() {
                 <div className="ps-5 pe-5" style={{ borderBottom: '1.5px solid var(--interwar-ink)', marginTop: '0.1rem', maxWidth: '50%', marginLeft: '25%', marginBottom: '1rem' }}></div>
             </Container>
 
-            <Container className="mt-4 pt-4">
-                <Row className="mt-4 justify-content-center">
-                    <Col lg={6} className={`pe-2 ${styles.columnDivider}`}>
-
+            <Container fluid className="mt-4 pt-4 overflow-hidden">
+                <Row className="mt-4 justify-content-center gx-4 gx-lg-5">
+                    <Col lg={6} className={`d-flex flex-column ${styles.columnDivider}`}>
                         <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("See Bucharest's Interwar layout through maps")}</div>
                         <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("Winding streets, small markets, public and cultural buildings, transit routes and parks, all marked on paper")}</div>
 
-                        <Container className="py-3">
+                        <div className="py-3">
                             <Row className="g-3">
                                 {mapPhotos.map((image, index) => (
                                     <Col key={index} xs={6} md={6} lg={6}>
@@ -217,10 +215,10 @@ export default function Extra() {
                                     </Col>
                                 ))}
                             </Row>
-                        </Container>
+                        </div>
 
                     </Col>
-                    <Col lg={6} className="ps-2 pe-0">
+                    <Col lg={6} className="d-flex flex-column">
 
                         <div className={`${extra_styles.ColumnTitle} mb-1`}>{t("Little Paris' public transport")}</div>
                         <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("From horse-drawn trams to buses and electric trams")}</div>
@@ -259,12 +257,12 @@ export default function Extra() {
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/autobuz_chevrolet_stb.jpg"
+                                    src="/images/photos/early_stb_buses.jpg"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/autobuz_chevrolet_stb.jpg", t('S.T.B Chevrolet Bus'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/early_stb_buses.jpg", t('Early S.T.B Buses'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('S.T.B Chevrolet Bus')}</h5>
+                                    <h5>{t('Early S.T.B Buses')}</h5>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
@@ -281,52 +279,79 @@ export default function Extra() {
                                 </Carousel.Caption>
                             </Carousel.Item>
 
-                            <Carousel.Item>
+                                                        <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/palatul-regal.png"
+                                    src="/images/photos/depou_tramvaie_1.webp"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/palatul-regal.png", t('The Royal Palace'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/depou_tramvaie_1.webp", t('Inside a tram depot'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Royal Palace')}</h5>
-                                    <div>{t('As it is today')}</div>
+                                    <h5>{t('Inside a tram depot')}</h5>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/arcul-de-triumf.webp"
+                                    src="/images/photos/interior_vagon_tramvai1935.jpg"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/arcul-de-triumf.webp", t('The Arch of Triumph'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/interior_vagon_tramvai1935.jpg", t('Interior of a tram car 1935'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Arch of Triumph')}</h5>
+                                    <h5>{t('Interior of a tram trailer car')}</h5>
+                                    <div>{t('1935')}</div>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/ministerul-de-externe-2.webp"
+                                    src="/images/photos/langa_blocul_aro.webp"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/ministerul-de-externe-2.webp", t('The Palace of the Ministry of Foreign Affairs'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/langa_blocul_aro.webp", t('Trams along a boulevard from above'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Palace of the Ministry of Foreign Affairs')}</h5>
+                                    <h5>{t('Trams along a boulevard from above')}</h5>
+                                    <div>{t('I. C. Brătianu Boulevard near Aro Cinema')}</div>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
                             <Carousel.Item>
                                 <img
                                     className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/palatul-artelor.jpg"
+                                    src="/images/photos/tramvai1935kogalniceanu.jpg"
                                     alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/palatul-artelor.jpg", t('The Palace of the Arts'))}
+                                    onClick={() => handleOpenImageModal("/images/photos/tramvai1935kogalniceanu.jpg", t('Tram passing through Mihail Kogălniceanu Square'))}
                                 />
                                 <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('The Palace of the Arts')}</h5>
+                                    <h5>{t('Tram passing through Mihail Kogălniceanu Square')}</h5>
+                                    <div>{t('1935')}</div>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+
+                            <Carousel.Item>
+                                <img
+                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                    src="/images/photos/piata-victoriei.jpg"
+                                    alt="missing_photo"
+                                    onClick={() => handleOpenImageModal("/images/photos/piata-victoriei.jpg", t('Trams and buses along Victory Square'))}
+                                />
+                                <Carousel.Caption className={styles.carouselCaption}>
+                                    <h5>{t('Trams and buses along Victory Square')}</h5>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+
+                            <Carousel.Item>
+                                <img
+                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                    src="/images/photos/bulevardul-carol-piata-rosetti.webp"
+                                    alt="missing_photo"
+                                    onClick={() => handleOpenImageModal("/images/photos/bulevardul-carol-piata-rosetti.webp", t('Trams in Rosetti Square'))}
+                                />
+                                <Carousel.Caption className={styles.carouselCaption}>
+                                    <h5>{t('Trams in Rosetti Square')}</h5>
+                                    <div>{t('King Carol I Boulevard')}</div>
                                 </Carousel.Caption>
                             </Carousel.Item>
 
@@ -364,8 +389,8 @@ export default function Extra() {
                                 type="range"
                                 min="0" max="1" step="0.01"
                                 value={globalVolume}
-                                onChange={handleVolumeChange}
-                                style={{ width: '300px', accentColor: 'var(--interwar-gold)', backgroundColor: 'var(--interwar-paper)' }}
+                                    onChange={handleVolumeChange}
+                                    className={`${extra_styles.VolumeSlider}`}
                             />
                         </div>
 
@@ -523,6 +548,7 @@ export default function Extra() {
                 </div>
             )}
 
+            </StandardMenuLayout>
 
         </>
     );

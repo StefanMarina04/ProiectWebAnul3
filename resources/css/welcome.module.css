@@ -586,7 +586,7 @@ h3,
     }
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
     .mainTextContainer {
         margin-top: 2rem;
     }
@@ -602,7 +602,7 @@ h3,
     .menuButton:hover {
         transform: scale(0.7);
     }
-}
+} */
 
 .magazineThumbnailVisual {
     background-color: transparent;
