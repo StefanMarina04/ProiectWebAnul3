@@ -68,12 +68,23 @@ export default function Extra() {
     ];
 
     const transportGalleryImages = [
-        { src: '/images/photos/tramvai_Bratianu.jpg', alt: t("Interwar Bucharest's Iconic Thomson-Houston Tram"), info: 'Thomson-Houston Tram' },
-        { src: '/images/photos/tramvai_la_universitate_1923.jpg', alt: t("Early Electric Tram near the University (1923)"), info: 'Early Electric Tram' },
-        { src: '/images/photos/tramvai_tras_de_trei_cai_1925.jpg', alt: t("Horse-drawn Tram (1925)"), info: 'Horse-drawn Tram' },
-        { src: '/images/photos/autobuz_chevrolet_stb.jpg', alt: t('S.T.B Chevrolet Bus'), info: 'Chevrolet Bus' },
-        { src: '/images/photos/autobuz_henschel.jpg', alt: t('S.T.B Henschel Bus'), info: 'Henschel Bus' },
-        { src: '/images/photos/autobuz_renault_stb.jpg', alt: t('S.T.B Renault Bus'), info: 'Renault Bus' },
+        { src: '/images/photos/tramvai_Bratianu.jpg', alt: t("Interwar Bucharest's Iconic Thomson-Houston Tram"), info: t('Thomson-Houston Tram') },
+        { src: '/images/photos/tramvai_la_universitate_1923.jpg', alt: t("Early Electric Tram near the University (1923)"), info: t('Early Electric Tram') },
+        { src: '/images/photos/tramvai_tras_de_trei_cai_1925.jpg', alt: t("Horse-drawn Tram (1925)"), info: t('Horse-drawn Tram') },
+        { src: '/images/photos/autobuz_chevrolet_stb.jpg', alt: t('S.T.B Chevrolet Bus'), info: t('Chevrolet Bus') },
+        { src: '/images/photos/autobuz_henschel.jpg', alt: t('S.T.B Henschel Bus'), info: t('Henschel Bus') },
+        { src: '/images/photos/autobuz_renault_stb.jpg', alt: t('S.T.B Renault Bus'), info: t('Renault Bus') },
+        { src: '/images/maps_guides/afis_tramvaie_STB.jpeg', alt: t('Tram Route Guide'), info: t('Tram routes') },
+        { src: '/images/maps_guides/linii_autobuz1934_1.png', alt: t('Bus Route Guide 1934'), info: t('Bus routes (1/3)') },
+        { src: '/images/maps_guides/linii_autobuz1934_2.png', alt: t('Bus Route Guide 1934'), info: t('Bus routes (2/3)') },
+        { src: '/images/maps_guides/linii_autobuz1934_3.png', alt: t('Bus Route Guide 1934'), info: t('Bus routes (3/3)') },
+        { src: '/images/maps_guides/tram_1927.jpg', alt: t('Tram Route Map 1927'), info: t('Tram routes 1927') },
+        { src: '/images/maps_guides/circulatie_tarife.png', alt: t('Ticket prices'), info: t('Ticket prices') },
+    ];
+
+        const FlagImages = [
+        { src: '/images/flags/Drapelul_Romaniei.svg', alt: t("Kingdom of Romania's Flag"), info: t('State flag') },
+        { src: '/images/flags/Drapel_de_lupta_1921.svg', alt: t("Romanian army flag during King Ferdinand I's rule, after 1921"), info: t('Army flag') },
     ];
 
     const artistsMusic = [
@@ -235,9 +246,7 @@ export default function Extra() {
                                     className={extra_styles.royalCrest}
                                 />
 
-                                <div className={`${extra_styles.ColumnTitle} mb-0`}>
-                                    {t("A Royal Bucharest")}
-                                </div>
+                                <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("A Royal Bucharest")}</div>
 
                                 <img
                                     src="/images/icons/stema_casei_regale.png"
@@ -246,21 +255,24 @@ export default function Extra() {
                                 />
                             </div>
 
-                            <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("Nihil sine Deo")}</div>
+                            <div className={`${extra_styles.ColumnSubtitle} mb-3 mt-0`}>{t("A brief history of the Romanian Royal Family")}</div>
                             <div className={`${extra_styles.RowBorder} mb-3`}></div>
 
-                            <div className="d-flex justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center align-items-center mb-2">
                                 <img
                                     src="/images/kings/Carol_I.jpg"
                                     alt="Carol I"
                                     className={`${extra_styles.KingPortrait}`}
                                 />
                             </div>
+                            <div className={`${extra_styles.KingName} mb-0`}>{t('King Carol I')}</div>
+                            <div className={`${extra_styles.KingPeriod} mb-2`}>{t('1866-1914')}</div>
+
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText1")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText2")}</div>
 
 
-                            <div className="d-flex justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center align-items-center mb-2">
                                 <img
                                     src="/images/kings/Ferdinand_I.jpg"
                                     alt="Ferdinand I"
@@ -270,12 +282,14 @@ export default function Extra() {
                                     }}
                                 />
                             </div>
+                            <div className={`${extra_styles.KingName} mb-0`}>{t('King Ferdinand I')}</div>
+                            <div className={`${extra_styles.KingPeriod} mb-2`}>{t('1914-1927')}</div>
 
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText3")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-2`}>{t("RoyalMainText4")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText5")}</div>
 
-                            <div className="d-flex justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center align-items-center mb-2">
                                 <img
                                     src="/images/kings/Carol_II.jpg"
                                     alt="Carol II"
@@ -285,12 +299,14 @@ export default function Extra() {
                                     }}
                                 />
                             </div>
+                            <div className={`${extra_styles.KingName} mb-0`}>{t('King Carol II')}</div>
+                            <div className={`${extra_styles.KingPeriod} mb-2`}>{t('1930-1940')}</div>
 
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText6")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText7")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText8")}</div>
 
-                            <div className="d-flex justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center align-items-center mb-2">
                                 <img
                                     src="/images/kings/Mihai_I.jpg"
                                     alt="Mihai I"
@@ -300,8 +316,12 @@ export default function Extra() {
                                     }}
                                 />
                             </div>
+                            <div className={`${extra_styles.KingName} mb-0`}>{t('King Michael I')}</div>
+                            <div className={`${extra_styles.KingPeriod} mb-2`}>{t('1927-1930 & 1940-1947')}</div>
+
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText9")}</div>
-                            <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText10")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText10")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText11")}</div>
 
                         </Col>
                         <Col lg={6} className="d-flex flex-column">
@@ -520,12 +540,36 @@ export default function Extra() {
                                 <Row className="g-3">
                                     {transportGalleryImages.map((image, index) => (
                                         <Col key={index} xs={6} md={6} lg={6}>
-                                            <div className={`${extra_styles.MapYearLabel} mb-1`}>{image.info}</div>
+                                            <div className={`${extra_styles.infoLabel} mb-1`}>{image.info}</div>
                                             <div className={styles.imageContainer}>
                                                 <img
                                                     src={image.src}
                                                     alt={image.alt}
                                                     className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
+                                                    loading="lazy"
+                                                    onClick={() => handleOpenImageModal(image.src, image.alt)}
+                                                />
+                                            </div>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </div>
+
+                            <div className={`${extra_styles.ThickRowBorder} mb-1`}></div>
+                            <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("Country and duty")}</div>
+                            <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("The anthem, flag and more")}</div>
+                            <div className={`${extra_styles.RowBorder}`}></div>
+
+                                                        <div className="py-3">
+                                <Row className="g-3">
+                                    {FlagImages.map((image, index) => (
+                                        <Col key={index} xs={6} md={6} lg={6}>
+                                            <div className={`${extra_styles.infoLabel} mb-1`}>{image.info}</div>
+                                            <div className={styles.imageContainer}>
+                                                <img
+                                                    src={image.src}
+                                                    alt={image.alt}
+                                                    className={`img-fluid rounded ${extra_styles.FlagImage}`}
                                                     loading="lazy"
                                                     onClick={() => handleOpenImageModal(image.src, image.alt)}
                                                 />
