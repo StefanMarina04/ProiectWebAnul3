@@ -62,13 +62,15 @@ export default function Extra() {
         { src: '/images/maps_guides/Harta1921.jpg', alt: t('Noul plan al orașului București 1921'), year: 1921 },
         { src: '/images/maps_guides/Harta1926.jpg', alt: t('Noul plan al orașului București pe anul 1926'), year: 1926 },
         { src: '/images/maps_guides/Harta1931.jpg', alt: t('Municipiul București și împrejurimile 1931'), year: 1931 },
-        { src: '/images/maps_guides/Harta1931_STB.png', alt: t('Planul Municipiului București cu liniile de tramvai (STB) 1931'), year: 1931 },
+        { src: '/images/maps_guides/Harta1931_STB.png', alt: t('Planul Municipiului București cu liniile de tramvai (STB) 1931'), year: t('1931 (S.T.B)') },
         { src: '/images/maps_guides/Harta1935-1940.jpg', alt: t('Planul Municipiului București 1935'), year: 1935 },
         { src: '/images/maps_guides/Harta1939.jpg', alt: t('Planul Municipiului București 1939'), year: 1939 },
     ];
 
     const transportGalleryImages = [
         { src: '/images/photos/tramvai_Bratianu.jpg', alt: t("Interwar Bucharest's Iconic Thomson-Houston Tram"), info: 'Thomson-Houston Tram' },
+        { src: '/images/photos/tramvai_la_universitate_1923.jpg', alt: t("Early Electric Tram near the University (1923)"), info: 'Early Electric Tram' },
+        { src: '/images/photos/tramvai_tras_de_trei_cai_1925.jpg', alt: t("Horse-drawn Tram (1925)"), info: 'Horse-drawn Tram' },
         { src: '/images/photos/autobuz_chevrolet_stb.jpg', alt: t('S.T.B Chevrolet Bus'), info: 'Chevrolet Bus' },
         { src: '/images/photos/autobuz_henschel.jpg', alt: t('S.T.B Henschel Bus'), info: 'Henschel Bus' },
         { src: '/images/photos/autobuz_renault_stb.jpg', alt: t('S.T.B Renault Bus'), info: 'Renault Bus' },
@@ -223,6 +225,83 @@ export default function Extra() {
                                     ))}
                                 </Row>
                             </div>
+
+                            <div className={`${extra_styles.ThickRowBorder} mb-3`}></div>
+
+                            <div className="d-flex justify-content-center align-items-center gap-3 mb-1">
+                                <img
+                                    src="/images/icons/stema_casei_regale.png"
+                                    alt="Stema Regala"
+                                    className={extra_styles.royalCrest}
+                                />
+
+                                <div className={`${extra_styles.ColumnTitle} mb-0`}>
+                                    {t("A Royal Bucharest")}
+                                </div>
+
+                                <img
+                                    src="/images/icons/stema_casei_regale.png"
+                                    alt="Stema Regala"
+                                    className={extra_styles.royalCrest}
+                                />
+                            </div>
+
+                            <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("Nihil sine Deo")}</div>
+                            <div className={`${extra_styles.RowBorder} mb-3`}></div>
+
+                            <div className="d-flex justify-content-center align-items-center">
+                                <img
+                                    src="/images/kings/Carol_I.jpg"
+                                    alt="Carol I"
+                                    className={`${extra_styles.KingPortrait}`}
+                                />
+                            </div>
+                            <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText1")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText2")}</div>
+
+
+                            <div className="d-flex justify-content-center align-items-center">
+                                <img
+                                    src="/images/kings/Ferdinand_I.jpg"
+                                    alt="Ferdinand I"
+                                    className={`${extra_styles.KingPortrait}`}
+                                    style={{
+                                        objectPosition: "center top"
+                                    }}
+                                />
+                            </div>
+
+                            <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText3")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-2`}>{t("RoyalMainText4")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText5")}</div>
+
+                            <div className="d-flex justify-content-center align-items-center">
+                                <img
+                                    src="/images/kings/Carol_II.jpg"
+                                    alt="Carol II"
+                                    className={`${extra_styles.KingPortrait}`}
+                                    style={{
+                                        objectPosition: "center top"
+                                    }}
+                                />
+                            </div>
+
+                            <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText6")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText7")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText8")}</div>
+
+                            <div className="d-flex justify-content-center align-items-center">
+                                <img
+                                    src="/images/kings/Mihai_I.jpg"
+                                    alt="Mihai I"
+                                    className={`${extra_styles.KingPortrait}`}
+                                    style={{
+                                        objectPosition: "center top"
+                                    }}
+                                />
+                            </div>
+                            <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText9")}</div>
+                            <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText10")}</div>
 
                         </Col>
                         <Col lg={6} className="d-flex flex-column">
@@ -437,7 +516,7 @@ export default function Extra() {
 
                             </Carousel>
 
-                                                        <div className="py-3">
+                            <div className="py-3">
                                 <Row className="g-3">
                                     {transportGalleryImages.map((image, index) => (
                                         <Col key={index} xs={6} md={6} lg={6}>

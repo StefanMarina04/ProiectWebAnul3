@@ -25,6 +25,23 @@
     border-bottom: 1.25px solid var(--interwar-ink);
 }
 
+.ThickRowBorder {
+    border-bottom: 2.5px solid var(--interwar-ink);
+}
+
+.royalCrest {
+    width: 60px;
+    height: auto;
+    opacity: 0.85; 
+    margin: auto;
+    filter: sepia(0.4) contrast(0.9); 
+}
+
+@media (max-width: 768px) {
+    .royalCrest {
+        width: 30px;
+    }
+}
 
 .vintageImageSmall {
     width: 100%;
@@ -55,9 +72,30 @@
 
 .TransportMainText {
     font-size: 1rem;
-    opacity: 0.85;
+    opacity: 0.9;
     text-align: center;
     letter-spacing: -0.045em;
+}
+
+.RoyalMainText {
+    font-size: 1rem;
+    opacity: 0.9;
+    text-align: center;
+    letter-spacing: -0.04em;
+    
+    max-width: 650px;      
+    margin-left: auto;     
+    margin-right: auto;    
+    line-height: 1.6;      
+}
+
+.KingPortrait{
+    width: 160px;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid var(--interwar-gold);
+    background-color: var(--interwar-gold);
+    filter: sepia(0.4) contrast(0.9);
 }
 
 .VolumeSliderTitle {
