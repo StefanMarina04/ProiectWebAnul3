@@ -67,13 +67,20 @@ export default function Extra() {
         { src: '/images/maps_guides/Harta1939.jpg', alt: t('Planul Municipiului București 1939'), year: 1939 },
     ];
 
+    const transportGalleryImages = [
+        { src: '/images/photos/tramvai_Bratianu.jpg', alt: t("Interwar Bucharest's Iconic Thomson-Houston Tram"), info: 'Thomson-Houston Tram' },
+        { src: '/images/photos/autobuz_chevrolet_stb.jpg', alt: t('S.T.B Chevrolet Bus'), info: 'Chevrolet Bus' },
+        { src: '/images/photos/autobuz_henschel.jpg', alt: t('S.T.B Henschel Bus'), info: 'Henschel Bus' },
+        { src: '/images/photos/autobuz_renault_stb.jpg', alt: t('S.T.B Renault Bus'), info: 'Renault Bus' },
+    ];
+
     const artistsMusic = [
         {
             id: 'moscopol',
             name: 'Jean Moscopol',
             image: '/images/artists/Jean_Moscopol.jpg',
             songs: [
-                { title: "Vrei să ne întâlnim sâmbătă seară?", src: "/audio/Vrei sa ne intalnim sâmbata seara.mp3"},
+                { title: "Vrei să ne întâlnim sâmbătă seară?", src: "/audio/Vrei sa ne intalnim sâmbata seara.mp3" },
                 { title: "Te aștept diseară în Cișmigiu", src: "/audio/Te astept diseara in Cismigiu - Jean Moscopol.mp3" },
                 { title: "București", src: "/audio/Bucuresti_Jean_Moscopol.mp3" }
             ]
@@ -185,368 +192,460 @@ export default function Extra() {
             <Head title={t('Extra content')}></Head>
             <StandardMenuLayout>
 
-            <Container className="text-center mt-4 pt-4">
-                <br></br>
-                <h1 className={`mt-3 ${extra_styles.ExtraTitle}`}>{t('Find out even more about')}</h1>
-                <h1 className={`mt-0 ${extra_styles.ExtraTitle}`}>{t('Interwar Bucharest')}</h1>
-                <div className="ps-5 pe-5" style={{ borderBottom: '1.5px solid var(--interwar-ink)', marginTop: '0.1rem', maxWidth: '50%', marginLeft: '25%', marginBottom: '1rem' }}></div>
-            </Container>
+                <Container className="text-center mt-4 pt-4">
+                    <br></br>
+                    <h1 className={`mt-3 ${extra_styles.ExtraTitle}`}>{t('Find out even more about')}</h1>
+                    <h1 className={`mt-0 ${extra_styles.ExtraTitle}`}>{t('Interwar Bucharest')}</h1>
+                    <div className="ps-5 pe-5" style={{ borderBottom: '1.5px solid var(--interwar-ink)', marginTop: '0.1rem', maxWidth: '50%', marginLeft: '25%', marginBottom: '1rem' }}></div>
+                </Container>
 
-            <Container fluid className="mt-4 pt-4 overflow-hidden">
-                <Row className="mt-4 justify-content-center gx-4 gx-lg-5">
-                    <Col lg={6} className={`d-flex flex-column ${styles.columnDivider}`}>
-                        <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("See Bucharest's Interwar layout through maps")}</div>
-                        <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("Winding streets, small markets, public and cultural buildings, transit routes and parks, all marked on paper")}</div>
+                <Container fluid className="mt-4 pt-4 overflow-hidden">
+                    <Row className="mt-4 justify-content-center gx-4 gx-lg-5">
+                        <Col lg={6} className={`d-flex flex-column ${styles.columnDivider}`}>
+                            <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("See Bucharest's Interwar layout through maps")}</div>
+                            <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("Winding streets, small markets, public and cultural buildings, transit routes and parks, all marked on paper")}</div>
 
-                        <div className="py-3">
-                            <Row className="g-3">
-                                {mapPhotos.map((image, index) => (
-                                    <Col key={index} xs={6} md={6} lg={6}>
-                                        <div className={`${extra_styles.MapYearLabel} mb-1`}>{image.year}</div>
-                                        <div className={styles.imageContainer}>
-                                            <img
-                                                src={image.src}
-                                                alt={image.alt}
-                                                className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
-                                                loading="lazy"
-                                                onClick={() => handleOpenImageModal(image.src, image.alt)}
-                                            />
-                                        </div>
-                                    </Col>
-                                ))}
-                            </Row>
-                        </div>
+                            <div className="py-3">
+                                <Row className="g-3">
+                                    {mapPhotos.map((image, index) => (
+                                        <Col key={index} xs={6} md={6} lg={6}>
+                                            <div className={`${extra_styles.MapYearLabel} mb-1`}>{image.year}</div>
+                                            <div className={styles.imageContainer}>
+                                                <img
+                                                    src={image.src}
+                                                    alt={image.alt}
+                                                    className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
+                                                    loading="lazy"
+                                                    onClick={() => handleOpenImageModal(image.src, image.alt)}
+                                                />
+                                            </div>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </div>
 
-                    </Col>
-                    <Col lg={6} className="d-flex flex-column">
+                        </Col>
+                        <Col lg={6} className="d-flex flex-column">
 
-                        <div className={`${extra_styles.ColumnTitle} mb-1`}>{t("Little Paris' public transport")}</div>
-                        <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("From horse-drawn trams to buses and electric trams")}</div>
-                        <div className={`${extra_styles.RowBorder} mb-3`}></div>
-                        <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText1")}</div>
-                        <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText2")}</div>
-                        <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText3")}</div>
-                        <div className={`${extra_styles.TransportMainText} mb-4`}>{t("TransportMainText4")}</div>
+                            <div className={`${extra_styles.ColumnTitle} mb-1`}>{t("Little Paris' public transport")}</div>
+                            <div className={`${extra_styles.ColumnSubtitle} mb-1`}>{t("From horse-drawn trams to buses and electric trams")}</div>
+                            <div className={`${extra_styles.RowBorder} mb-3`}></div>
+                            <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText1")}</div>
+                            <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText2")}</div>
+                            <div className={`${extra_styles.TransportMainText} mb-0`}>{t("TransportMainText3")}</div>
+                            <div className={`${extra_styles.TransportMainText} mb-4`}>{t("TransportMainText4")}</div>
 
-                        <Carousel fade className={`${styles.vintageCarousel}`} interval={3000}>
+                            <Carousel fade className={`${styles.vintageCarousel}`} interval={3000}>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/langa_banca_nationala.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/langa_banca_nationala.webp", t('Tram next to the National Bank'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Tram next to the National Bank')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/langa_banca_nationala.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/langa_banca_nationala.webp", t('Tram next to the National Bank'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Tram next to the National Bank')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/tramvai-cai-1926.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/tramvai-cai-1926.webp", t('One of the few remaining horse-drawn trams from 1926'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Horse-drawn tram')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/tramvai-cai-1926.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/tramvai-cai-1926.webp", t('One of the few remaining horse-drawn trams from 1926'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Horse-drawn tram')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/early_stb_buses.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/early_stb_buses.jpg", t('Early S.T.B Buses'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Early S.T.B Buses')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/early_stb_buses.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/early_stb_buses.jpg", t('Early S.T.B Buses'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Early S.T.B Buses')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/atelier_tramvaie.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/atelier_tramvaie.jpg", t('Inside a tram depot 1931'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Inside a tram depot')}</h5>
-                                    <div>{t('1931')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/pasageri_autobuz_chevrolet.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/pasageri_autobuz_chevrolet.jpg", t('Passengers boarding a bus'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Passengers boarding a bus')}</h5>
+                                        <div>{t('S.T.B Chevrolet Bus')}</div>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                                                        <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/depou_tramvaie_1.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/depou_tramvaie_1.webp", t('Inside a tram depot'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Inside a tram depot')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/trafic_cercul_militar.png"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/trafic_cercul_militar.png", t('Bus and tram near the National Military Circle Palace'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Bus and tram near the National Military Circle Palace')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/interior_vagon_tramvai1935.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/interior_vagon_tramvai1935.jpg", t('Interior of a tram car 1935'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Interior of a tram trailer car')}</h5>
-                                    <div>{t('1935')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/atelier_tramvaie.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/atelier_tramvaie.jpg", t('Inside a tram workshop 1931'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Inside a tram workshop')}</h5>
+                                        <div>{t('1931')}</div>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/langa_blocul_aro.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/langa_blocul_aro.webp", t('Trams along a boulevard from above'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Trams along a boulevard from above')}</h5>
-                                    <div>{t('I. C. Brătianu Boulevard near Aro Cinema')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/depou_tramvaie_1.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/depou_tramvaie_1.webp", t('Inside a tram depot'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Inside a tram depot')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/tramvai1935kogalniceanu.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/tramvai1935kogalniceanu.jpg", t('Tram passing through Mihail Kogălniceanu Square'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Tram passing through Mihail Kogălniceanu Square')}</h5>
-                                    <div>{t('1935')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/depou_tramvaie_2.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/depou_tramvaie_1.webp", t('Inside a tram depot'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Inside a tram depot')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/piata-victoriei.jpg"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/piata-victoriei.jpg", t('Trams and buses along Victory Square'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Trams and buses along Victory Square')}</h5>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/depou_tramvaie_4.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/depou_tramvaie_4.webp", t('Tram manufacturing and repair depot'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Tram manufacturing and repair depot')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
-                                    src="/images/photos/bulevardul-carol-piata-rosetti.webp"
-                                    alt="missing_photo"
-                                    onClick={() => handleOpenImageModal("/images/photos/bulevardul-carol-piata-rosetti.webp", t('Trams in Rosetti Square'))}
-                                />
-                                <Carousel.Caption className={styles.carouselCaption}>
-                                    <h5>{t('Trams in Rosetti Square')}</h5>
-                                    <div>{t('King Carol I Boulevard')}</div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/interior_vagon_tramvai1935.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/interior_vagon_tramvai1935.jpg", t('Interior of a tram car 1935'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Interior of a tram trailer car')}</h5>
+                                        <div>{t('1935')}</div>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                        </Carousel>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/pasageri_in_tramvai.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/pasageri_in_tramvai.jpg", t('Passengers in a tram'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Passengers in a tram')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                    </Col>
-                </Row>
-            </Container>
-            <Container className="mt-4 pt-4">
-                <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("Listen to Bucharest's famous interwar artists")}</div>
-                <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("From romantic tangos and western inspired music to local hits and traditional sounds")}</div>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/piata_ion_bratianu.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/piata_ion_bratianu.jpg", t('Trams turning in I. C. Brătianu Square'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Trams turning in I. C. Brătianu Square')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                <Container className="mt-2 mb-5">
-                    <audio
-                        ref={audioRef}
-                        src={currentArtistId ? artistsMusic.find(a => a.id === currentArtistId).songs[songIndices[currentArtistId]].src : ''}
-                        onEnded={() => changeSong(currentArtistId, 'next')}
-                    />
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/langa_blocul_aro.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/langa_blocul_aro.webp", t('Trams along a boulevard from above'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Trams along a boulevard from above')}</h5>
+                                        <div>{t('I. C. Brătianu Boulevard near Aro Cinema')}</div>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                    <div
-                        className="mb-4 mt-4"
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: '1fr auto 1fr',
-                            alignItems: 'center',
-                            gap: '15px'
-                        }}
-                    >
-                        <div className={`${extra_styles.VolumeSliderTitle} text-end mb-2`}>
-                            {t('Volume')}:
-                        </div>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/tramvai1935kogalniceanu.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/tramvai1935kogalniceanu.jpg", t('Tram passing through Mihail Kogălniceanu Square'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Tram passing through Mihail Kogălniceanu Square')}</h5>
+                                        <div>{t('1935')}</div>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                        <div>
-                            <input
-                                type="range"
-                                min="0" max="1" step="0.01"
-                                value={globalVolume}
-                                    onChange={handleVolumeChange}
-                                    className={`${extra_styles.VolumeSlider}`}
-                            />
-                        </div>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/piata-victoriei.jpg"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/piata-victoriei.jpg", t('Trams and buses along Victory Square'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Trams and buses along Victory Square')}</h5>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                        <div></div>
-                    </div>
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
+                                        src="/images/photos/bulevardul-carol-piata-rosetti.webp"
+                                        alt="missing_photo"
+                                        onClick={() => handleOpenImageModal("/images/photos/bulevardul-carol-piata-rosetti.webp", t('Trams in Rosetti Square'))}
+                                    />
+                                    <Carousel.Caption className={styles.carouselCaption}>
+                                        <h5>{t('Trams in Rosetti Square')}</h5>
+                                        <div>{t('King Carol I Boulevard')}</div>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
 
-                    <Row className="g-4">
-                        {artistsMusic.map(artist => {
-                            const currentSongIndex = songIndices[artist.id];
-                            const currentSong = artist.songs[currentSongIndex];
-                            const isActive = currentArtistId === artist.id;
-                            const isSpinning = isActive && isPlaying;
+                            </Carousel>
 
-                            return (
-                                <Col md={6} key={artist.id}>
-                                    <div className={`${extra_styles.artistCard} text-center`}>
-                                        <div
-                                            className={`${extra_styles.ArtistImage}`}
-                                            style={{ backgroundImage: `url(${artist.image})` }}
-                                        ></div>
-                                        <div className={`${extra_styles.vinylDiscContainer} ${isSpinning ? extra_styles.spin : ''}`}></div>
+                                                        <div className="py-3">
+                                <Row className="g-3">
+                                    {transportGalleryImages.map((image, index) => (
+                                        <Col key={index} xs={6} md={6} lg={6}>
+                                            <div className={`${extra_styles.MapYearLabel} mb-1`}>{image.info}</div>
+                                            <div className={styles.imageContainer}>
+                                                <img
+                                                    src={image.src}
+                                                    alt={image.alt}
+                                                    className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
+                                                    loading="lazy"
+                                                    onClick={() => handleOpenImageModal(image.src, image.alt)}
+                                                />
+                                            </div>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </div>
 
-                                        <h4 className="mb-0" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)', position: 'relative', zIndex: 2 }}>{artist.name}</h4>
-                                        <p className={`${extra_styles.SongTitle} mt-0`} style={{ position: 'relative', zIndex: 2 }}>
-                                            {currentSong.title}
-                                        </p>
-
-                                        <div className="d-flex justify-content-center align-items-center gap-3">
-                                            <Button className={`${extra_styles.PreviousSongButton}`} onClick={() => changeSong(artist.id, 'prev')}>
-                                            </Button>
-
-                                            <Button className={`${extra_styles.MusicButton}`}
-                                                onClick={() => toggleArtistMusic(artist.id)}
-                                            >
-                                                {isSpinning ? t('Pause') : t('Play')}
-                                            </Button>
-
-                                            <Button className={`${extra_styles.NextSongButton}`} onClick={() => changeSong(artist.id, 'next')}>
-                                            </Button>
-                                        </div>
-                                    </div>
-                                </Col>
-                            );
-                        })}
+                        </Col>
                     </Row>
                 </Container>
-            </Container>
+                <Container className="mt-4 pt-4">
+                    <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("Listen to Bucharest's famous interwar artists")}</div>
+                    <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("From romantic tangos and western inspired music to local hits and traditional sounds")}</div>
 
-            <Modal
-                show={showImageModal}
-                onHide={handleCloseImageModal}
-                size="xl"
-                centered
-                contentClassName={styles.vintageModal}
-            >
-                <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
-                    <Modal.Title className={styles.vintageModalTitle}>
-                        {lightboxCaption}
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body className={`d-flex justify-content-center align-items-center ${styles.vintageImageModal}`}>
-                    {lightboxImageSrc && (
-                        <div style={{ position: 'relative', display: 'inline-block' }}>
-                            <img
-                                src={lightboxImageSrc}
-                                alt={lightboxCaption}
-                                className={styles.vintageLightboxImage}
-                            />
+                    <Container className="mt-2 mb-5">
+                        <audio
+                            ref={audioRef}
+                            src={currentArtistId ? artistsMusic.find(a => a.id === currentArtistId).songs[songIndices[currentArtistId]].src : ''}
+                            onEnded={() => changeSong(currentArtistId, 'next')}
+                        />
 
-                            <Button
-                                variant="dark"
-                                size="sm"
-                                onClick={() => setIsFullscreen(true)}
-                                className={styles.fullscreenButton}
-                                title={t("View Fullscreen")}
-                            >
-                                ⛶
-                            </Button>
+                        <div
+                            className="mb-4 mt-4"
+                            style={{
+                                display: 'grid',
+                                gridTemplateColumns: '1fr auto 1fr',
+                                alignItems: 'center',
+                                gap: '15px'
+                            }}
+                        >
+                            <div className={`${extra_styles.VolumeSliderTitle} text-end mb-2`}>
+                                {t('Volume')}:
+                            </div>
+
+                            <div>
+                                <input
+                                    type="range"
+                                    min="0" max="1" step="0.01"
+                                    value={globalVolume}
+                                    onChange={handleVolumeChange}
+                                    className={`${extra_styles.VolumeSlider}`}
+                                />
+                            </div>
+
+                            <div></div>
                         </div>
-                    )}
-                </Modal.Body>
-            </Modal>
 
-            {isFullscreen && (
-                <div style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100vw',
-                    height: '100vh',
-                    backgroundColor: 'rgba(0, 0, 0, 0.33)',
-                    zIndex: 105000,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <Button
-                        variant="link"
-                        onClick={() => setIsFullscreen(false)}
-                        className={styles.fullscreenCloseButton}
-                    >
-                        ✕
-                    </Button>
+                        <Row className="g-4">
+                            {artistsMusic.map(artist => {
+                                const currentSongIndex = songIndices[artist.id];
+                                const currentSong = artist.songs[currentSongIndex];
+                                const isActive = currentArtistId === artist.id;
+                                const isSpinning = isActive && isPlaying;
 
-                    {isFullscreen && (
-                        <div style={{
-                            position: 'fixed',
-                            top: 0, left: 0, width: '100vw', height: '100vh',
-                            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                            zIndex: 105000, display: 'flex', justifyContent: 'center', alignItems: 'center'
-                        }}>
-                            <Button
-                                variant="link"
-                                onClick={() => setIsFullscreen(false)}
-                                style={{ position: 'absolute', top: '20px', right: '30px', color: 'var(--interwar-paper)', fontSize: '2rem', textDecoration: 'none', zIndex: 105001 }}
-                            >
-                                ✕
-                            </Button>
+                                return (
+                                    <Col md={6} key={artist.id}>
+                                        <div className={`${extra_styles.artistCard} text-center`}>
+                                            <div
+                                                className={`${extra_styles.ArtistImage}`}
+                                                style={{ backgroundImage: `url(${artist.image})` }}
+                                            ></div>
+                                            <div className={`${extra_styles.vinylDiscContainer} ${isSpinning ? extra_styles.spin : ''}`}></div>
 
-                            <Button
-                                variant="link"
-                                className={`${styles.vintageMagnifierButton} ${isMagnifierEnabled ? styles.magnifierOn : styles.magnifierOff}`}
-                                onClick={() => setIsMagnifierEnabled(!isMagnifierEnabled)}
-                                aria-label={isMagnifierEnabled ? t('Disable Magnifier') : t('Enable Magnifier')}
-                                data-tooltip={isMagnifierEnabled ? t('Disable Magnifier') : t('Enable Magnifier')}
-                            >
-                            </Button>
+                                            <h4 className="mb-0" style={{ fontFamily: 'var(--font-title)', color: 'var(--interwar-ink)', position: 'relative', zIndex: 2 }}>{artist.name}</h4>
+                                            <p className={`${extra_styles.SongTitle} mt-0`} style={{ position: 'relative', zIndex: 2 }}>
+                                                {currentSong.title}
+                                            </p>
 
-                            <div
-                                style={{ position: 'relative', cursor: 'crosshair', display: 'inline-block' }}
-                                onMouseMove={handleMouseMove}
-                                onMouseEnter={() => setZoomProps(prev => ({ ...prev, show: true }))}
-                                onMouseLeave={() => setZoomProps(prev => ({ ...prev, show: false }))}
-                            >
+                                            <div className="d-flex justify-content-center align-items-center gap-3">
+                                                <Button className={`${extra_styles.PreviousSongButton}`} onClick={() => changeSong(artist.id, 'prev')}>
+                                                </Button>
+
+                                                <Button className={`${extra_styles.MusicButton}`}
+                                                    onClick={() => toggleArtistMusic(artist.id)}
+                                                >
+                                                    {isSpinning ? t('Pause') : t('Play')}
+                                                </Button>
+
+                                                <Button className={`${extra_styles.NextSongButton}`} onClick={() => changeSong(artist.id, 'next')}>
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </Col>
+                                );
+                            })}
+                        </Row>
+                    </Container>
+                </Container>
+
+                <Modal
+                    show={showImageModal}
+                    onHide={handleCloseImageModal}
+                    size="xl"
+                    centered
+                    contentClassName={styles.vintageModal}
+                >
+                    <Modal.Header closeButton style={{ borderBottom: '2px solid var(--interwar-ink)' }}>
+                        <Modal.Title className={styles.vintageModalTitle}>
+                            {lightboxCaption}
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className={`d-flex justify-content-center align-items-center ${styles.vintageImageModal}`}>
+                        {lightboxImageSrc && (
+                            <div style={{ position: 'relative', display: 'inline-block' }}>
                                 <img
                                     src={lightboxImageSrc}
                                     alt={lightboxCaption}
-                                    style={{ maxWidth: '95vw', maxHeight: '95vh', objectFit: 'contain', display: 'block' }}
+                                    className={styles.vintageLightboxImage}
                                 />
 
-                                {zoomProps.show && isMagnifierEnabled && (
-                                    <div className={styles.magnifierGlass}
-                                        style={{
-                                            left: zoomProps.x - 75,
-                                            top: zoomProps.y - 75,
-                                            backgroundImage: `url(${lightboxImageSrc})`,
-                                            backgroundPosition: `${zoomProps.bgPosX} ${zoomProps.bgPosY}`,
-                                            backgroundSize: zoomProps.bgSize,
-                                        }}
-                                    />
-                                )}
+                                <Button
+                                    variant="dark"
+                                    size="sm"
+                                    onClick={() => setIsFullscreen(true)}
+                                    className={styles.fullscreenButton}
+                                    title={t("View Fullscreen")}
+                                >
+                                    ⛶
+                                </Button>
                             </div>
-                        </div>
-                    )}
-                </div>
-            )}
+                        )}
+                    </Modal.Body>
+                </Modal>
+
+                {isFullscreen && (
+                    <div style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        backgroundColor: 'rgba(0, 0, 0, 0.33)',
+                        zIndex: 105000,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        <Button
+                            variant="link"
+                            onClick={() => setIsFullscreen(false)}
+                            className={styles.fullscreenCloseButton}
+                        >
+                            ✕
+                        </Button>
+
+                        {isFullscreen && (
+                            <div style={{
+                                position: 'fixed',
+                                top: 0, left: 0, width: '100vw', height: '100vh',
+                                backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                                zIndex: 105000, display: 'flex', justifyContent: 'center', alignItems: 'center'
+                            }}>
+                                <Button
+                                    variant="link"
+                                    onClick={() => setIsFullscreen(false)}
+                                    style={{ position: 'absolute', top: '20px', right: '30px', color: 'var(--interwar-paper)', fontSize: '2rem', textDecoration: 'none', zIndex: 105001 }}
+                                >
+                                    ✕
+                                </Button>
+
+                                <Button
+                                    variant="link"
+                                    className={`${styles.vintageMagnifierButton} ${isMagnifierEnabled ? styles.magnifierOn : styles.magnifierOff}`}
+                                    onClick={() => setIsMagnifierEnabled(!isMagnifierEnabled)}
+                                    aria-label={isMagnifierEnabled ? t('Disable Magnifier') : t('Enable Magnifier')}
+                                    data-tooltip={isMagnifierEnabled ? t('Disable Magnifier') : t('Enable Magnifier')}
+                                >
+                                </Button>
+
+                                <div
+                                    style={{ position: 'relative', cursor: 'crosshair', display: 'inline-block' }}
+                                    onMouseMove={handleMouseMove}
+                                    onMouseEnter={() => setZoomProps(prev => ({ ...prev, show: true }))}
+                                    onMouseLeave={() => setZoomProps(prev => ({ ...prev, show: false }))}
+                                >
+                                    <img
+                                        src={lightboxImageSrc}
+                                        alt={lightboxCaption}
+                                        style={{ maxWidth: '95vw', maxHeight: '95vh', objectFit: 'contain', display: 'block' }}
+                                    />
+
+                                    {zoomProps.show && isMagnifierEnabled && (
+                                        <div className={styles.magnifierGlass}
+                                            style={{
+                                                left: zoomProps.x - 75,
+                                                top: zoomProps.y - 75,
+                                                backgroundImage: `url(${lightboxImageSrc})`,
+                                                backgroundPosition: `${zoomProps.bgPosX} ${zoomProps.bgPosY}`,
+                                                backgroundSize: zoomProps.bgSize,
+                                            }}
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
 
             </StandardMenuLayout>
 
