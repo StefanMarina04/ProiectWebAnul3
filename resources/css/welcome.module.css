@@ -15,6 +15,7 @@
     --interwar-dark: #333333;
     --interwar-light: #e0e0e0;
     --interwar-green: #4a7c59;
+    --interwar-light-paper: #fff8e1;
 }
 
 @keyframes spin {

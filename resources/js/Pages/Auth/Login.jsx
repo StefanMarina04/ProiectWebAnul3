@@ -5,6 +5,8 @@ import TextInput from '@/Components/TextInput';
 import Checkbox from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
+import styles from '../../../css/welcome.module.css';
+import login_styles from '../../../css/login.module.css';
 
 export default function Login({ status, canResetPassword }) {
     const { translations } = usePage().props;
@@ -33,13 +35,13 @@ export default function Login({ status, canResetPassword }) {
 
             <form onSubmit={submit}>
                 <div className="mb-3">
-                    <InputLabel htmlFor="email" value={t('Email')} />
+                    <InputLabel htmlFor="email" value={t('Email')} className={login_styles.authLabel} />
                     <TextInput
                         id="email"
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className={`mt-1 block w-full ${login_styles.authInput}`}
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData('email', e.target.value)}
@@ -48,27 +50,27 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="mb-3">
-                    <InputLabel htmlFor="password" value={t('Password')} />
+                    <InputLabel htmlFor="password" value={t('Password')} className={login_styles.authLabel} />
                     <TextInput
                         id="password"
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className={`mt-1 block w-full ${login_styles.authInput}`}
                         autoComplete="current-password"
                         onChange={(e) => setData('password', e.target.value)}
                     />
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="mb-3 form-check">
+                <div className="mb-0 ms-0 d-flex align-items-center">
                     <Checkbox
                         id="remember"
                         name="remember"
                         checked={data.remember}
                         onChange={(e) => setData('remember', e.target.checked)}
                     />
-                    <label className="form-check-label ms-2 small text-muted" htmlFor="remember">
+                    <label className={`${login_styles.authLabel} ms-2 pt-1`} htmlFor="remember">
                         {t('Remember me')}
                     </label>
                 </div>
@@ -77,20 +79,25 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="small"
+                            className={login_styles.vintageAuthLink}
                         >
                             {t('Forgot your password?')}
                         </Link>
                     )}
-                    <PrimaryButton className="ms-auto" disabled={processing}>
-                        {t('Log in')}
+                    <PrimaryButton className={`${login_styles.authButton} ms-auto`} disabled={processing}>
+                        {t('Login')}
                     </PrimaryButton>
                 </div>
 
                 <hr className="my-3" />
-                <div className="text-center small">
+                <div className={`text-center small`}>
                     {t("Don't have an account?")}{' '}
-                    <Link href={route('register')}>{t('Register')}</Link>
+
+                </div>
+                <div className="justify-content-center d-flex mt-0">
+                    <Link href={route('register')} className={login_styles.vintageAuthLink}>
+                        {t('Register')}
+                    </Link>
                 </div>
             </form>
         </GuestLayout>

@@ -1,31 +1,32 @@
 import { Container, Card, Nav } from 'react-bootstrap';
 import { Link, usePage } from '@inertiajs/react';
+import styles from '../../css/welcome.module.css';
+import login_styles from '../../css/login.module.css';
+import StandardMenuLayout from '@/Layouts/StandardMenuLayout';
 
 export default function GuestLayout({ children }) {
-    const { translations, locale } = usePage().props;
-    const t = (text) => translations[text] || text;
+    const { translations } = usePage().props;
+    const t = (text) => translations ? (translations[text] || text) : text;
 
     return (
-        <Container className="mt-5 d-flex flex-column align-items-center">
-            
-            <Nav className="mb-3">
-                <Nav.Link as={Link} href="/language/ro" className={locale === 'ro' ? 'fw-bold text-primary' : 'text-secondary'}>🇷🇴 RO</Nav.Link>
-                <Nav.Link as={Link} href="/language/en" className={locale === 'en' ? 'fw-bold text-primary' : 'text-secondary'}>🇬🇧 EN</Nav.Link>
-            </Nav>
+        <StandardMenuLayout>
+            <Container className="d-flex justify-content-center mt-5">
+                <div style={{ width: '100%', maxWidth: '450px' }}>
+                    
+                    <div className="text-center mb-4">
+                        <Link href="/" className="text-decoration-none">
+                            <h2 className={login_styles.authTitle}>{t('Paris of the East')}</h2>
+                        </Link>
+                    </div>
 
-            <div style={{ width: '400px' }}>
-                <div className="text-center mb-4">
-                    <Link href="/">
-                        <h3>{t('Interwar Bucharest')}</h3>
-                    </Link>
+                    <Card className={login_styles.loginCard}>
+                        <Card.Body>
+                            {children}
+                        </Card.Body>
+                    </Card>
+
                 </div>
-
-                <Card className="shadow-sm">
-                    <Card.Body>
-                        {children}
-                    </Card.Body>
-                </Card>
-            </div>
-        </Container>
+            </Container>
+        </StandardMenuLayout>
     );
 }

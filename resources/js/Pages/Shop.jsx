@@ -220,15 +220,13 @@ export default function Shop({ products = [] }) {
                 </div>
 
                 <div className="container pb-5">
-                    {/* Toolbar */}
                     <div className="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4">
                         <div className="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
-                            {/* Search */}
                             <InputGroup style={{ maxWidth: 260 }}>
                                 <InputGroup.Text style={{ backgroundColor: 'var(--interwar-paper)', border: '1px solid var(--interwar-gold)' }}>
                                 </InputGroup.Text>
                                 <Form.Control
-                                    placeholder={t('Search…')}
+                                    placeholder={t('Search...')}
                                     value={search}
                                     onChange={e => setSearch(e.target.value)}
                                     style={{ backgroundColor: 'var(--interwar-paper)', border: '1px solid var(--interwar-gold)', borderLeft: 'none' }}
@@ -266,16 +264,14 @@ export default function Shop({ products = [] }) {
                         </div>
 
                         <div className="d-flex align-items-center gap-3">
-                            {/* Sort */}
                             <Form.Select size="sm" value={sortBy} onChange={e => setSortBy(e.target.value)}
                                 style={{ maxWidth: 180, backgroundColor: 'var(--interwar-paper)', border: '1px solid var(--interwar-gold)' }}>
                                 <option value="default">{t('Default order')}</option>
-                                <option value="name">{t('Name A–Z')}</option>
+                                <option value="name">{t('Name A-Z')}</option>
                                 <option value="price_asc">{t('Price: low to high')}</option>
                                 <option value="price_desc">{t('Price: high to low')}</option>
                             </Form.Select>
 
-                            {/* Cart button */}
                             <Button onClick={() => setShowCart(true)} className="position-relative"
                                 style={{ backgroundColor: 'var(--interwar-ink)', border: 'none', whiteSpace: 'nowrap' }}>
                                 {t('Cart')}
@@ -324,8 +320,6 @@ export default function Shop({ products = [] }) {
 
             <CartDrawer show={showCart} onHide={() => setShowCart(false)} cart={cart} t={t} />
 
-            <div className="display-6 d-flex align-items-end justify-content-center">{t('We are terribly sorry for the inconvenience, this page is still under construction')}</div>
-            <div className="display-6 d-flex align-items-end justify-content-center mt-3 pb-4">{t('We kindly ask you to try our other pages!')}</div>
         </>
     );
 }

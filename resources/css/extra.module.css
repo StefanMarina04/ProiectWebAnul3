@@ -221,7 +221,6 @@
     align-items: center; 
     text-align: center;
 }
-
 .VolumeSliderTitle {
     font-family: var(--font-title);
     color: var(--interwar-ink);
