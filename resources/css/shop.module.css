@@ -1,0 +1,53 @@
+.goBackButton {
+    background-color: var(--interwar-gold) !important;
+    border: 1.5px solid var(--interwar-ink) !important;
+    color: var(--interwar-ink) !important;
+    border-radius: 6px !important;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.goBackButton:hover {
+    background-color: var(--interwar-ink) !important;
+    color: var(--interwar-paper) !important;
+    border: 1.5px solid var(--interwar-gold) !important;
+
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.goBackButton:active {
+    background-color: var(--interwar-ink) !important;
+    color: var(--interwar-paper) !important;
+
+    transform: scale(1.0);
+    transition: all 0.3s ease-in-out;
+}
+
+.addToCartButton {
+    background-color: var(--interwar-gold) !important;
+    border: 1.5px solid var(--interwar-ink) !important;
+    color: var(--interwar-ink) !important;
+    border-radius: 6px !important;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.addToCartButton:hover {
+    background-color: var(--interwar-ink) !important;
+    color: var(--interwar-paper) !important;
+    border: 1.5px solid var(--interwar-gold) !important;
+
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.addToCartButton:active {
+    background-color: var(--interwar-ink) !important;
+    color: var(--interwar-paper) !important;
+
+    transform: scale(1.0);
+    transition: all 0.3s ease-in-out;
+}

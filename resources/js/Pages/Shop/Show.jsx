@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { Row, Col, Badge, Button } from 'react-bootstrap';
 import StandardMenuLayout from '@/Layouts/StandardMenuLayout';
+import shop_styles from '../../../css/shop.module.css';
 
 function useCart() {
     const [items, setItems] = useState(() => {
@@ -46,7 +47,6 @@ export default function ShowProduct({ product, related = [] }) {
             <Head title={product.title} />
             <StandardMenuLayout>
                 <div className="container py-5">
-                    {/* Breadcrumb */}
                     <nav className="mb-4" style={{ fontSize: '0.85rem' }}>
                         <Link href="/shop" style={{ color: 'var(--interwar-gold)' }}>{t('Shop')}</Link>
                         <span className="mx-2 text-muted">/</span>
@@ -72,12 +72,12 @@ export default function ShowProduct({ product, related = [] }) {
                                 aspectRatio: '4/3',
                                 backgroundColor: '#f5e8d0',
                             }}>
-                                {product.image_url ? (
-                                    <img src={product.image_url} alt={product.title}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                {product.image_path ? (
+                                    <img src={`/storage/${product.image_path}`} alt={product.title}
+                                        style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                                 ) : (
                                     <div className="d-flex align-items-center justify-content-center h-100"
-                                        style={{ fontSize: '5rem', color: 'var(--interwar-silver)' }}>
+                                        style={{ backgroundColor: '#f5e8d0', color: 'var(--interwar-silver)', fontSize: '3rem' }}>
                                     </div>
                                 )}
                             </div>
@@ -122,20 +122,12 @@ export default function ShowProduct({ product, related = [] }) {
                             </div>
 
                             <div className="d-flex gap-3 flex-wrap">
-                                <Button size="lg" onClick={handleAdd}
-                                    style={{
-                                        backgroundColor: added ? 'var(--interwar-green)' : 'var(--interwar-ink)',
-                                        border: 'none',
-                                        fontFamily: 'var(--font-title)',
-                                        letterSpacing: '0.04em',
-                                        transition: 'background-color .3s',
-                                        minWidth: 200,
-                                    }}>
-                                    {added ? `✓ ${t('Added to cart!')}` : `${t('Add to cart')}`}
+                                <Button size="lg" onClick={handleAdd} className={`${shop_styles.addToCartButton}`}>
+                                    {added ? `${t('Added to cart!')}` : `${t('Add to cart')}`}
                                 </Button>
-                                <Link href="/shop" className="btn btn-outline-secondary btn-lg">
-                                    ← {t('Back to Shop')}
-                                </Link>
+                                <Button href="/shop" className={`${shop_styles.goBackButton}`}>
+                                    {t('Back to the Shop')}
+                                </Button>
                             </div>
 
                             {cart.count > 0 && (
@@ -160,16 +152,18 @@ export default function ShowProduct({ product, related = [] }) {
                                             <div className="card h-100 shadow-sm"
                                                 style={{ backgroundColor: 'var(--interwar-paper)', border: '1px solid var(--interwar-gold)' }}>
                                                 <div style={{ height: 120, overflow: 'hidden' }}>
-                                                    {rel.image_url ? (
-                                                        <img src={rel.image_url} alt={rel.title}
-                                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                    {rel.image_path ? (
+                                                        <img
+                                                            src={`/storage/${rel.image_path}`}
+                                                            alt={rel.title}
+                                                            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                                        />
                                                     ) : (
                                                         <div className="d-flex align-items-center justify-content-center h-100"
                                                             style={{ fontSize: '2rem', color: 'var(--interwar-silver)', backgroundColor: '#f5e8d0' }}>
                                                         </div>
                                                     )}
-                                                </div>
-                                                <div className="card-body p-2">
+                                                </div>                <div className="card-body p-2">
                                                     <p className="small fw-semibold mb-1 text-truncate"
                                                         style={{ color: 'var(--interwar-ink)', fontFamily: 'var(--font-title)' }}>
                                                         {rel.title}

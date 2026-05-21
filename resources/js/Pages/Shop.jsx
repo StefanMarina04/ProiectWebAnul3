@@ -60,7 +60,7 @@ function CartDrawer({ show, onHide, cart, t }) {
                                     <div className="d-flex gap-2 align-items-start">
                                         {item.image_url && (
                                             <img src={item.image_url} alt={item.title}
-                                                style={{ width: 52, height: 52, objectFit: 'cover', borderRadius: 4, flexShrink: 0 }} />
+                                                style={{ width: 52, height: 52, objectFit: 'contain', borderRadius: 4, flexShrink: 0 }} />
                                         )}
                                         <div className="flex-grow-1 min-w-0">
                                             <div className="fw-semibold text-truncate small">{item.title}</div>
@@ -125,9 +125,12 @@ function ProductCard({ product, onAdd, t }) {
 
             <Link href={`/shop/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div style={{ height: 200, overflow: 'hidden', borderBottom: '1px solid var(--interwar-gold)' }}>
-                    {product.image_url ? (
-                        <img src={product.image_url} alt={product.title}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    {product.image_path ? (
+                        <img 
+                            src={`/storage/${product.image_path}`} 
+                            alt={product.title}
+                            style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                        />
                     ) : (
                         <div className="d-flex align-items-center justify-content-center h-100"
                             style={{ backgroundColor: '#f5e8d0', color: 'var(--interwar-silver)', fontSize: '3rem' }}>
@@ -166,7 +169,7 @@ function ProductCard({ product, onAdd, t }) {
                             transition: 'background-color .3s',
                             fontSize: '0.8rem',
                         }}>
-                        {added ? `✓ ${t('Added!')}` : `${t('Add to cart')}`}
+                        {added ? `${t('Added!')}` : `${t('Add to cart')}`}
                     </Button>
                 </div>
             </Card.Body>

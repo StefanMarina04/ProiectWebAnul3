@@ -775,7 +775,7 @@ export default function Extra() {
                             <div className={`${extra_styles.RowBorder} mb-3`}></div>
 
                             <div className={`${extra_styles.TransportMainText} mb-1 mt-2`}>{t("UniformsMainText1")}</div>
-                            <div className={`${extra_styles.TransportMainText} mb-0`}>{t("UniformsMainText2")}</div>
+                            <div className={`${extra_styles.TransportMainText} mb-4`}>{t("UniformsMainText2")}</div>
 
                             <div className="py-3">
                                 <Row className="g-3">

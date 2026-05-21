@@ -133,15 +133,26 @@ function ProductModal({ show, product, onClose, t }) {
 
     const submit = (e) => {
         e.preventDefault();
-        if (isEdit) {
-            put(route('admin.products.update', product.id), {
-                onSuccess: () => { reset(); onClose(); },
-            });
-        } else {
-            post(route('admin.products.store'), {
-                onSuccess: () => { reset(); onClose(); },
-            });
+
+        const formData = new FormData();
+        formData.append('title', data.title);
+        formData.append('description', data.description || '');
+        formData.append('price', data.price || '');
+        formData.append('category', data.category || '');
+        formData.append('status', data.status);
+
+        if (data.image) {
+            formData.append('image', data.image);
         }
+
+        if (isEdit) {
+            formData.append('_method', 'put');
+        }
+
+        router.post(isEdit ? route('admin.products.update', product.id) : route('admin.products.store'), formData, {
+            forceFormData: true,
+            onSuccess: () => { reset(); onClose(); },
+        });
     };
 
     return (
@@ -205,15 +216,6 @@ function ProductModal({ show, product, onClose, t }) {
                     </div>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>{t('Image URL')}</Form.Label>
-                        <Form.Control
-                            value={data.image_url}
-                            onChange={e => setData('image_url', e.target.value)}
-                            placeholder="https://..."
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
                         <Form.Label>{t('Local Image')}</Form.Label>
                         <Form.Control
                             type="file"
@@ -250,17 +252,17 @@ export default function AdminPanel({ users = [], products = [], flash = {} }) {
     const { translations, auth } = usePage().props;
     const t = (text) => translations ? (translations[text] || text) : text;
 
-    const [showUserModal, setShowUserModal]     = useState(false);
-    const [editingUser, setEditingUser]         = useState(null);
-    const [deletingUser, setDeletingUser]       = useState(null);
+    const [showUserModal, setShowUserModal] = useState(false);
+    const [editingUser, setEditingUser] = useState(null);
+    const [deletingUser, setDeletingUser] = useState(null);
     const [userDeleteProcessing, setUserDeleteProcessing] = useState(false);
-    const [userSearch, setUserSearch]           = useState('');
+    const [userSearch, setUserSearch] = useState('');
 
-    const [showProductModal, setShowProductModal]   = useState(false);
-    const [editingProduct, setEditingProduct]       = useState(null);
-    const [deletingProduct, setDeletingProduct]     = useState(null);
+    const [showProductModal, setShowProductModal] = useState(false);
+    const [editingProduct, setEditingProduct] = useState(null);
+    const [deletingProduct, setDeletingProduct] = useState(null);
     const [productDeleteProcessing, setProductDeleteProcessing] = useState(false);
-    const [productSearch, setProductSearch]         = useState('');
+    const [productSearch, setProductSearch] = useState('');
 
     const filteredUsers = users.filter(u =>
         u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
