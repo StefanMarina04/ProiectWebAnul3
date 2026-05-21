@@ -86,13 +86,17 @@ export default function Extra() {
         { src: '/images/photos/uniforme_1920.webp', alt: t("Romanian uniforms at the start of the 1920s"), info: t('Early 1920s uniforms') },
         { src: '/images/photos/uniforme_studenti_1920.webp', alt: t("Romanian military school and academy uniforms at the start of the 1920s"), info: t('1920s student uniforms') },
         { src: '/images/photos/uniforma_regimentelor.jpg', alt: t("Romanian uniforms during the 1930s"), info: t('1930s uniforms') },
-        { src: '/images/photos/uniforme.jpg', alt: t("Romanian uniform details 1930s"), info: t('1930s uniform details') },
+        { src: '/images/photos/uniforme.jpg', alt: t("Romanian uniform details 1920s"), info: t('1920s uniform details') },
         { src: '/images/photos/uniforma_ofiter_1941.webp', alt: t("Romanian officer uniform from the end of the Interwar Period"), info: t('Late 1930s officer uniform') },
-        { src: '/images/photos/replica_uniforma_ofiter_armata.jpg', alt: t("Recreated Romanian Officer uniform from the 1930s/1940s"), info: t('1930s/1940s uniform replica') },
+        { src: '/images/photos/replica_uniforma_ofiter_armata.jpg', alt: t("Replica Romanian Officer uniform from the 1930s/1940s"), info: t('1930s/1940s uniform replica') },
         { src: '/images/photos/tinuta_ceremonie_jandarm.jpg', alt: t("Ceremonial gendarmerie uniform 1930s"), info: t('Gendarmerie ceremony uniform') },
         { src: '/images/photos/politist_gardian_public.jpg', alt: t("Police officer directing traffic 1930s"), info: t('Police officer') }
     ];
 
+    const AnthemCoatOfArms = [
+        { src: '/images/photos/imnul_regal.jpg', alt: t("Romanian Royal Anthem"), info: t('Romanian Royal Anthem') },
+        { src: '/images/photos/Stema_Regala_forme.jpg', alt: t("The Romanian Coat of Arms and its sizes"), info: t('Romanian Coat of Arms') },
+    ]
     
     const FlagImages = [
         { src: '/images/flags/Drapelul_Romaniei.svg', alt: t("Kingdom of Romania's Flag"), info: t('State flag') },
@@ -438,10 +442,10 @@ export default function Extra() {
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText10")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText11")}</div>
 
-                            <div className={`${extra_styles.ThickRowBorder} mb-1 mt-4 pt-4`}></div>
+                            <div className={`${extra_styles.ThickRowBorder} mb-1 mt-1`}></div>
                             <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("The Country's symbols")}</div>
                             <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("The anthem and the flag")}</div>
-                            <div className={`${extra_styles.RowBorder} mb-4`}></div>
+                            <div className={`${extra_styles.RowBorder} mb-1`}></div>
 
                             <div className="py-3">
                                 <Row className="g-3">
@@ -509,6 +513,25 @@ export default function Extra() {
                                         </div>
                                         </div>
                                     </Col>
+
+                                                         <div className="py-3">
+                                <Row className="g-3">
+                                    {AnthemCoatOfArms.map((image, index) => (
+                                        <Col key={index} xs={6} md={6} lg={6}>
+                                            <div className={`${extra_styles.infoLabel} mb-1`}>{image.info}</div>
+                                            <div className={styles.imageContainer}>
+                                                <img
+                                                    src={image.src}
+                                                    alt={image.alt}
+                                                    className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
+                                                    loading="lazy"
+                                                    onClick={() => handleOpenImageModal(image.src, image.alt)}
+                                                />
+                                            </div>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </div>
 
                                 </Row>
                             </Container>
@@ -641,7 +664,7 @@ export default function Extra() {
                                         className={`d-block w-100 ${styles.carouselImage} ${styles.clickableImage}`}
                                         src="/images/photos/interior_vagon_tramvai1935.jpg"
                                         alt="missing_photo"
-                                        onClick={() => handleOpenImageModal("/images/photos/interior_vagon_tramvai1935.jpg", t('Interior of a tram car 1935'))}
+                                        onClick={() => handleOpenImageModal("/images/photos/interior_vagon_tramvai1935.jpg", t('Interior of a tram trailer car 1935'))}
                                     />
                                     <Carousel.Caption className={styles.carouselCaption}>
                                         <h5>{t('Interior of a tram trailer car')}</h5>
@@ -746,10 +769,13 @@ export default function Extra() {
                             </div>
 
 
-                            <div className={`${extra_styles.ThickRowBorder} mb-1`}></div>
+                            <div className={`${extra_styles.ThickRowBorder} mb-1 mt-4`}></div>
                             <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("How did an officer dress?")}</div>
                             <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("Army uniforms during the 1920s & 1930s and some others")}</div>
-                            <div className={`${extra_styles.RowBorder}`}></div>
+                            <div className={`${extra_styles.RowBorder} mb-3`}></div>
+
+                            <div className={`${extra_styles.TransportMainText} mb-1 mt-2`}>{t("UniformsMainText1")}</div>
+                            <div className={`${extra_styles.TransportMainText} mb-0`}>{t("UniformsMainText2")}</div>
 
                             <div className="py-3">
                                 <Row className="g-3">
