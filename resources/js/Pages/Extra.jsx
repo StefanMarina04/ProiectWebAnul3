@@ -82,9 +82,26 @@ export default function Extra() {
         { src: '/images/maps_guides/circulatie_tarife.png', alt: t('Ticket prices'), info: t('Ticket prices') },
     ];
 
-        const FlagImages = [
+    const UniformImages = [
+        { src: '/images/photos/uniforme_1920.webp', alt: t("Romanian uniforms at the start of the 1920s"), info: t('Early 1920s uniforms') },
+        { src: '/images/photos/uniforme_studenti_1920.webp', alt: t("Romanian military school and academy uniforms at the start of the 1920s"), info: t('1920s student uniforms') },
+        { src: '/images/photos/uniforma_regimentelor.jpg', alt: t("Romanian uniforms during the 1930s"), info: t('1930s uniforms') },
+        { src: '/images/photos/uniforme.jpg', alt: t("Romanian uniform details 1930s"), info: t('1930s uniform details') },
+        { src: '/images/photos/uniforma_ofiter_1941.webp', alt: t("Romanian officer uniform from the end of the Interwar Period"), info: t('Late 1930s officer uniform') },
+        { src: '/images/photos/replica_uniforma_ofiter_armata.jpg', alt: t("Recreated Romanian Officer uniform from the 1930s/1940s"), info: t('1930s/1940s uniform replica') },
+        { src: '/images/photos/tinuta_ceremonie_jandarm.jpg', alt: t("Ceremonial gendarmerie uniform 1930s"), info: t('Gendarmerie ceremony uniform') },
+        { src: '/images/photos/politist_gardian_public.jpg', alt: t("Police officer directing traffic 1930s"), info: t('Police officer') }
+    ];
+
+    
+    const FlagImages = [
         { src: '/images/flags/Drapelul_Romaniei.svg', alt: t("Kingdom of Romania's Flag"), info: t('State flag') },
         { src: '/images/flags/Drapel_de_lupta_1921.svg', alt: t("Romanian army flag during King Ferdinand I's rule, after 1921"), info: t('Army flag') },
+    ];
+
+    const royalAnthems = [
+        { title: t("Romanian Anthem 1939"), src: "/audio/imnul_regal_1939.mp3" },
+        { title: t("Interwar recording of the Royal Anthem"), src: "/audio/TraiascaRegele.mp3" }
     ];
 
     const artistsMusic = [
@@ -151,52 +168,150 @@ export default function Extra() {
     ];
 
     const audioRef = useRef(null);
-    const [currentArtistId, setCurrentArtistId] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const anthemAudioRef = useRef(null);
+
+    const fadeIntervals = useRef({ artists: null, anthem: null });
+
     const [globalVolume, setGlobalVolume] = useState(0.5);
 
+    const [currentArtistId, setCurrentArtistId] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [songIndices, setSongIndices] = useState({
         moscopol: 0, vasile: 0, zavaidoc: 0, tanase: 0, gion: 0, botez: 0
     });
 
+    const [isPlayingAnthem, setIsPlayingAnthem] = useState(false);
+    const [currentAnthemIndex, setCurrentAnthemIndex] = useState(0);
+
+    const fadeOut = (audioElement, intervalKey, callback) => {
+        clearInterval(fadeIntervals.current[intervalKey]);
+        if (!audioElement || audioElement.paused) {
+            if (callback) callback();
+            return;
+        }
+
+        let step = 20;
+        const stepVol = audioElement.volume / 20;
+
+        fadeIntervals.current[intervalKey] = setInterval(() => {
+            step--;
+            if (step <= 0) {
+                clearInterval(fadeIntervals.current[intervalKey]);
+                audioElement.pause();
+                if (callback) callback();
+            } else {
+                audioElement.volume = Math.max(0, step * stepVol);
+            }
+        }, 20);
+    };
+
+    const fadeIn = (audioElement, intervalKey) => {
+        clearInterval(fadeIntervals.current[intervalKey]);
+        if (!audioElement) return;
+
+        audioElement.volume = 0;
+        audioElement.play().catch(e => console.log("Loading song"));
+
+        let step = 0;
+        const targetVol = globalVolume;
+        const stepVol = targetVol / 20;
+
+        fadeIntervals.current[intervalKey] = setInterval(() => {
+            step++;
+            if (step >= 20) {
+                clearInterval(fadeIntervals.current[intervalKey]);
+                audioElement.volume = targetVol;
+            } else {
+                audioElement.volume = Math.min(targetVol, step * stepVol);
+            }
+        }, 20);
+    };
+
     const handleVolumeChange = (e) => {
         const newVol = parseFloat(e.target.value);
         setGlobalVolume(newVol);
-        if (audioRef.current) {
-            audioRef.current.volume = newVol;
-        }
+        if (audioRef.current && isPlaying) audioRef.current.volume = newVol;
+        if (anthemAudioRef.current && isPlayingAnthem) anthemAudioRef.current.volume = newVol;
     };
 
     const toggleArtistMusic = (artistId) => {
         if (!audioRef.current) return;
 
+        if (isPlayingAnthem) {
+            fadeOut(anthemAudioRef.current, 'anthem');
+            setIsPlayingAnthem(false);
+        }
+
         if (currentArtistId === artistId && isPlaying) {
-            audioRef.current.pause();
+            fadeOut(audioRef.current, 'artists');
             setIsPlaying(false);
         } else {
-            setCurrentArtistId(artistId);
-            setTimeout(() => {
-                audioRef.current.volume = globalVolume;
-                audioRef.current.play();
+            if (isPlaying) {
+                fadeOut(audioRef.current, 'artists', () => {
+                    setCurrentArtistId(artistId);
+                    setTimeout(() => fadeIn(audioRef.current, 'artists'), 50);
+                });
+            } else {
+                setCurrentArtistId(artistId);
                 setIsPlaying(true);
-            }, 50);
+                setTimeout(() => fadeIn(audioRef.current, 'artists'), 50);
+            }
         }
     };
 
     const changeSong = (artistId, direction) => {
-        const artist = artistsMusic.find(a => a.id === artistId);
-        setSongIndices(prev => {
-            let currentIndex = prev[artistId];
-            if (direction === 'next') {
-                currentIndex = (currentIndex + 1) % artist.songs.length;
-            } else {
-                currentIndex = (currentIndex - 1 + artist.songs.length) % artist.songs.length;
-            }
-            return { ...prev, [artistId]: currentIndex };
-        });
+        const updateIndex = () => {
+            const artist = artistsMusic.find(a => a.id === artistId);
+            setSongIndices(prev => {
+                let currentIndex = prev[artistId];
+                if (direction === 'next') currentIndex = (currentIndex + 1) % artist.songs.length;
+                else currentIndex = (currentIndex - 1 + artist.songs.length) % artist.songs.length;
+                return { ...prev, [artistId]: currentIndex };
+            });
+        };
 
         if (currentArtistId === artistId && isPlaying) {
-            setTimeout(() => { audioRef.current.play(); }, 50);
+            fadeOut(audioRef.current, 'artists', () => {
+                updateIndex();
+                setTimeout(() => fadeIn(audioRef.current, 'artists'), 50);
+            });
+        } else {
+            updateIndex();
+        }
+    };
+
+    const toggleAnthemMusic = () => {
+        if (!anthemAudioRef.current) return;
+
+        if (isPlaying) {
+            fadeOut(audioRef.current, 'artists');
+            setIsPlaying(false);
+        }
+
+        if (isPlayingAnthem) {
+            fadeOut(anthemAudioRef.current, 'anthem');
+            setIsPlayingAnthem(false);
+        } else {
+            setIsPlayingAnthem(true);
+            setTimeout(() => fadeIn(anthemAudioRef.current, 'anthem'), 50);
+        }
+    };
+
+    const changeAnthem = (direction) => {
+        const updateIndex = () => {
+            let newIndex = currentAnthemIndex;
+            if (direction === 'next') newIndex = (currentAnthemIndex + 1) % royalAnthems.length;
+            else newIndex = (currentAnthemIndex - 1 + royalAnthems.length) % royalAnthems.length;
+            setCurrentAnthemIndex(newIndex);
+        };
+
+        if (isPlayingAnthem) {
+            fadeOut(anthemAudioRef.current, 'anthem', () => {
+                updateIndex();
+                setTimeout(() => fadeIn(anthemAudioRef.current, 'anthem'), 50);
+            });
+        } else {
+            updateIndex();
         }
     };
 
@@ -322,6 +437,81 @@ export default function Extra() {
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText9")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-1`}>{t("RoyalMainText10")}</div>
                             <div className={`${extra_styles.RoyalMainText} mb-4`}>{t("RoyalMainText11")}</div>
+
+                            <div className={`${extra_styles.ThickRowBorder} mb-1 mt-4 pt-4`}></div>
+                            <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("The Country's symbols")}</div>
+                            <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("The anthem and the flag")}</div>
+                            <div className={`${extra_styles.RowBorder} mb-4`}></div>
+
+                            <div className="py-3">
+                                <Row className="g-3">
+                                    {FlagImages.map((image, index) => (
+                                        <Col key={index} xs={6} md={6} lg={6}>
+                                            <div className={`${extra_styles.infoLabel} mb-1`}>{image.info}</div>
+                                            <div className={styles.imageContainer}>
+                                                <img
+                                                    src={image.src}
+                                                    alt={image.alt}
+                                                    className={`img-fluid rounded ${extra_styles.FlagImage}`}
+                                                    loading="lazy"
+                                                    onClick={() => handleOpenImageModal(image.src, image.alt)}
+                                                />
+                                            </div>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </div>
+
+                            <audio
+                                ref={anthemAudioRef}
+                                src={royalAnthems[currentAnthemIndex].src}
+                                onEnded={() => changeAnthem('next')}
+                            />
+
+                            <Container className="mt-4 justify-content-center align-items-start">
+                                <Row className="align-items-center mt-1">
+
+                                    <Col lg={6} className={`${extra_styles.AnthemCard} d-flex flex-column`}>
+                                        <div className="d-flex flex-column align-items-center">
+                                            <div className={`${extra_styles.AnthemContainer}`}></div>
+
+                                            <p className={`${extra_styles.AnthemTitle} mt-3 mb-2`} style={{ position: 'relative', zIndex: 2 }}>
+                                                {royalAnthems[currentAnthemIndex].title}
+                                            </p>
+
+                                            <div className="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                                <Button className={`${extra_styles.PreviousAnthemButton}`} onClick={() => changeAnthem('prev')}></Button>
+
+                                                <Button className={`${extra_styles.MusicButton}`} onClick={toggleAnthemMusic}>
+                                                    {isPlayingAnthem ? t('Pause') : t('Play')}
+                                                </Button>
+
+                                                <Button className={`${extra_styles.NextAnthemButton}`} onClick={() => changeAnthem('next')}></Button>
+                                            </div>
+                                        </div>
+                                    </Col>
+
+                                    <Col lg={6} className={`${extra_styles.AnthemCard} d-flex flex-column align-items-center`}>
+                                        <div className="d-flex flex-column align-items-center">
+
+                                        <div className={`${extra_styles.videoResponsiveContainer}`}>
+                                            <iframe
+                                                src="https://www.youtube.com/embed/xB7_4ily9vE?si=tzMEsgcZaukWAGum"
+                                                title="YouTube video player"
+                                                className={extra_styles.vintageYoutubePlayer}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerPolicy="strict-origin-when-cross-origin"
+                                                allowFullScreen
+                                            ></iframe>
+                                        <div className={`${extra_styles.AnthemTitle} mb-1`}>
+                                            {t("Modern rendition of the Romanian Royal Anthem")}
+                                        </div>
+                                        </div>
+                                        </div>
+                                    </Col>
+
+                                </Row>
+                            </Container>
 
                         </Col>
                         <Col lg={6} className="d-flex flex-column">
@@ -555,21 +745,22 @@ export default function Extra() {
                                 </Row>
                             </div>
 
+
                             <div className={`${extra_styles.ThickRowBorder} mb-1`}></div>
-                            <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("Country and duty")}</div>
-                            <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("The anthem, flag and more")}</div>
+                            <div className={`${extra_styles.ColumnTitle} mb-0`}>{t("How did an officer dress?")}</div>
+                            <div className={`${extra_styles.ColumnSubtitle} mb-3`}>{t("Army uniforms during the 1920s & 1930s and some others")}</div>
                             <div className={`${extra_styles.RowBorder}`}></div>
 
-                                                        <div className="py-3">
+                            <div className="py-3">
                                 <Row className="g-3">
-                                    {FlagImages.map((image, index) => (
+                                    {UniformImages.map((image, index) => (
                                         <Col key={index} xs={6} md={6} lg={6}>
                                             <div className={`${extra_styles.infoLabel} mb-1`}>{image.info}</div>
                                             <div className={styles.imageContainer}>
                                                 <img
                                                     src={image.src}
                                                     alt={image.alt}
-                                                    className={`img-fluid rounded ${extra_styles.FlagImage}`}
+                                                    className={`img-fluid rounded ${extra_styles.vintageImageSmall}`}
                                                     loading="lazy"
                                                     onClick={() => handleOpenImageModal(image.src, image.alt)}
                                                 />
